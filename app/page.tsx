@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import ThemeToggleSwitch from "./ThemeToggleSwitch";
+import PortfolioBody from "./PortfolioBody";
 
 export default function Home() {
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
@@ -79,19 +80,7 @@ export default function Home() {
               />
             </div>
           </header>
-          <main className="mx-5 mt-16 md:mx-0 md:mt-0">
-            <section className="md:mt-[11vh]">
-              <h2 className="font-raleway text-3xl font-extrabold text-off-black-900 dark:text-white lg:text-4xl 2xl:text-5xl">
-                Projects
-              </h2>
-              <p>
-                In charge of front-end development for a mobile application
-                aimed to encourage users to cook more through gamification and
-                by providing recipes. Additionally, integrated backend functions
-                to front-end code.
-              </p>
-            </section>
-          </main>
+          <PortfolioBody />
         </div>
       </div>
     </div>
