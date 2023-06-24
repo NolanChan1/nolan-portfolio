@@ -2,17 +2,17 @@ import ThemeToggleSwitch from "./ThemeToggleSwitch";
 
 export default function Home() {
   return (
-    <div className="bg-off-white font-poppins md:mx-auto md:grid md:w-[75vw] md:grid-cols-2 md:gap-x-[4vw]">
+    <div className="bg-off-white-100 font-poppins md:mx-auto md:grid md:w-[75vw] md:grid-cols-2 md:gap-x-[4vw]">
       <header className="relative mx-5 mt-7 md:mx-0 md:mt-[11vh] md:h-[89vh]">
-        <h1 className="font-raleway text-5xl font-black text-off-black lg:text-6xl xl:text-7xl 2xl:text-8xl">
+        <h1 className="text-off-black-900 font-raleway text-5xl font-black lg:text-6xl xl:text-7xl 2xl:text-8xl">
           Nolan Chan
         </h1>
-        <p className="mt-4 text-xs font-semibold text-off-black lg:mt-5 lg:text-sm 2xl:text-base">
+        <p className="text-off-black-900 mt-4 text-xs font-semibold lg:mt-5 lg:text-sm 2xl:text-base">
           I recently graduated with a bachelor’s degree in software engineering,
           and I am looking for industry experience to grow my skills as a
           software developer.
         </p>
-        <p className="mt-3 text-xs font-semibold text-off-black lg:mt-4 lg:text-sm 2xl:text-base">
+        <p className="text-off-black-900 mt-3 text-xs font-semibold lg:mt-4 lg:text-sm 2xl:text-base">
           My background is primarily in front-end web development, but I am also
           eager to explore other areas of software development.
         </p>
@@ -21,11 +21,11 @@ export default function Home() {
             href="/files/NolanChan_RESUME_WEB_JUNE2023.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded bg-off-black px-4 py-1.5 text-3xs font-semibold text-off-white hover:bg-light-red lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
+            className="bg-off-black-900 text-off-white-100 rounded px-4 py-1.5 text-3xs font-semibold hover:bg-light-red lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
           >
             Resume
           </a>
-          <div className="rounded border border-off-black bg-off-white px-4 py-1.25 text-3xs font-semibold text-off-black lg:border-2 lg:px-5 lg:py-1.5 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2 2xl:text-base">
+          <div className="border-off-black-900 bg-off-white-100 text-off-black-900 rounded border px-4 py-1.25 text-3xs font-semibold lg:border-2 lg:px-5 lg:py-1.5 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2 2xl:text-base">
             nolanchan.contact@gmail.com
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Home() {
                 width={98}
                 height={98}
                 viewBox="0 0 98 98"
-                className="fill-off-black transition-transform hover:-translate-y-1 hover:fill-light-red md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
+                className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
               >
                 <path
                   fillRule="evenodd"
@@ -52,7 +52,7 @@ export default function Home() {
                 width={72}
                 height={72}
                 viewBox="0 0 72 72"
-                className="fill-off-black transition-transform hover:-translate-y-1 hover:fill-light-red md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
+                className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
               >
                 <path
                   d="M20.053-6.927a8 8 0 00-8 8v56a8 8 0 008 8h56a8 8 0 008-8v-56a8 8 0 00-8-8zm8.35 10c3.506 0 6.347 2.864 6.347 6.397 0 3.532-2.84 6.398-6.348 6.398-3.507 0-6.35-2.866-6.35-6.398 0-3.533 2.843-6.397 6.35-6.397zm33.032 16.274c7.353 0 12.618 4.49 12.618 13.777v21.95H63.369V36.875c0-4.99-1.897-7.777-5.846-7.777-4.296 0-6.54 2.901-6.54 7.777v18.197H40.684V20.407h10.297v4.668s3.097-5.728 10.453-5.728zm-38.35 1.06h10.737v34.666H23.086z"
@@ -67,7 +67,7 @@ export default function Home() {
       </header>
       <main className="mx-5 mt-16 md:mx-0 md:mt-0">
         <section className="md:mt-[11vh]">
-          <h2 className="font-raleway text-3xl font-extrabold text-off-black lg:text-4xl 2xl:text-5xl">
+          <h2 className="text-off-black-900 font-raleway text-3xl font-extrabold lg:text-4xl 2xl:text-5xl">
             Projects
           </h2>
           <p>

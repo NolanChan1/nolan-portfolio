@@ -13,10 +13,10 @@ export default function ThemeToggleSwitch() {
           return !prevState;
         })
       }
-      className="relative flex h-8 flex-row items-center justify-between rounded-full bg-off-black lg:h-10 2xl:h-12"
+      className="relative flex h-8 flex-row items-center justify-between rounded-full bg-off-black-900 lg:h-10 2xl:h-12"
     >
       <div
-        className={`absolute left-1.5 top-1.5 h-5 w-5 rounded-full bg-off-white transition-transform lg:left-2 lg:top-2 lg:h-6 lg:w-6 2xl:h-8 2xl:w-8 ${
+        className={`absolute left-1.5 top-1.5 h-5 w-5 rounded-full bg-off-white-100 transition-transform lg:left-2 lg:top-2 lg:h-6 lg:w-6 2xl:h-8 2xl:w-8 ${
           !lightModeToggled && "translate-x-6 lg:translate-x-9"
         }`}
       ></div>

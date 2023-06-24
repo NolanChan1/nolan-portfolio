@@ -7,9 +7,27 @@ module.exports = {
   ],
   theme: {
     colors: {
-      "off-white": "#fffffc",
-      "off-black": "#040f16",
+      "light-black": {
+        900: "#111111",
+        800: "#292929",
+        100: "#e7e7e7",
+      },
       "light-red": "#df2935",
+      "dark-white": {
+        100: "#f0f0f0",
+        300: "#b0b0b0",
+      },
+      "off-black": {
+        900: "#040f16",
+        800: "#1d272d",
+        600: "#4f575c",
+      },
+      "off-white": {
+        100: "#fffffc",
+        800: "#333332",
+        900: "#191919",
+      },
+      white: "#ffffff",
       dev: "#17da74",
     },
     fontFamily: {
