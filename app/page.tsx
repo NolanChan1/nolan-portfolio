@@ -12,7 +12,7 @@ export default function Home() {
     <div className={`${darkModeEnabled && "dark"}`}>
       <div className="bg-off-white-100 font-poppins dark:bg-light-black-900">
         <div className="md:mx-auto md:grid md:w-[75vw] md:grid-cols-2 md:gap-x-[4vw]">
-          <header className="relative mx-5 mt-7 md:mx-0 md:mt-[11vh] md:h-[89vh] ">
+          <header className="relative mx-5 mt-7 md:mx-0 md:mt-[11vh] md:h-[89vh]">
             <h1 className="font-raleway text-5xl font-black text-off-black-900 dark:text-white lg:text-6xl xl:text-7xl 2xl:text-8xl">
               Nolan Chan
             </h1>

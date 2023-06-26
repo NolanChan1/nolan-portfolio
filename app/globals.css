@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply mb-4 font-raleway text-3xl font-extrabold text-off-black-900 dark:text-white md:mb-5 lg:text-4xl 2xl:text-5xl;
+  }
+  .section-header {
+    @apply text-xs font-bold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:text-base 2xl:text-lg;
+  }
+  .section-subheader-container {
+    @apply mt-1 flex flex-row items-center gap-2 text-3xs font-semibold text-off-black-600 dark:text-dark-white-300 lg:text-2xs xl:mt-1.5 xl:gap-2.5 xl:text-xs 2xl:mt-2 2xl:gap-3 2xl:text-base;
+  }
+  .section-tag-container {
+    @apply my-2 flex flex-row items-center gap-2 xl:my-2.5 xl:gap-2.5 2xl:my-3 2xl:gap-3;
+  }
+  .section-tag {
+    @apply rounded-full bg-off-white-900 px-2 py-0.5 text-center text-3xs font-normal text-off-white-100 dark:bg-light-black-800 dark:text-light-black-100 lg:px-2.5 lg:text-2xs xl:py-1 xl:text-xs 2xl:px-3 2xl:text-sm;
+  }
+  .section-paragraph {
+    @apply text-2xs font-medium text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base;
+  }
+  .section-link-text {
+    @apply font-bold hover:text-light-red dark:hover:text-white;
+  }
+  .section-container:hover > .hover-chevron {
+    opacity: 100;
+    transform: translateY(1rem);
+  }
+  .hover-chevron {
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .dot {
+    @apply h-[2px] w-[2px] rounded-full bg-off-black-600 dark:bg-dark-white-300 xl:h-[3px] xl:w-[3px] 2xl:h-1 2xl:w-1;
+  }
+}
+
 html,
 body {
   padding: 0;

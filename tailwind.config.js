@@ -41,6 +41,7 @@ module.exports = {
         "3xs": "0.625rem",
       },
       padding: {
+        0.5: "0.125rem",
         1.25: "0.3125rem",
       },
     },
