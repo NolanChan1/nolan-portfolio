@@ -8,8 +8,8 @@ export default function PortfolioBody() {
   const [sectionExpanded1, setSectionExpanded1] = useState(false);
 
   return (
-    <main className="no-scrollbar mx-5 mt-16 md:mx-0 md:mt-0 md:h-[100vh] md:overflow-x-visible md:overflow-y-scroll">
-      <section className="md:mt-[11vh]">
+    <main className="mx-5 mt-16 md:relative md:left-[48vw] md:top-0 md:mx-0 md:mt-0 md:w-[39.5vw] md:pl-[4vw] md:pt-[11vh]">
+      <section className="">
         <h2 className="section-title">Projects</h2>
         <PortfolioSectionContainer
           expanded={sectionExpanded1}

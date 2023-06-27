@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
-
 @layer components {
   .section-title {
     @apply mb-4 font-raleway text-3xl font-extrabold text-off-black-900 dark:text-white md:mb-5 lg:text-4xl 2xl:text-5xl;
@@ -45,6 +35,34 @@
   }
   .dot {
     @apply h-[2px] w-[2px] rounded-full bg-off-black-600 dark:bg-dark-white-300 xl:h-[3px] xl:w-[3px] 2xl:h-1 2xl:w-1;
+  }
+
+  .hide-squished {
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) and (max-height: 360px) {
+    .hide-squished {
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-height: 440px) {
+    .hide-squished {
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 1280px) and (max-height: 440px) {
+    .hide-squished {
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 1536px) and (max-height: 520px) {
+    .hide-squished {
+      opacity: 0;
+    }
   }
 }
 
