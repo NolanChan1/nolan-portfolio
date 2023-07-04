@@ -39,7 +39,11 @@ export default function Home() {
           </div>
           <div className="hide-squished absolute bottom-0 left-0 hidden w-full items-center justify-between md:flex">
             <div className="flex flex-row items-center md:gap-8 lg:gap-10 2xl:gap-12">
-              <a href="https://github.com/NolanChan1" target="_blank">
+              <a
+                href="https://github.com/NolanChan1"
+                target="_blank"
+                rel="related"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={98}
