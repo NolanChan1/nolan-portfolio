@@ -38,7 +38,7 @@ const PortfolioSectionContainer: React.FC<PortfolioSectionContainerProps> = ({
       className={`${
         expandFunction !== undefined &&
         "section-container transition-shadow hover:shadow-xl"
-      } relative mb-8 rounded-xl border-2 border-off-black-900 p-4 text-left shadow-none outline-none dark:border-light-black-100 lg:px-5 xl:rounded-2xl xl:px-6 xl:py-5 2xl:px-8 2xl:py-6`}
+      } relative mb-5 w-full rounded-xl border-2 border-off-black-900 p-4 text-left shadow-none outline-none dark:border-light-black-100 lg:mb-6 lg:px-5 xl:mb-7 xl:rounded-2xl xl:px-6 xl:py-5 2xl:mb-8 2xl:px-8 2xl:py-6`}
     >
       {children}
       <div

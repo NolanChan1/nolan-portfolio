@@ -8,8 +8,20 @@ import PortfolioSectionContainer from "./PortfolioSectionContainer";
 
 export default function PortfolioBody() {
   const [sectionExpandedP1, setSectionExpandedP1] = useState(false);
+  const [sectionExpandedP2, setSectionExpandedP2] = useState(false);
+  const [sectionExpandedP3, setSectionExpandedP3] = useState(false);
+  const [sectionExpandedPH1, setSectionExpandedPH1] = useState(false);
+  const [sectionExpandedPH2, setSectionExpandedPH2] = useState(false);
+
+  const [sectionExpandedE1, setSectionExpandedE1] = useState(false);
+
+  const [olderProjectsVisible, setOlderProjectsVisible] = useState(false);
 
   const [sectionVideoP1, setSectionVideoP1] =
+    useState<YouTubePlayer>(undefined);
+  const [sectionVideoP2, setSectionVideoP2] =
+    useState<YouTubePlayer>(undefined);
+  const [sectionVideoPH1, setSectionVideoPH1] =
     useState<YouTubePlayer>(undefined);
 
   const youtubePlayerOptions: YouTubeProps["opts"] = {
@@ -48,7 +60,7 @@ export default function PortfolioBody() {
             The project was developed by a{" "}
             <span
               onClick={(event) => {
-                window.open("https://techstartucalgary.com/");
+                window.open("https://techstartucalgary.com");
                 event.stopPropagation();
               }}
               className="section-link-text"
@@ -61,7 +73,7 @@ export default function PortfolioBody() {
           <div
             className={`${
               sectionExpandedP1
-                ? "section-container-hidden-video-expanded"
+                ? "section-container-hidden-expanded"
                 : "section-container-hidden-collapsed"
             } section-container-hidden-transition overflow-hidden`}
           >
@@ -94,66 +106,388 @@ export default function PortfolioBody() {
             />
           </div>
         </PortfolioSectionContainer>
-        <PortfolioSectionContainer>
-          <h3 className="section-header">Tech Start EasyMeal Mobile App</h3>
+        <PortfolioSectionContainer
+          expanded={sectionExpandedP2}
+          expandFunction={setSectionExpandedP2}
+          videoElement={sectionVideoP2}
+        >
+          <h3 className="section-header">Bees AR Capstone Project</h3>
           <div className="section-subheader-container">
-            <span>Front-end Developer</span>
+            <span>Project Manager</span>
             <div className="dot"></div>
-            <span className="italic">October 2022 - April 2023</span>
+            <span className="italic">September 2022 - April 2023</span>
           </div>
           <div className="section-tag-container">
-            <span className="section-tag">TypeScript</span>
-            <span className="section-tag">React Native</span>
-            <span className="section-tag">Expo</span>
+            <span className="section-tag">Figma</span>
+            <span className="section-tag">HTML</span>
+            <span className="section-tag">CSS</span>
+            <span className="section-tag">JavaScript</span>
+            <span className="section-tag">jQuery</span>
           </div>
           <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
-            In charge of front-end development for a mobile application aimed to
-            encourage users to cook more through gamification and by providing
-            recipes. Additionally, integrated backend functions to front-end
-            code.
-          </p>
-          <p className="section-paragraph">
-            The project was developed by a{" "}
-            <a
-              href="https://techstartucalgary.com/"
-              target="_blank"
+            Project manager for an augmented reality web application capstone
+            project sponsored by{" "}
+            <span
+              onClick={(event) => {
+                window.open("https://yycwax.com");
+                event.stopPropagation();
+              }}
               className="section-link-text"
             >
-              Tech Start
-            </a>{" "}
-            project team. The project won the Best Overall award at the 2023
-            Tech Start showcase.
+              YYC Beeswax
+            </span>
+            , a local e-commerce business. The motivation for the project was to
+            create an application that provided an AR visualization of the
+            sponsor’s products to aid customer purchasing decisions and reduce
+            customer returns.
           </p>
+          <p className="section-paragraph">
+            Aside from project management, developed a chunk of the front end
+            and designed the UI/UX for the project.
+          </p>
+          <div
+            className={`${
+              sectionExpandedP2
+                ? "section-container-hidden-expanded"
+                : "section-container-hidden-collapsed"
+            } section-container-hidden-transition overflow-hidden`}
+          >
+            <div
+              onClick={(event) => {
+                window.open("https://github.com/NolanChan1/beesAR-frontend");
+                event.stopPropagation();
+              }}
+              className="github-link-button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+              >
+                <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+              </svg>
+              <span>Link to the frontend Github repository</span>
+            </div>
+            <h4 className="section-header-hidden">YouTube Demo</h4>
+            <YouTube
+              videoId="PAmQzdepNf4"
+              opts={youtubePlayerOptions}
+              onReady={(event) => {
+                setSectionVideoP2(event);
+              }}
+              iframeClassName="section-video-player-iframe"
+              className="section-video-player-container"
+            />
+          </div>
         </PortfolioSectionContainer>
-        <PortfolioSectionContainer>
-          <h3 className="section-header">Tech Start EasyMeal Mobile App</h3>
+        <PortfolioSectionContainer
+          expanded={sectionExpandedP3}
+          expandFunction={setSectionExpandedP3}
+        >
+          <h3 className="section-header">Tech Start Where To? Web App</h3>
           <div className="section-subheader-container">
             <span>Front-end Developer</span>
             <div className="dot"></div>
-            <span className="italic">October 2022 - April 2023</span>
+            <span className="italic">October 2021 - April 2022</span>
           </div>
           <div className="section-tag-container">
+            <span className="section-tag">Figma</span>
             <span className="section-tag">TypeScript</span>
-            <span className="section-tag">React Native</span>
-            <span className="section-tag">Expo</span>
+            <span className="section-tag">Next.js</span>
+            <span className="section-tag">React Redux</span>
+            <span className="section-tag">Chakra UI</span>
           </div>
           <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
-            In charge of front-end development for a mobile application aimed to
-            encourage users to cook more through gamification and by providing
-            recipes. Additionally, integrated backend functions to front-end
-            code.
+            Front-end developer and UI/UX designer for a web app aimed to help
+            friend groups decide on a location to meet up and hang out. After
+            inputting their interests, the web app provides a list of locations
+            that the friend group can then vote on.
           </p>
           <p className="section-paragraph">
             The project was developed by a{" "}
-            <a
-              href="https://techstartucalgary.com/"
-              target="_blank"
+            <span
+              onClick={(event) => {
+                window.open("https://techstartucalgary.com");
+                event.stopPropagation();
+              }}
               className="section-link-text"
             >
               Tech Start
-            </a>{" "}
-            project team. The project won the Best Overall award at the 2023
-            Tech Start showcase.
+            </span>{" "}
+            project team. The project won the Best UI award at the 2022 Tech
+            Start showcase.
+          </p>
+          <div
+            className={`${
+              sectionExpandedP3
+                ? "section-container-hidden-expanded"
+                : "section-container-hidden-collapsed"
+            } section-container-hidden-transition overflow-hidden`}
+          >
+            <div
+              onClick={(event) => {
+                window.open(
+                  "https://github.com/techstartucalgary/decision-frontend"
+                );
+                event.stopPropagation();
+              }}
+              className="github-link-button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+              >
+                <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+              </svg>
+              <span>Link to the frontend Github repository</span>
+            </div>
+            <h4 className="section-header-hidden">Demo Screenshots</h4>
+            <div className="section-screenshots-grid-container">
+              <div className="section-screenshot-container">
+                <Image
+                  src="/screenshots/wt-00.jpg"
+                  alt="Where To? landing page screenshot"
+                  height={3040}
+                  width={1440}
+                  className="section-screenshot"
+                ></Image>
+              </div>
+              <div className="section-screenshot-container">
+                <Image
+                  src="/screenshots/wt-01.jpg"
+                  alt="Where To? preferences page screenshot"
+                  height={3040}
+                  width={1440}
+                  className="section-screenshot"
+                ></Image>
+              </div>
+              <div className="section-screenshot-container">
+                <Image
+                  src="/screenshots/wt-02.jpg"
+                  alt="Where To? link generation page screenshot"
+                  height={3040}
+                  width={1440}
+                  className="section-screenshot"
+                ></Image>
+              </div>
+            </div>
+          </div>
+        </PortfolioSectionContainer>
+        <button
+          onClick={() => {
+            setOlderProjectsVisible((prevState) => {
+              return !prevState;
+            });
+          }}
+          className="mx-auto mb-5 flex flex-row items-center justify-center gap-2 outline-none lg:mb-6 lg:gap-2.5 xl:mb-7 xl:gap-3 2xl:mb-8 2xl:gap-4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              olderProjectsVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            } h-3 w-3 lg:h-4 lg:w-4 xl:h-5 xl:w-5`}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+          <span
+            className={`${
+              olderProjectsVisible
+                ? "text-light-red dark:text-white"
+                : "text-off-white-900 dark:text-light-black-100"
+            } text-xs font-semibold lg:text-sm xl:text-base 2xl:text-lg`}
+          >
+            {olderProjectsVisible ? "Hide" : "View"} older projects
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              olderProjectsVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            } h-3 w-3 lg:h-4 lg:w-4 xl:h-5 xl:w-5`}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+        </button>
+        <div>
+          <PortfolioSectionContainer
+            expanded={sectionExpandedPH1}
+            expandFunction={setSectionExpandedPH1}
+            videoElement={sectionVideoPH1}
+          >
+            <h3 className="section-header">
+              Arduino/Raspberry Pi Tamagotchi Imitation
+            </h3>
+            <div className="section-subheader-container">
+              <span className="italic">January 2021 - September 2021</span>
+            </div>
+            <div className="section-tag-container">
+              <span className="section-tag">C++</span>
+              <span className="section-tag">Python</span>
+            </div>
+            <p className="section-paragraph">
+              Created a digital “pet” program using an Arduino and low-level
+              hardware components such as a 128x32 I2C monochrome display. Later
+              ported the Arduino program to work on a Raspberry Pi to attempt
+              development with an object-oriented approach and to add features
+              such as music playback.
+            </p>
+            <div
+              className={`${
+                sectionExpandedPH1
+                  ? "section-container-hidden-expanded"
+                  : "section-container-hidden-collapsed"
+              } section-container-hidden-transition overflow-hidden`}
+            >
+              <div
+                onClick={(event) => {
+                  window.open("https://github.com/NolanChan1/projectpet");
+                  event.stopPropagation();
+                }}
+                className="github-link-button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Link to Github repository</span>
+              </div>
+              <h4 className="section-header-hidden">YouTube Demo</h4>
+              <YouTube
+                videoId="8HMey3eF_vQ"
+                opts={youtubePlayerOptions}
+                onReady={(event) => {
+                  setSectionVideoPH1(event);
+                }}
+                iframeClassName="section-video-player-iframe"
+                className="section-video-player-container"
+              />
+            </div>
+          </PortfolioSectionContainer>
+        </div>
+        <div className="mb-5 lg:mb-6 xl:mb-7 2xl:mb-8">
+          <PortfolioSectionContainer
+            expanded={sectionExpandedPH2}
+            expandFunction={setSectionExpandedPH2}
+          >
+            <h3 className="section-header">Media Bias Project</h3>
+            <div className="section-subheader-container">
+              <span className="italic">June 2021 - August 2021</span>
+            </div>
+            <div className="section-tag-container">
+              <span className="section-tag">MariaDB</span>
+              <span className="section-tag">Python</span>
+            </div>
+            <p className="section-paragraph">
+              Set up a relational database for storing news articles using
+              MariaDB. This database was for a planned machine learning model
+              that uses natural language processing to predict bias in news
+              media. Additionally, wrote Python code to interface with the
+              database and to extract articles from a CSV dataset.
+            </p>
+            <div
+              className={`${
+                sectionExpandedPH2
+                  ? "section-container-hidden-expanded-sm"
+                  : "section-container-hidden-collapsed"
+              } section-container-hidden-transition overflow-hidden`}
+            >
+              <div
+                onClick={(event) => {
+                  window.open("https://github.com/chiachichang/mbp");
+                  event.stopPropagation();
+                }}
+                className="github-link-button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Link to Github repository</span>
+              </div>
+            </div>
+          </PortfolioSectionContainer>
+        </div>
+      </section>
+      <section>
+        <h2 className="section-title">Education</h2>
+        <PortfolioSectionContainer
+          expanded={sectionExpandedE1}
+          expandFunction={setSectionExpandedE1}
+        >
+          <h3 className="section-header">
+            Bachelor of Science in Software Engineering
+          </h3>
+          <div className="section-subheader-container">
+            <span>University of Calgary</span>
+            <div className="dot"></div>
+            <span className="italic">September 2018 - May 2023</span>
+          </div>
+          <span className="mt-1 block text-2xs font-semibold text-off-black-800 dark:text-light-black-100 lg:text-xs xl:mt-2 xl:text-sm 2xl:text-base">
+            GPA: 3.90/4.00 — Earned “With Distinction” designation
+          </span>
+          <div
+            className={`${
+              sectionExpandedE1
+                ? "section-container-hidden-expanded-md"
+                : "section-container-hidden-collapsed"
+            } section-container-hidden-transition overflow-hidden`}
+          >
+            <h4 className="mb-1 text-xs font-semibold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:mb-2 xl:text-base 2xl:text-lg">
+              Awards:
+            </h4>
+            <div className="items-top mb-1 flex flex-row justify-between xl:mb-2">
+              <span className="text-2xs font-medium italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+                Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000
+              </span>
+              <span className="ml-1 mr-0.5 shrink-0 text-2xs font-semibold italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+                2018 - 2021
+              </span>
+            </div>
+            <div className="items-top flex flex-row justify-between">
+              <span className="text-2xs font-medium italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+                Second Place in Schulich Junior Programming Competition
+              </span>
+              <span className="ml-1 mr-0.5 shrink-0 text-2xs font-semibold italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+                2019
+              </span>
+            </div>
+          </div>
+        </PortfolioSectionContainer>
+      </section>
+      <section className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
+        <h2 className="section-title">Work</h2>
+        <PortfolioSectionContainer>
+          <h3 className="section-header">Merchandiser</h3>
+          <div className="section-subheader-container">
+            <span>KMS Tools & Equipment</span>
+            <div className="dot"></div>
+            <span className="italic">May 2019 - February 2021</span>
+          </div>
+          <p className="section-paragraph mt-1 xl:mt-2">
+            Work involved answering customer questions, organizing/placing stock
+            on store shelves, and setting up display models. Took on additional
+            tasks such as using distribution management software to manage stock
+            received by the store and to invoice customer orders.
           </p>
         </PortfolioSectionContainer>
       </section>
