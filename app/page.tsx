@@ -15,12 +15,12 @@ export default function Home() {
           <h1 className="font-raleway text-5xl font-black text-off-black-900 dark:text-white lg:text-6xl xl:text-7xl 2xl:text-8xl">
             Nolan Chan
           </h1>
-          <p className="mt-4 text-xs font-semibold text-off-black-900 dark:text-light-black-100 lg:mt-5 lg:text-sm 2xl:text-base">
+          <p className="mt-4 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-5 lg:text-sm 2xl:text-base">
             I recently graduated with a bachelor’s degree in software
             engineering, and I am looking for industry experience to grow my
             skills as a software developer.
           </p>
-          <p className="mt-3 text-xs font-semibold text-off-black-900 dark:text-light-black-100 lg:mt-4 lg:text-sm 2xl:text-base">
+          <p className="mt-3 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-4 lg:text-sm 2xl:text-base">
             My background is primarily in front-end web development, but I am
             also eager to explore other areas of software development.
           </p>

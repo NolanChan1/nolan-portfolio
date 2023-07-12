@@ -16,6 +16,7 @@ export default function PortfolioBody() {
   const [sectionExpandedE1, setSectionExpandedE1] = useState(false);
 
   const [olderProjectsVisible, setOlderProjectsVisible] = useState(false);
+  const [volunteerWorkVisible, setVolunteerWorkVisible] = useState(false);
 
   const [sectionVideoP1, setSectionVideoP1] =
     useState<YouTubePlayer>(undefined);
@@ -30,6 +31,28 @@ export default function PortfolioBody() {
     },
   };
 
+  const toggleUnhideOlderProjects = () => {
+    // Pause any playing video players
+    if (sectionVideoPH1 !== undefined) {
+      if (
+        sectionVideoPH1.target.playerInfo.playerState === 1 &&
+        olderProjectsVisible
+      ) {
+        sectionVideoPH1.target.pauseVideo();
+      }
+    }
+
+    setOlderProjectsVisible((prevState) => {
+      return !prevState;
+    });
+  };
+
+  const toggleUnhideVolunteerWork = () => {
+    setVolunteerWorkVisible((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <main className="mx-5 mt-16 md:relative md:left-[48vw] md:top-0 md:mx-0 md:mt-0 md:w-[39.5vw] md:pl-[4vw] md:pt-[11vh]">
       <section>
@@ -41,9 +64,11 @@ export default function PortfolioBody() {
         >
           <h3 className="section-header">Tech Start EasyMeal Mobile App</h3>
           <div className="section-subheader-container">
-            <span>Front-end Developer</span>
+            <span className="shrink-0">Front-end Developer</span>
             <div className="dot"></div>
-            <span className="italic">October 2022 - April 2023</span>
+            <span className="section-date italic">
+              October 2022 - April 2023
+            </span>
           </div>
           <div className="section-tag-container">
             <span className="section-tag">TypeScript</span>
@@ -113,9 +138,11 @@ export default function PortfolioBody() {
         >
           <h3 className="section-header">Bees AR Capstone Project</h3>
           <div className="section-subheader-container">
-            <span>Project Manager</span>
+            <span className="shrink-0">Project Manager</span>
             <div className="dot"></div>
-            <span className="italic">September 2022 - April 2023</span>
+            <span className="section-date italic">
+              September 2022 - April 2023
+            </span>
           </div>
           <div className="section-tag-container">
             <span className="section-tag">Figma</span>
@@ -181,15 +208,18 @@ export default function PortfolioBody() {
             />
           </div>
         </PortfolioSectionContainer>
+
         <PortfolioSectionContainer
           expanded={sectionExpandedP3}
           expandFunction={setSectionExpandedP3}
         >
           <h3 className="section-header">Tech Start Where To? Web App</h3>
           <div className="section-subheader-container">
-            <span>Front-end Developer</span>
+            <span className="shrink-0">Front-end Developer</span>
             <div className="dot"></div>
-            <span className="italic">October 2021 - April 2022</span>
+            <span className="section-date italic">
+              October 2021 - April 2022
+            </span>
           </div>
           <div className="section-tag-container">
             <span className="section-tag">Figma</span>
@@ -276,13 +306,10 @@ export default function PortfolioBody() {
             </div>
           </div>
         </PortfolioSectionContainer>
+
         <button
-          onClick={() => {
-            setOlderProjectsVisible((prevState) => {
-              return !prevState;
-            });
-          }}
-          className="mx-auto mb-5 flex flex-row items-center justify-center gap-2 outline-none lg:mb-6 lg:gap-2.5 xl:mb-7 xl:gap-3 2xl:mb-8 2xl:gap-4"
+          onClick={toggleUnhideOlderProjects}
+          className="hide-subsection-button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -293,7 +320,7 @@ export default function PortfolioBody() {
               olderProjectsVisible
                 ? "rotate-180 fill-light-red dark:fill-white"
                 : "fill-off-white-900 dark:fill-light-black-100"
-            } h-3 w-3 lg:h-4 lg:w-4 xl:h-5 xl:w-5`}
+            } `}
           >
             <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
           </svg>
@@ -302,7 +329,7 @@ export default function PortfolioBody() {
               olderProjectsVisible
                 ? "text-light-red dark:text-white"
                 : "text-off-white-900 dark:text-light-black-100"
-            } text-xs font-semibold lg:text-sm xl:text-base 2xl:text-lg`}
+            } `}
           >
             {olderProjectsVisible ? "Hide" : "View"} older projects
           </span>
@@ -315,22 +342,25 @@ export default function PortfolioBody() {
               olderProjectsVisible
                 ? "rotate-180 fill-light-red dark:fill-white"
                 : "fill-off-white-900 dark:fill-light-black-100"
-            } h-3 w-3 lg:h-4 lg:w-4 xl:h-5 xl:w-5`}
+            }`}
           >
             <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
           </svg>
         </button>
-        <div>
+        <div className={`${olderProjectsVisible ? "block" : "hidden"}`}>
           <PortfolioSectionContainer
             expanded={sectionExpandedPH1}
             expandFunction={setSectionExpandedPH1}
+            disabled={!olderProjectsVisible}
             videoElement={sectionVideoPH1}
           >
             <h3 className="section-header">
               Arduino/Raspberry Pi Tamagotchi Imitation
             </h3>
             <div className="section-subheader-container">
-              <span className="italic">January 2021 - September 2021</span>
+              <span className="section-date italic">
+                January 2021 - September 2021
+              </span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">C++</span>
@@ -380,14 +410,20 @@ export default function PortfolioBody() {
             </div>
           </PortfolioSectionContainer>
         </div>
-        <div className="mb-5 lg:mb-6 xl:mb-7 2xl:mb-8">
+        <div
+          className={`${
+            olderProjectsVisible ? "block" : "hidden"
+          } hidden-section-bottom-margin`}
+        >
           <PortfolioSectionContainer
             expanded={sectionExpandedPH2}
             expandFunction={setSectionExpandedPH2}
           >
             <h3 className="section-header">Media Bias Project</h3>
             <div className="section-subheader-container">
-              <span className="italic">June 2021 - August 2021</span>
+              <span className="section-date italic">
+                June 2021 - August 2021
+              </span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">MariaDB</span>
@@ -438,9 +474,11 @@ export default function PortfolioBody() {
             Bachelor of Science in Software Engineering
           </h3>
           <div className="section-subheader-container">
-            <span>University of Calgary</span>
+            <span className="shrink-0">University of Calgary</span>
             <div className="dot"></div>
-            <span className="italic">September 2018 - May 2023</span>
+            <span className="section-date italic">
+              September 2018 - May 2023
+            </span>
           </div>
           <span className="mt-1 block text-2xs font-semibold text-off-black-800 dark:text-light-black-100 lg:text-xs xl:mt-2 xl:text-sm 2xl:text-base">
             GPA: 3.90/4.00 — Earned “With Distinction” designation
@@ -455,21 +493,17 @@ export default function PortfolioBody() {
             <h4 className="mb-1 text-xs font-semibold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:mb-2 xl:text-base 2xl:text-lg">
               Awards:
             </h4>
-            <div className="items-top mb-1 flex flex-row justify-between xl:mb-2">
-              <span className="text-2xs font-medium italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+            <div className="awards-row-container mb-1 xl:mb-2">
+              <span>
                 Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000
               </span>
-              <span className="ml-1 mr-0.5 shrink-0 text-2xs font-semibold italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
-                2018 - 2021
-              </span>
+              <span>2018 - 2021</span>
             </div>
-            <div className="items-top flex flex-row justify-between">
-              <span className="text-2xs font-medium italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
+            <div className="awards-row-container">
+              <span>
                 Second Place in Schulich Junior Programming Competition
               </span>
-              <span className="ml-1 mr-0.5 shrink-0 text-2xs font-semibold italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base">
-                2019
-              </span>
+              <span>2019</span>
             </div>
           </div>
         </PortfolioSectionContainer>
@@ -479,9 +513,11 @@ export default function PortfolioBody() {
         <PortfolioSectionContainer>
           <h3 className="section-header">Merchandiser</h3>
           <div className="section-subheader-container">
-            <span>KMS Tools & Equipment</span>
+            <span className="shrink-0">KMS Tools & Equipment</span>
             <div className="dot"></div>
-            <span className="italic">May 2019 - February 2021</span>
+            <span className="section-date italic">
+              May 2019 - February 2021
+            </span>
           </div>
           <p className="section-paragraph mt-1 xl:mt-2">
             Work involved answering customer questions, organizing/placing stock
@@ -490,7 +526,131 @@ export default function PortfolioBody() {
             received by the store and to invoice customer orders.
           </p>
         </PortfolioSectionContainer>
+        <button
+          onClick={toggleUnhideVolunteerWork}
+          className="hide-subsection-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              volunteerWorkVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            } `}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+          <span
+            className={`${
+              volunteerWorkVisible
+                ? "text-light-red dark:text-white"
+                : "text-off-white-900 dark:text-light-black-100"
+            } `}
+          >
+            {volunteerWorkVisible ? "Hide" : "View"} volunteer work
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              volunteerWorkVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            }`}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+        </button>
+
+        <div
+          className={`${
+            volunteerWorkVisible ? "block" : "hidden"
+          } hidden-section-bottom-margin`}
+        >
+          <PortfolioSectionContainer>
+            <h3 className="section-header">Calgary Public Library</h3>
+            <div className="section-subheader-container">
+              <span className="section-date italic">
+                January 2017 - June 2017
+              </span>
+            </div>
+            <p className="section-paragraph mt-1 xl:mt-2">
+              Volunteered at a Calgary Public Library branch. Two of the
+              programs volunteered for, Code Club and Coding Buddies, involved
+              teaching and guiding children through fundamental coding
+              paradigms.
+            </p>
+          </PortfolioSectionContainer>
+        </div>
       </section>
+      <section>
+        <h2 className="section-title">Technical Skills</h2>
+        <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 xl:border-spacing-y-2">
+          <tbody>
+            <tr className="bg-light-black-900 dark:bg-light-black-850">
+              <th className="skills-table-head-cell">Programming Languages:</th>
+              <td className="skills-table-data-cell">
+                <div className="skills-table-skill-list-container">
+                  <span>C/C++</span>
+                  <span>Java</span>
+                  <span>Python</span>
+                  <span>JavaScript</span>
+                  <span>TypeScript</span>
+                </div>
+              </td>
+            </tr>
+            <tr className="bg-light-black-800 dark:bg-light-black-825">
+              <th className="skills-table-head-cell">App Development:</th>
+              <td className="skills-table-data-cell">
+                <div className="skills-table-skill-list-container">
+                  <span>React Native</span>
+                </div>
+              </td>
+            </tr>
+            <tr className="bg-light-black-900 dark:bg-light-black-850">
+              <th className="skills-table-head-cell">Web Development:</th>
+              <td className="skills-table-data-cell">
+                <div className="skills-table-skill-list-container">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>jQuery</span>
+                  <span>React</span>
+                  <span>Next.js</span>
+                  <span>Angular</span>
+                </div>
+              </td>
+            </tr>
+            <tr className="bg-light-black-800 dark:bg-light-black-825">
+              <th className="skills-table-head-cell">Databases:</th>
+              <td className="skills-table-data-cell">
+                <div className="skills-table-skill-list-container">
+                  <span>Relational Databases (SQL)</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <footer>
+        <p className="mt-32 pb-16 text-center text-xs font-medium italic leading-normal text-off-black-900 dark:text-dark-white-100 md:pb-[11vh] md:text-left lg:text-sm xl:text-base 2xl:text-lg">
+          This website was designed and developed by me. Built with Next.js and
+          Tailwind CSS–and deployed with Vercel. If you want to look at the
+          source code, you can view it{" "}
+          <a
+            href="https://github.com/NolanChan1/nolan-portfolio"
+            target="_blank"
+            className="font-bold hover:text-light-red dark:hover:text-white"
+          >
+            here
+          </a>
+          .
+        </p>
+      </footer>
     </main>
   );
 }

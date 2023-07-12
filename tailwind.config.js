@@ -10,6 +10,8 @@ module.exports = {
     colors: {
       "light-black": {
         900: "#111111",
+        850: "#1c1c1c",
+        825: "#242424",
         800: "#292929",
         100: "#e7e7e7",
       },
@@ -39,6 +41,7 @@ module.exports = {
       fontSize: {
         "2xs": "0.6875rem",
         "3xs": "0.625rem",
+        "4xs": "0.5rem",
       },
       padding: {
         0.5: "0.125rem",

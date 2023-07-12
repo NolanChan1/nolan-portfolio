@@ -7,6 +7,7 @@ import { YouTubePlayer } from "react-youtube";
 type PortfolioSectionContainerProps = PropsWithChildren<{
   expanded?: boolean;
   expandFunction?: (updateFunction: (prevState: boolean) => boolean) => void;
+  disabled?: boolean;
   videoElement?: YouTubePlayer;
 }>;
 
@@ -14,6 +15,7 @@ const PortfolioSectionContainer: React.FC<PortfolioSectionContainerProps> = ({
   children,
   expanded,
   expandFunction,
+  disabled,
   videoElement,
 }) => {
   const toggleExpandContainer = () => {
@@ -34,13 +36,32 @@ const PortfolioSectionContainer: React.FC<PortfolioSectionContainerProps> = ({
   return (
     <button
       onClick={toggleExpandContainer}
-      disabled={expandFunction === undefined}
+      disabled={
+        expandFunction === undefined ||
+        (disabled !== undefined && disabled === true)
+      }
       className={`${
         expandFunction !== undefined &&
         "section-container transition-shadow hover:shadow-xl"
       } relative mb-5 w-full rounded-xl border-2 border-off-black-900 p-4 text-left shadow-none outline-none dark:border-light-black-100 lg:mb-6 lg:px-5 xl:mb-7 xl:rounded-2xl xl:px-6 xl:py-5 2xl:mb-8 2xl:px-8 2xl:py-6`}
     >
       {children}
+      {expandFunction !== undefined && !expanded && (
+        <div className="absolute bottom-0.5 right-1.5 flex flex-row items-center justify-start gap-0.5 md:hidden">
+          <span className="text-4xs italic text-off-black-600">
+            Expand to see more
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            className="h-2.5 w-2.5 fill-off-black-600"
+          >
+            <path d="M16.59 8.295L12 12.875l-4.59-4.58L6 9.705l6 6 6-6z" />
+          </svg>
+        </div>
+      )}
       <div
         className={`${
           expandFunction !== undefined &&
