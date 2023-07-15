@@ -8,6 +8,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     colors: {
+      black: "#000000",
       "light-black": {
         900: "#111111",
         850: "#1c1c1c",
@@ -39,6 +40,7 @@ module.exports = {
     },
     extend: {
       fontSize: {
+        "3.5xl": "2rem",
         "2xs": "0.6875rem",
         "3xs": "0.625rem",
         "4xs": "0.5rem",

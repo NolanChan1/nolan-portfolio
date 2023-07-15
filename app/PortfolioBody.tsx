@@ -55,7 +55,7 @@ export default function PortfolioBody() {
 
   return (
     <main className="mx-5 mt-16 md:relative md:left-[48vw] md:top-0 md:mx-0 md:mt-0 md:w-[39.5vw] md:pl-[4vw] md:pt-[11vh]">
-      <section>
+      <section id="projects-section">
         <h2 className="section-title">Projects</h2>
         <PortfolioSectionContainer
           expanded={sectionExpandedP1}
@@ -464,7 +464,7 @@ export default function PortfolioBody() {
           </PortfolioSectionContainer>
         </div>
       </section>
-      <section>
+      <section id="education-section">
         <h2 className="section-title">Education</h2>
         <PortfolioSectionContainer
           expanded={sectionExpandedE1}
@@ -508,7 +508,7 @@ export default function PortfolioBody() {
           </div>
         </PortfolioSectionContainer>
       </section>
-      <section className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
+      <section id="work-section" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
         <h2 className="section-title">Work</h2>
         <PortfolioSectionContainer>
           <h3 className="section-header">Merchandiser</h3>
@@ -588,7 +588,7 @@ export default function PortfolioBody() {
           </PortfolioSectionContainer>
         </div>
       </section>
-      <section>
+      <section id="skills-section">
         <h2 className="section-title">Technical Skills</h2>
         <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 xl:border-spacing-y-2">
           <tbody>
@@ -644,6 +644,7 @@ export default function PortfolioBody() {
           <a
             href="https://github.com/NolanChan1/nolan-portfolio"
             target="_blank"
+            rel="noreferrer noopener"
             className="font-bold hover:text-light-red dark:hover:text-white"
           >
             here

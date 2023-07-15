@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import Image from "next/image";
 
-type ThemeToggleSwitchProps = PropsWithChildren<{
+export type ThemeToggleSwitchProps = PropsWithChildren<{
   darkModeEnabled: boolean;
   toggleThemeFunction: (
     updateFunction: (prevState: boolean) => boolean
   ) => void;
 }>;
 
-const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({
+export const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({
   darkModeEnabled,
   toggleThemeFunction,
 }) => {
@@ -43,5 +43,3 @@ const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({
     </button>
   );
 };
-
-export default ThemeToggleSwitch;

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-import ThemeToggleSwitch from "./ThemeToggleSwitch";
+import Navbar from "./Navbar";
+import { ThemeToggleSwitch } from "./ThemeToggleSwitch";
 import PortfolioBody from "./PortfolioBody";
 
 export default function Home() {
@@ -11,7 +12,14 @@ export default function Home() {
   return (
     <div className={`${darkModeEnabled && "dark"}`}>
       <div className="bg-off-white-100 font-poppins dark:bg-light-black-900">
-        <header className="mx-5 pt-7 md:fixed md:mx-0 md:ml-[12.5vw] md:h-[89vh] md:w-[35.5vw] md:pt-[11vh]">
+        <Navbar
+          darkModeEnabled={darkModeEnabled}
+          toggleThemeFunction={setDarkModeEnabled}
+        />
+        <header
+          id="header-section"
+          className="mx-5 pt-[4.5rem] md:fixed md:mx-0 md:ml-[12.5vw] md:h-[89vh] md:w-[35.5vw] md:pt-[11vh]"
+        >
           <h1 className="font-raleway text-5xl font-black text-off-black-900 dark:text-white lg:text-6xl xl:text-7xl 2xl:text-8xl">
             Nolan Chan
           </h1>
@@ -28,7 +36,6 @@ export default function Home() {
             <a
               href="/files/NolanChan_RESUME_WEB_JUNE2023.pdf"
               target="_blank"
-              rel="noopener noreferrer"
               className="rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 hover:bg-light-red dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
             >
               Resume
@@ -42,7 +49,7 @@ export default function Home() {
               <a
                 href="https://github.com/NolanChan1"
                 target="_blank"
-                rel="related"
+                rel="noreferrer noopener"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +65,11 @@ export default function Home() {
                   />
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/in/nolanchan1/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/nolanchan1/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={72}
