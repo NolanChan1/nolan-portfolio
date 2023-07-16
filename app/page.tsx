@@ -34,7 +34,7 @@ export default function Home() {
           </p>
           <div className="mt-4 flex flex-row gap-5 lg:mt-6 2xl:mt-8 2xl:gap-6">
             <a
-              href="/files/NolanChan_RESUME_WEB_JUNE2023.pdf"
+              href="/files/NolanChan_RESUME_WEB_JULY2023.pdf"
               target="_blank"
               className="rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 hover:bg-light-red dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
             >
@@ -44,7 +44,7 @@ export default function Home() {
               nolanchan.contact@gmail.com
             </div>
           </div>
-          <div className="hide-squished absolute bottom-0 left-0 hidden w-full items-center justify-between md:flex">
+          <div className="hide-squished absolute bottom-0 left-0 w-full items-center justify-between">
             <div className="flex flex-row items-center md:gap-8 lg:gap-10 2xl:gap-12">
               <a
                 href="https://github.com/NolanChan1"

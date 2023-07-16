@@ -12,10 +12,16 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
   const [currentScrolledSectionM, setCurrentScrolledSectionM] = useState(
     mobileSections[0].title
   );
+  const [currentScrolledSectionD, setCurrentScrolledSectionD] = useState(
+    desktopSections[0].order
+  );
   const [navMenuVisible, setNavMenuVisible] = useState(false);
   const [blockOnScrollUpdate, setBlockOnScrollUpdate] = useState(false);
+  const [blockDesktopScrollDownUpdate, setBlockDesktopScrollDownUpdate] =
+    useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [scrollingUp, setScrollingUp] = useState(true);
+  const [desktopScrollingUp, setDesktopScrollingUp] = useState(false);
 
   const handleOnScroll = useCallback(
     (e: Event) => {
@@ -31,6 +37,9 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
         if (sectionRect.top <= 0) {
           if (!blockOnScrollUpdate) {
             setCurrentScrolledSectionM(mobileSections[i].title);
+            if (i > 0) {
+              setCurrentScrolledSectionD(desktopSections[i - 1].order);
+            }
           }
           break;
         }
@@ -40,38 +49,30 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
       if (!navMenuVisible) {
         if (prevScrollY >= window.scrollY) {
           setScrollingUp(true);
-        } else if (window.scrollY > 32) {
-          setScrollingUp(false);
+          setDesktopScrollingUp(true);
+        } else {
+          if (window.scrollY > 32) {
+            setScrollingUp(false);
+          }
+          if (!blockDesktopScrollDownUpdate) {
+            setDesktopScrollingUp(false);
+          }
         }
       }
       setPrevScrollY(window.scrollY);
     },
-    [blockOnScrollUpdate, prevScrollY, navMenuVisible]
+    [
+      blockOnScrollUpdate,
+      blockDesktopScrollDownUpdate,
+      prevScrollY,
+      navMenuVisible,
+    ]
   );
-
-  const scrollToSectionMobile = (sectionIndex: number) => {
-    let sectionElement = document.getElementById(
-      mobileSections[sectionIndex].id
-    );
-
-    if (sectionElement) {
-      setBlockOnScrollUpdate(true);
-      /* Scroll with offset
-      let sectionRect = sectionElement.getBoundingClientRect();
-      window.scrollBy({
-        top: sectionRect.top - 52,
-        left: sectionRect.left,
-        behavior: "smooth",
-      });
-      */
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-    }
-    setCurrentScrolledSectionM(mobileSections[sectionIndex].title);
-  };
 
   useEffect(() => {
     const handleOnScrollEnd = () => {
       setBlockOnScrollUpdate(false);
+      setBlockDesktopScrollDownUpdate(false);
     };
 
     window.addEventListener("scroll", handleOnScroll);
@@ -81,6 +82,50 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
       window.removeEventListener("scrollend", handleOnScrollEnd);
     };
   }, [handleOnScroll]);
+
+  const scrollToSection = (
+    sectionIndex: number,
+    mobile: boolean,
+    reverseIndex: boolean
+  ) => {
+    let sectionElement = undefined;
+    let desktopIndex = sectionIndex;
+    if (reverseIndex) {
+      desktopIndex = Math.abs(desktopIndex - desktopSections.length + 1);
+    }
+
+    if (mobile) {
+      sectionElement = document.getElementById(mobileSections[sectionIndex].id);
+    } else {
+      sectionElement = document.getElementById(
+        desktopSections[desktopIndex].id
+      );
+    }
+
+    if (sectionElement) {
+      setBlockOnScrollUpdate(true);
+      setBlockDesktopScrollDownUpdate(true);
+      /* Scroll with offset
+      let sectionRect = sectionElement.getBoundingClientRect();
+      window.scrollBy({
+        top: sectionRect.top - 52,
+        left: sectionRect.left,
+        behavior: "smooth",
+      });
+      */
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+
+      if (mobile) {
+        setCurrentScrolledSectionM(mobileSections[sectionIndex].title);
+
+        let adjustedIndex = sectionIndex === 0 ? 0 : sectionIndex - 1;
+        setCurrentScrolledSectionD(desktopSections[adjustedIndex].order);
+      } else {
+        setCurrentScrolledSectionM(mobileSections[desktopIndex + 1].title);
+        setCurrentScrolledSectionD(desktopSections[desktopIndex].order);
+      }
+    }
+  };
 
   return (
     <div>
@@ -143,7 +188,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
               return (
                 <button
                   key={mSection.title}
-                  onClick={() => scrollToSectionMobile(idx)}
+                  onClick={() => scrollToSection(idx, true, false)}
                   className="flex flex-row items-center justify-end gap-3 outline-none"
                 >
                   <span
@@ -223,9 +268,54 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
 
       {/* Desktop Navbar */}
       <nav className="hidden md:block">
-        <div className="fixed right-0 top-0 flex h-8 w-[100vh] origin-top-right -translate-x-8 -rotate-90 flex-row items-center justify-start gap-8 bg-dev">
-          <span>Skills</span>
-          <span>Work</span>
+        <div
+          className={`${
+            desktopScrollingUp && "desktop-nav-translations"
+          } hide-squished-nav desktop-nav-container z-10 flex-row`}
+        >
+          {desktopSections
+            .slice(0)
+            .reverse()
+            .map((dSection, idx) => {
+              return (
+                <button
+                  key={dSection.id}
+                  onClick={() => scrollToSection(idx, false, true)}
+                  className={`${
+                    currentScrolledSectionD >= dSection.order
+                      ? "invisible translate-x-full opacity-0"
+                      : "visible opacity-100"
+                  } font-raleway text-base font-extrabold text-off-black-900 outline-none transition-all dark:text-dark-white-300 lg:text-lg xl:text-xl 2xl:text-2xl`}
+                >
+                  {dSection.title}
+                </button>
+              );
+            })}
+        </div>
+        <div
+          className={`${
+            desktopScrollingUp && "desktop-nav-translations"
+          } hide-squished-nav desktop-nav-container z-20 flex-row-reverse`}
+        >
+          {desktopSections.map((dSection, idx) => {
+            return (
+              <button
+                key={dSection.id}
+                onClick={() => scrollToSection(idx, false, false)}
+                className={`${
+                  currentScrolledSectionD === dSection.order
+                    ? "text-light-red dark:text-white"
+                    : "text-off-black-900 dark:text-dark-white-300"
+                } ${
+                  currentScrolledSectionD >= dSection.order
+                    ? "visible opacity-100"
+                    : "invisible -translate-x-full opacity-0"
+                } font-raleway text-base font-extrabold outline-none transition-all lg:text-lg xl:text-xl 2xl:text-2xl`}
+              >
+                {dSection.title}
+              </button>
+            );
+          })}
         </div>
       </nav>
     </div>

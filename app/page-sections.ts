@@ -25,7 +25,7 @@ export const desktopSections = [
   {
     order: 0,
     title: "Projects",
-    id: "header-section",
+    id: "projects-section",
   },
   {
     order: 1,

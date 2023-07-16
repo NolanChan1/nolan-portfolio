@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components {
+  /* Mobile Nav styles */
   .mobile-nav-shadow {
     box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
   }
@@ -39,6 +40,15 @@
     transition-duration: 150ms;
   }
 
+  /* Desktop Nav styles */
+  .desktop-nav-container {
+    @apply invisible fixed right-0 top-0 h-[1.9375rem] w-[100vh] origin-top-right -rotate-90 items-center justify-start gap-5 px-5 pb-3 transition-transform lg:h-[2.3125rem] lg:gap-6 lg:px-6 lg:pb-4 xl:h-[2.4375rem] 2xl:h-[3rem] 2xl:gap-7 2xl:px-8 2xl:pb-5;
+  }
+  .desktop-nav-translations {
+    @apply -translate-x-[1.9375rem] lg:-translate-x-[2.3125rem] xl:-translate-x-[2.4375rem] 2xl:-translate-x-[3rem];
+  }
+
+  /* Website body styles */
   .section-title {
     @apply mb-3 font-raleway text-3xl font-extrabold text-off-black-900 dark:text-white lg:mb-4 lg:text-4xl xl:mb-5 2xl:text-5xl;
   }
@@ -82,6 +92,7 @@
     transition-duration: 150ms;
   }
 
+  /* Expanded section container styles */
   .section-container-hidden-transition {
     transition-property: max-height, margin-top;
     transition-timing-function: linear;
@@ -132,6 +143,7 @@
     @apply rounded border-2 border-off-white-900 dark:border-light-black-100;
   }
 
+  /* Hidden subsection styles */
   .hide-subsection-button {
     @apply mx-auto mb-5 flex flex-row items-center justify-center gap-2 outline-none lg:mb-6 lg:gap-2.5 xl:mb-7 xl:gap-3 2xl:mb-8 2xl:gap-4;
   }
@@ -146,6 +158,7 @@
     @apply mb-5 lg:mb-6 xl:mb-7 2xl:mb-8;
   }
 
+  /* Education section styles */
   .awards-row-container {
     @apply flex flex-row items-start justify-between;
   }
@@ -156,6 +169,7 @@
     @apply ml-1 mr-0.5 shrink-0 text-2xs font-semibold italic text-off-black-800 dark:text-light-black-100 lg:text-xs xl:text-sm 2xl:text-base;
   }
 
+  /* Technical Skills section styles */
   .skills-table-head-cell {
     @apply whitespace-nowrap rounded-l-lg pl-2.5 pr-2.5 text-left text-xs font-semibold text-off-white-100 lg:pl-3 lg:pr-3 lg:text-sm xl:rounded-l-xl xl:pl-4 xl:pr-4 xl:text-base 2xl:pr-5 2xl:text-lg;
   }
@@ -169,35 +183,64 @@
     @apply line-clamp-1 rounded-full border border-off-white-100 px-1.5 py-0.5 text-3xs font-normal text-off-white-100 lg:px-2 lg:text-2xs xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:text-sm;
   }
 
+  /* Styling for a dot */
   .dot {
     @apply h-[2px] w-[2px] rounded-full bg-off-black-600 dark:bg-dark-white-300 xl:h-[3px] xl:w-[3px] 2xl:h-1 2xl:w-1;
   }
 
+  /* Hide elements at vertically squished aspect ratios */
   .hide-squished {
-    opacity: 1;
+    @apply hidden md:flex;
   }
 
-  @media (min-width: 768px) and (max-height: 360px) {
+  @media (min-width: 768px) and (max-height: 440px) {
     .hide-squished {
-      opacity: 0;
+      display: none;
     }
   }
 
-  @media (min-width: 1024px) and (max-height: 440px) {
+  @media (min-width: 1024px) and (max-height: 460px) {
     .hide-squished {
-      opacity: 0;
+      display: none;
     }
   }
 
-  @media (min-width: 1280px) and (max-height: 440px) {
+  @media (min-width: 1280px) and (max-height: 460px) {
     .hide-squished {
-      opacity: 0;
+      display: none;
     }
   }
 
-  @media (min-width: 1536px) and (max-height: 520px) {
+  @media (min-width: 1536px) and (max-height: 530px) {
     .hide-squished {
-      opacity: 0;
+      display: none;
+    }
+  }
+
+  .hide-squished-nav {
+    @apply flex;
+  }
+  @media (min-width: 768px) and (max-height: 420px) {
+    .hide-squished-nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-height: 480px) {
+    .hide-squished-nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1280px) and (max-height: 510px) {
+    .hide-squished-nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1536px) and (max-height: 620px) {
+    .hide-squished-nav {
+      display: none;
     }
   }
 }
