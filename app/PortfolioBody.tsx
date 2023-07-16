@@ -7,17 +7,20 @@ import YouTube, { YouTubeProps, YouTubePlayer } from "react-youtube";
 import PortfolioSectionContainer from "./PortfolioSectionContainer";
 
 export default function PortfolioBody() {
+  // For keeping track of which projects are expanded in Projects section
   const [sectionExpandedP1, setSectionExpandedP1] = useState(false);
   const [sectionExpandedP2, setSectionExpandedP2] = useState(false);
   const [sectionExpandedP3, setSectionExpandedP3] = useState(false);
   const [sectionExpandedPH1, setSectionExpandedPH1] = useState(false);
-  const [sectionExpandedPH2, setSectionExpandedPH2] = useState(false);
 
+  // For keeping track of if education is expanded
   const [sectionExpandedE1, setSectionExpandedE1] = useState(false);
 
+  // For keeping track of whether or not the Projects or Work subsections are visible
   const [olderProjectsVisible, setOlderProjectsVisible] = useState(false);
   const [volunteerWorkVisible, setVolunteerWorkVisible] = useState(false);
 
+  // For keeping track of references to YouTube players
   const [sectionVideoP1, setSectionVideoP1] =
     useState<YouTubePlayer>(undefined);
   const [sectionVideoP2, setSectionVideoP2] =
@@ -208,7 +211,6 @@ export default function PortfolioBody() {
             />
           </div>
         </PortfolioSectionContainer>
-
         <PortfolioSectionContainer
           expanded={sectionExpandedP3}
           expandFunction={setSectionExpandedP3}
@@ -307,6 +309,7 @@ export default function PortfolioBody() {
           </div>
         </PortfolioSectionContainer>
 
+        {/* Projects subsection (older projects) */}
         <button
           onClick={toggleUnhideOlderProjects}
           className="hide-subsection-button"
@@ -415,10 +418,7 @@ export default function PortfolioBody() {
             olderProjectsVisible ? "block" : "hidden"
           } hidden-section-bottom-margin`}
         >
-          <PortfolioSectionContainer
-            expanded={sectionExpandedPH2}
-            expandFunction={setSectionExpandedPH2}
-          >
+          <PortfolioSectionContainer>
             <h3 className="section-header">Media Bias Project</h3>
             <div className="section-subheader-container">
               <span className="section-date italic">
@@ -436,34 +436,10 @@ export default function PortfolioBody() {
               media. Additionally, wrote Python code to interface with the
               database and to extract articles from a CSV dataset.
             </p>
-            <div
-              className={`${
-                sectionExpandedPH2
-                  ? "section-container-hidden-expanded-sm"
-                  : "section-container-hidden-collapsed"
-              } section-container-hidden-transition overflow-hidden`}
-            >
-              <div
-                onClick={(event) => {
-                  window.open("https://github.com/chiachichang/mbp");
-                  event.stopPropagation();
-                }}
-                className="github-link-button"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 256 256"
-                >
-                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
-                </svg>
-                <span>Link to Github repository</span>
-              </div>
-            </div>
           </PortfolioSectionContainer>
         </div>
       </section>
+
       <section id="education-section">
         <h2 className="section-title">Education</h2>
         <PortfolioSectionContainer
@@ -508,6 +484,7 @@ export default function PortfolioBody() {
           </div>
         </PortfolioSectionContainer>
       </section>
+
       <section id="work-section" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
         <h2 className="section-title">Work</h2>
         <PortfolioSectionContainer>
@@ -526,6 +503,8 @@ export default function PortfolioBody() {
             received by the store and to invoice customer orders.
           </p>
         </PortfolioSectionContainer>
+
+        {/* Work subsection (volunteer work) */}
         <button
           onClick={toggleUnhideVolunteerWork}
           className="hide-subsection-button"
@@ -566,7 +545,6 @@ export default function PortfolioBody() {
             <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
           </svg>
         </button>
-
         <div
           className={`${
             volunteerWorkVisible ? "block" : "hidden"
@@ -588,13 +566,16 @@ export default function PortfolioBody() {
           </PortfolioSectionContainer>
         </div>
       </section>
+
       <section id="skills-section">
         <h2 className="section-title">Technical Skills</h2>
         <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 xl:border-spacing-y-2">
           <tbody>
-            <tr className="bg-light-black-900 dark:bg-light-black-850">
-              <th className="skills-table-head-cell">Programming Languages:</th>
-              <td className="skills-table-data-cell">
+            <tr>
+              <th className="skills-table-head-cell skills-table-row-even">
+                Programming Languages:
+              </th>
+              <td className="skills-table-data-cell skills-table-row-even">
                 <div className="skills-table-skill-list-container">
                   <span>C/C++</span>
                   <span>Java</span>
@@ -604,17 +585,21 @@ export default function PortfolioBody() {
                 </div>
               </td>
             </tr>
-            <tr className="bg-light-black-800 dark:bg-light-black-825">
-              <th className="skills-table-head-cell">App Development:</th>
-              <td className="skills-table-data-cell">
+            <tr>
+              <th className="skills-table-head-cell skills-table-row-odd">
+                App Development:
+              </th>
+              <td className="skills-table-data-cell skills-table-row-odd">
                 <div className="skills-table-skill-list-container">
                   <span>React Native</span>
                 </div>
               </td>
             </tr>
-            <tr className="bg-light-black-900 dark:bg-light-black-850">
-              <th className="skills-table-head-cell">Web Development:</th>
-              <td className="skills-table-data-cell">
+            <tr>
+              <th className="skills-table-head-cell skills-table-row-even">
+                Web Development:
+              </th>
+              <td className="skills-table-data-cell skills-table-row-even">
                 <div className="skills-table-skill-list-container">
                   <span>HTML</span>
                   <span>CSS</span>
@@ -625,9 +610,11 @@ export default function PortfolioBody() {
                 </div>
               </td>
             </tr>
-            <tr className="bg-light-black-800 dark:bg-light-black-825">
-              <th className="skills-table-head-cell">Databases:</th>
-              <td className="skills-table-data-cell">
+            <tr>
+              <th className="skills-table-head-cell skills-table-row-odd">
+                Databases:
+              </th>
+              <td className="skills-table-data-cell skills-table-row-odd">
                 <div className="skills-table-skill-list-container">
                   <span>Relational Databases (SQL)</span>
                 </div>
@@ -636,6 +623,7 @@ export default function PortfolioBody() {
           </tbody>
         </table>
       </section>
+
       <footer>
         <p className="mt-32 pb-16 text-center text-xs font-medium italic leading-normal text-off-black-900 dark:text-dark-white-100 md:pb-[11vh] md:text-left lg:text-sm xl:text-base 2xl:text-lg">
           This website was designed and developed by me. Built with Next.js and

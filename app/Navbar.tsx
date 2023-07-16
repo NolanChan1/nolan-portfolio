@@ -5,26 +5,45 @@ import { useState, useEffect, useCallback } from "react";
 import { ThemeToggleSwitch, ThemeToggleSwitchProps } from "./ThemeToggleSwitch";
 import { mobileSections, desktopSections } from "./page-sections";
 
-const Navbar: React.FC<ThemeToggleSwitchProps> = ({
-  darkModeEnabled,
-  toggleThemeFunction,
-}) => {
+const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
+  // Mobile and desktop sections currently scrolled to
   const [currentScrolledSectionM, setCurrentScrolledSectionM] = useState(
     mobileSections[0].title
   );
   const [currentScrolledSectionD, setCurrentScrolledSectionD] = useState(
     desktopSections[0].order
   );
+
+  // Whether or not the mobile navigation menu is visible
   const [navMenuVisible, setNavMenuVisible] = useState(false);
+
+  // For blocking updates in handleOnScroll when scrolling is done by the computer
   const [blockOnScrollUpdate, setBlockOnScrollUpdate] = useState(false);
   const [blockDesktopScrollDownUpdate, setBlockDesktopScrollDownUpdate] =
     useState(false);
+  const [blockScrollUpdateTimeout, setBlockScrollUpdateTimeout] =
+    useState<any>(undefined);
+
+  // For keeping track if the user has scrolled up or not (hiding/unhiding navbars)
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [scrollingUp, setScrollingUp] = useState(true);
   const [desktopScrollingUp, setDesktopScrollingUp] = useState(false);
 
   const handleOnScroll = useCallback(
     (e: Event) => {
+      // For browsers that do not support onscrollend, use a timeout function
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
+          clearTimeout(blockScrollUpdateTimeout);
+          setBlockScrollUpdateTimeout(
+            setTimeout(() => {
+              setBlockOnScrollUpdate(false);
+              setBlockDesktopScrollDownUpdate(false);
+            }, 100)
+          );
+        }
+      }
+
       let sectionElement = undefined;
       let sectionRect = undefined;
       for (let i = mobileSections.length - 1; i >= 0; i--) {
@@ -52,6 +71,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
           setDesktopScrollingUp(true);
         } else {
           if (window.scrollY > 32) {
+            // Dont hide mobile navbar when at the top of the page
             setScrollingUp(false);
           }
           if (!blockDesktopScrollDownUpdate) {
@@ -62,6 +82,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
       setPrevScrollY(window.scrollY);
     },
     [
+      blockScrollUpdateTimeout,
       blockOnScrollUpdate,
       blockDesktopScrollDownUpdate,
       prevScrollY,
@@ -105,6 +126,19 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
     if (sectionElement) {
       setBlockOnScrollUpdate(true);
       setBlockDesktopScrollDownUpdate(true);
+
+      // If browser does not support onscrollend, use a timeout function
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout) {
+          clearTimeout(blockScrollUpdateTimeout);
+        }
+        setBlockScrollUpdateTimeout(
+          setTimeout(() => {
+            setBlockOnScrollUpdate(false);
+            setBlockDesktopScrollDownUpdate(false);
+          }, 100)
+        );
+      }
       /* Scroll with offset
       let sectionRect = sectionElement.getBoundingClientRect();
       window.scrollBy({
@@ -129,7 +163,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
 
   return (
     <div>
-      {/* Mobile Navbar */}
+      {/* Mobile Nav */}
       <nav className="relative block w-full md:hidden">
         {/* Navbar */}
         <div
@@ -166,9 +200,33 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
                 : "hamburger-icon-unexpanded"
             } hamburger-icon h-9 w-9 fill-off-black-900 dark:fill-white`}
           >
-            <rect width={7} height={2} x={5} y={7} rx={1} ry={1} />
-            <rect width={14} height={2} x={5} y={11} rx={1} ry={1} />
-            <rect width={7} height={2} x={12} y={15} rx={1} ry={1} />
+            <rect
+              width={7}
+              height={2}
+              x={5}
+              y={7}
+              rx={1}
+              ry={1}
+              className="origin-right"
+            />
+            <rect
+              width={14}
+              height={2}
+              x={5}
+              y={11}
+              rx={1}
+              ry={1}
+              className="origin-center"
+            />
+            <rect
+              width={7}
+              height={2}
+              x={12}
+              y={15}
+              rx={1}
+              ry={1}
+              className="origin-left"
+            />
           </svg>
         </button>
 
@@ -258,10 +316,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
                 </svg>
               </a>
             </div>
-            <ThemeToggleSwitch
-              darkModeEnabled={darkModeEnabled}
-              toggleThemeFunction={toggleThemeFunction}
-            />
+            <ThemeToggleSwitch toggleThemeFunction={toggleThemeFunction} />
           </div>
         </div>
       </nav>
