@@ -1,6 +1,6 @@
 ## My Portfolio Website
 
-This is a portfolio website that I have created for myself using Next.js (app directory) and Tailwind CSS. Developing this website has involved several firsts for me, like: developing with Tailwind CSS, responsive website development, and using CSS transitions.
+This is a portfolio website that I have created for myself using Next.js (app directory) and Tailwind CSS. My goals for developing this website involve making myself try new things such as: developing with Tailwind CSS, and responsive website development. The icons used on this website were obtained from [Iconify](https://iconify.design/).
 
 To run the development server:
 
