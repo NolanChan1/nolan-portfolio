@@ -12,12 +12,13 @@ const raleway = Raleway({
   variable: "--font-raleway",
 });
 
-/*
 export const metadata: Metadata = {
-  title: 'Nolan Chan | Portfolio'
-}
-*/
+  title: "Nolan Chan | Portfolio",
+  description:
+    "A portfolio website for Nolan Chan, a junior software developer.",
+};
 
+/*
 export function generateMetadata(): Metadata {
   return {
     title: "Nolan Chan | Portfolio",
@@ -25,6 +26,7 @@ export function generateMetadata(): Metadata {
       "A portfolio website for Nolan Chan, a junior software developer.",
   };
 }
+*/
 
 export default function RootLayout({
   children,

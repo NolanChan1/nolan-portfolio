@@ -12,10 +12,7 @@ export default function Home() {
   return (
     <div className={`${darkModeEnabled && "dark"}`}>
       <div className="bg-off-white-100 font-poppins dark:bg-light-black-900">
-        <Navbar
-          darkModeEnabled={darkModeEnabled}
-          toggleThemeFunction={setDarkModeEnabled}
-        />
+        <Navbar toggleThemeFunction={setDarkModeEnabled} />
         <header
           id="header-section"
           className="mx-5 pt-[4.5rem] md:fixed md:mx-0 md:ml-[12.5vw] md:h-[89vh] md:w-[35.5vw] md:pt-[11vh]"
@@ -85,10 +82,7 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-            <ThemeToggleSwitch
-              darkModeEnabled={darkModeEnabled}
-              toggleThemeFunction={setDarkModeEnabled}
-            />
+            <ThemeToggleSwitch toggleThemeFunction={setDarkModeEnabled} />
           </div>
         </header>
         <PortfolioBody />

@@ -5,26 +5,45 @@ import { useState, useEffect, useCallback } from "react";
 import { ThemeToggleSwitch, ThemeToggleSwitchProps } from "./ThemeToggleSwitch";
 import { mobileSections, desktopSections } from "./page-sections";
 
-const Navbar: React.FC<ThemeToggleSwitchProps> = ({
-  darkModeEnabled,
-  toggleThemeFunction,
-}) => {
+const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
+  // Mobile and desktop sections currently scrolled to
   const [currentScrolledSectionM, setCurrentScrolledSectionM] = useState(
     mobileSections[0].title
   );
   const [currentScrolledSectionD, setCurrentScrolledSectionD] = useState(
     desktopSections[0].order
   );
+
+  // Whether or not the mobile navigation menu is visible
   const [navMenuVisible, setNavMenuVisible] = useState(false);
+
+  // Whether or not the desktop navbar is visible
+  const [desktopNavbarVisible, setDesktopNavbarVisible] = useState(false);
+
+  // For blocking updates in handleOnScroll when scrolling is done by the computer
   const [blockOnScrollUpdate, setBlockOnScrollUpdate] = useState(false);
-  const [blockDesktopScrollDownUpdate, setBlockDesktopScrollDownUpdate] =
-    useState(false);
+  const [blockScrollUpdateTimeout, setBlockScrollUpdateTimeout] =
+    useState<any>(undefined);
+
+  // For keeping track if the user has scrolled up or not (hiding/unhiding navbars)
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [scrollingUp, setScrollingUp] = useState(true);
-  const [desktopScrollingUp, setDesktopScrollingUp] = useState(false);
 
   const handleOnScroll = useCallback(
     (e: Event) => {
+      // For browsers that do not support onscrollend, use a timeout function
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
+          clearTimeout(blockScrollUpdateTimeout);
+          setBlockScrollUpdateTimeout(
+            setTimeout(() => {
+              setBlockOnScrollUpdate(false);
+            }, 100)
+          );
+        }
+      }
+
+      // Determine which section the user has scrolled to
       let sectionElement = undefined;
       let sectionRect = undefined;
       for (let i = mobileSections.length - 1; i >= 0; i--) {
@@ -37,9 +56,9 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
         if (sectionRect.top <= 0) {
           if (!blockOnScrollUpdate) {
             setCurrentScrolledSectionM(mobileSections[i].title);
-            if (i > 0) {
-              setCurrentScrolledSectionD(desktopSections[i - 1].order);
-            }
+            setCurrentScrolledSectionD(
+              desktopSections[i === 0 ? 0 : i - 1].order
+            );
           }
           break;
         }
@@ -49,30 +68,21 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
       if (!navMenuVisible) {
         if (prevScrollY >= window.scrollY) {
           setScrollingUp(true);
-          setDesktopScrollingUp(true);
         } else {
           if (window.scrollY > 32) {
+            // Dont hide mobile navbar when at the top of the page
             setScrollingUp(false);
-          }
-          if (!blockDesktopScrollDownUpdate) {
-            setDesktopScrollingUp(false);
           }
         }
       }
       setPrevScrollY(window.scrollY);
     },
-    [
-      blockOnScrollUpdate,
-      blockDesktopScrollDownUpdate,
-      prevScrollY,
-      navMenuVisible,
-    ]
+    [blockScrollUpdateTimeout, blockOnScrollUpdate, prevScrollY, navMenuVisible]
   );
 
   useEffect(() => {
     const handleOnScrollEnd = () => {
       setBlockOnScrollUpdate(false);
-      setBlockDesktopScrollDownUpdate(false);
     };
 
     window.addEventListener("scroll", handleOnScroll);
@@ -104,7 +114,18 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
 
     if (sectionElement) {
       setBlockOnScrollUpdate(true);
-      setBlockDesktopScrollDownUpdate(true);
+
+      // If browser does not support onscrollend, use a timeout function
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout) {
+          clearTimeout(blockScrollUpdateTimeout);
+        }
+        setBlockScrollUpdateTimeout(
+          setTimeout(() => {
+            setBlockOnScrollUpdate(false);
+          }, 100)
+        );
+      }
       /* Scroll with offset
       let sectionRect = sectionElement.getBoundingClientRect();
       window.scrollBy({
@@ -129,7 +150,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
 
   return (
     <div>
-      {/* Mobile Navbar */}
+      {/* Mobile Nav */}
       <nav className="relative block w-full md:hidden">
         {/* Navbar */}
         <div
@@ -166,9 +187,33 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
                 : "hamburger-icon-unexpanded"
             } hamburger-icon h-9 w-9 fill-off-black-900 dark:fill-white`}
           >
-            <rect width={7} height={2} x={5} y={7} rx={1} ry={1} />
-            <rect width={14} height={2} x={5} y={11} rx={1} ry={1} />
-            <rect width={7} height={2} x={12} y={15} rx={1} ry={1} />
+            <rect
+              width={7}
+              height={2}
+              x={5}
+              y={7}
+              rx={1}
+              ry={1}
+              className="origin-right"
+            />
+            <rect
+              width={14}
+              height={2}
+              x={5}
+              y={11}
+              rx={1}
+              ry={1}
+              className="origin-center"
+            />
+            <rect
+              width={7}
+              height={2}
+              x={12}
+              y={15}
+              rx={1}
+              ry={1}
+              className="origin-left"
+            />
           </svg>
         </button>
 
@@ -258,19 +303,46 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
                 </svg>
               </a>
             </div>
-            <ThemeToggleSwitch
-              darkModeEnabled={darkModeEnabled}
-              toggleThemeFunction={toggleThemeFunction}
-            />
+            <ThemeToggleSwitch toggleThemeFunction={toggleThemeFunction} />
           </div>
         </div>
       </nav>
 
       {/* Desktop Navbar */}
       <nav className="hidden md:block">
+        <button
+          onClick={() => {
+            setDesktopNavbarVisible((prevState) => {
+              return !prevState;
+            });
+          }}
+          className="hide-squished-nav fixed bottom-3.5 right-[0.8125rem] outline-none lg:bottom-4 lg:right-4 2xl:bottom-6 2xl:right-[1.375rem]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={32}
+            height={32}
+            viewBox="0 0 32 32"
+            className={`${
+              !desktopNavbarVisible && "rotate-180"
+            } h-4 w-4 fill-off-black-900 hover:fill-light-red dark:fill-dark-white-300 dark:hover:fill-white lg:h-[1.125rem] lg:w-[1.125rem] xl:h-5 xl:w-5 2xl:h-6 2xl:w-6`}
+          >
+            <g>
+              <path
+                d="M12.25 2.594l-.719.687-3.594 3.625-.687.688.688.718L15.625 16l-7.688 7.688-.687.718.688.688 3.593 3.625.719.687.719-.687 12-12 .687-.719-.687-.719-12-12zm0 2.844L22.813 16 12.25 26.563l-2.188-2.188 7.688-7.656.719-.719-.719-.719-7.688-7.656z"
+                transform="translate(6.297)"
+              />
+              <path
+                d="M-1.25 2.594l-.719.687-3.594 3.625-.687.688.688.718L2.125 16l-7.688 7.688-.687.718.688.688 3.593 3.625.719.687.719-.687 12-12 .687-.719-.687-.719-12-12zm0 2.844L9.313 16-1.25 26.563l-2.188-2.188 7.688-7.656.719-.719-.719-.719-7.688-7.656z"
+                transform="translate(6.297)"
+              />
+            </g>
+          </svg>
+        </button>
+
         <div
           className={`${
-            desktopScrollingUp && "desktop-nav-translations"
+            desktopNavbarVisible && "desktop-nav-translations"
           } hide-squished-nav desktop-nav-container z-10 flex-row`}
         >
           {desktopSections
@@ -294,7 +366,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({
         </div>
         <div
           className={`${
-            desktopScrollingUp && "desktop-nav-translations"
+            desktopNavbarVisible && "desktop-nav-translations"
           } hide-squished-nav desktop-nav-container z-20 flex-row-reverse`}
         >
           {desktopSections.map((dSection, idx) => {
