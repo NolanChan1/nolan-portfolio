@@ -158,7 +158,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
             scrollingUp
               ? "mobile-nav-transition-up opacity-100"
               : "mobile-nav-transition-down -translate-y-11 opacity-0"
-          } mobile-nav-shadow fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center bg-off-white-100 pl-5 pr-3 dark:bg-light-black-900`}
+          } mobile-navbar-shadow fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center bg-off-white-100 pl-5 pr-3 dark:bg-light-black-900`}
         >
           <span className="font-raleway text-base font-black text-off-black-900 dark:text-white">
             {currentScrolledSectionM}
@@ -231,7 +231,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
         <div
           className={`${
             !navMenuVisible && "translate-x-64 shadow-none"
-          } fixed right-0 top-0 z-30 flex h-full w-64 max-w-full flex-col justify-center bg-off-white-100 shadow-2xl transition-transform dark:bg-light-black-900`}
+          } mobile-nav-shadow fixed right-0 top-0 z-30 flex h-full w-64 max-w-full flex-col justify-center bg-off-white-100 transition-transform dark:bg-light-black-900`}
         >
           <div className="my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
             {mobileSections.map((mSection, idx) => {

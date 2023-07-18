@@ -4,9 +4,12 @@
 
 @layer components {
   /* Mobile Nav styles */
-  .mobile-nav-shadow {
+  .mobile-navbar-shadow {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06),
       0 4px 6px -4px rgb(0 0 0 / 0.06);
+  }
+  .mobile-nav-shadow {
+    box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
   }
   .mobile-nav-transition-down {
     transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0ms 150ms;
