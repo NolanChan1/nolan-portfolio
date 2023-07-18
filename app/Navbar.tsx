@@ -158,7 +158,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
             scrollingUp
               ? "mobile-nav-transition-up opacity-100"
               : "mobile-nav-transition-down -translate-y-11 opacity-0"
-          } mobile-nav-shadow fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center bg-off-white-100 pl-5 pr-3 shadow-lg dark:bg-light-black-900`}
+          } mobile-nav-shadow fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center bg-off-white-100 pl-5 pr-3 dark:bg-light-black-900`}
         >
           <span className="font-raleway text-base font-black text-off-black-900 dark:text-white">
             {currentScrolledSectionM}
@@ -221,7 +221,12 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
         <div
           className={`${
             navMenuVisible ? "visible opacity-60" : "invisible opacity-0"
-          } fixed left-0 top-0 z-20 h-full w-full bg-black transition-opacity`}
+          } fixed left-0 top-0 z-20 h-[100vh] w-full bg-black transition-opacity`}
+        ></div>
+        <div
+          className={`${
+            !navMenuVisible && "translate-x-64"
+          } fixed right-0 top-0 z-30 h-[100vh] w-64 max-w-full bg-off-white-100 dark:bg-off-black-900`}
         ></div>
         <div
           className={`${
@@ -240,7 +245,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
                     className={`${
                       currentScrolledSectionM === mSection.title
                         ? "text-light-red dark:text-white"
-                        : "translate-x-11 text-off-black-900 dark:text-dark-white-100"
+                        : "translate-x-11 text-off-black-900 dark:text-dark-white-300"
                     } text-end font-raleway text-3.5xl font-black transition-transform`}
                   >
                     {mSection.title}
@@ -253,7 +258,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
                     className={`${
                       currentScrolledSectionM === mSection.title
                         ? "fill-light-red opacity-100 dark:fill-white"
-                        : "translate-x-6 fill-off-black-900 opacity-0 dark:fill-dark-white-100"
+                        : "translate-x-6 fill-off-black-900 opacity-0 dark:fill-dark-white-300"
                     } arrow-transition h-8 w-8`}
                   >
                     <path d="M10.5 6a.75.75 0 00-.75-.75H3.81l1.97-1.97a.75.75 0 00-1.06-1.06L1.47 5.47a.75.75 0 000 1.06l3.25 3.25a.75.75 0 001.06-1.06L3.81 6.75h5.94A.75.75 0 0010.5 6z" />

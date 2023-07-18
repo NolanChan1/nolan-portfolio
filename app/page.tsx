@@ -53,7 +53,7 @@ export default function Home() {
                   width={98}
                   height={98}
                   viewBox="0 0 98 98"
-                  className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red dark:fill-light-black-100 dark:hover:fill-white md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
+                  className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red dark:fill-dark-white-300 dark:hover:fill-white md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
                 >
                   <path
                     fillRule="evenodd"
@@ -72,7 +72,7 @@ export default function Home() {
                   width={72}
                   height={72}
                   viewBox="0 0 72 72"
-                  className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red dark:fill-light-black-100 dark:hover:fill-white md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
+                  className="fill-off-black-900 transition-transform hover:-translate-y-1 hover:fill-light-red dark:fill-dark-white-300 dark:hover:fill-white md:h-8 md:w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12"
                 >
                   <path
                     d="M20.053-6.927a8 8 0 00-8 8v56a8 8 0 008 8h56a8 8 0 008-8v-56a8 8 0 00-8-8zm8.35 10c3.506 0 6.347 2.864 6.347 6.397 0 3.532-2.84 6.398-6.348 6.398-3.507 0-6.35-2.866-6.35-6.398 0-3.533 2.843-6.397 6.35-6.397zm33.032 16.274c7.353 0 12.618 4.49 12.618 13.777v21.95H63.369V36.875c0-4.99-1.897-7.777-5.846-7.777-4.296 0-6.54 2.901-6.54 7.777v18.197H40.684V20.407h10.297v4.668s3.097-5.728 10.453-5.728zm-38.35 1.06h10.737v34.666H23.086z"
