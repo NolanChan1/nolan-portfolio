@@ -226,12 +226,12 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
         <div
           className={`${
             !navMenuVisible && "translate-x-64"
-          } fixed right-0 top-0 z-30 h-[100vh] w-64 max-w-full bg-off-white-100 dark:bg-off-black-900`}
+          } mobile-nav-shadow fixed right-0 top-0 z-30 h-[100vh] w-64 max-w-full bg-off-white-100 dark:bg-off-black-900`}
         ></div>
         <div
           className={`${
             !navMenuVisible && "translate-x-64 shadow-none"
-          } mobile-nav-shadow fixed right-0 top-0 z-30 flex h-full w-64 max-w-full flex-col justify-center bg-off-white-100 transition-transform dark:bg-light-black-900`}
+          } fixed right-0 top-0 z-30 flex h-full w-64 max-w-full flex-col justify-center bg-off-white-100 transition-transform dark:bg-light-black-900`}
         >
           <div className="my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
             {mobileSections.map((mSection, idx) => {
