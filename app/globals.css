@@ -102,23 +102,18 @@
   }
 
   /* Expanded section container styles */
-  .section-container-hidden-transition {
-    transition-property: max-height, margin-top;
-    transition-timing-function: linear;
-    transition-duration: 150ms;
-  }
+  .section-showcase-container {
+    display: grid;
+    grid-template-rows: 0fr;
+    @apply mt-0;
 
-  .section-container-hidden-expanded {
-    @apply mt-4 max-h-[40rem] md:max-h-[25rem] lg:max-h-[30rem] xl:mt-5 2xl:mt-6 2xl:max-h-[50rem];
+    transition-property: grid-template-rows, margin-top;
+    transition-timing-function: ease-in-out;
+    transition-duration: 250ms;
   }
-  .section-container-hidden-collapsed {
-    @apply mt-0 max-h-0;
-  }
-  .section-container-hidden-expanded-md {
-    @apply mt-4 max-h-[6rem] md:max-h-[10rem] lg:max-h-[10rem] xl:mt-5 2xl:mt-6 2xl:max-h-[12rem];
-  }
-  .section-container-hidden-expanded-sm {
-    @apply mt-4 max-h-[3rem] xl:mt-5 2xl:mt-6 2xl:max-h-[4rem];
+  .section-showcase-expanded {
+    grid-template-rows: 1fr;
+    @apply mt-4 xl:mt-5 2xl:mt-6;
   }
 
   .github-link-button {

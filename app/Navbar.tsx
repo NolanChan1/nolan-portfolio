@@ -225,7 +225,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
         ></div>
         <div
           className={`${
-            !navMenuVisible && "translate-x-64"
+            !navMenuVisible && "translate-x-64 shadow-none"
           } mobile-nav-shadow fixed right-0 top-0 z-30 h-[100vh] w-64 max-w-full bg-off-white-100 dark:bg-light-black-900`}
         ></div>
         <div
