@@ -100,38 +100,38 @@ export default function PortfolioBody() {
           </p>
           <div
             className={`${
-              sectionExpandedP1
-                ? "section-container-hidden-expanded"
-                : "section-container-hidden-collapsed"
-            } section-container-hidden-transition overflow-hidden`}
+              sectionExpandedP1 && "section-showcase-expanded"
+            } section-showcase-container`}
           >
-            <div
-              onClick={(event) => {
-                window.open("https://github.com/techstartucalgary/EasyMeal");
-                event.stopPropagation();
-              }}
-              className="github-link-button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 256 256"
+            <div className="overflow-hidden">
+              <div
+                onClick={(event) => {
+                  window.open("https://github.com/techstartucalgary/EasyMeal");
+                  event.stopPropagation();
+                }}
+                className="github-link-button"
               >
-                <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
-              </svg>
-              <span>Link to Github repository</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Link to Github repository</span>
+              </div>
+              <h4 className="section-header-hidden">YouTube Demo</h4>
+              <YouTube
+                videoId="xKJvQRO3rrg"
+                opts={youtubePlayerOptions}
+                onReady={(event) => {
+                  setSectionVideoP1(event);
+                }}
+                iframeClassName="section-video-player-iframe"
+                className="section-video-player-container"
+              />
             </div>
-            <h4 className="section-header-hidden">YouTube Demo</h4>
-            <YouTube
-              videoId="xKJvQRO3rrg"
-              opts={youtubePlayerOptions}
-              onReady={(event) => {
-                setSectionVideoP1(event);
-              }}
-              iframeClassName="section-video-player-iframe"
-              className="section-video-player-container"
-            />
           </div>
         </PortfolioSectionContainer>
         <PortfolioSectionContainer
@@ -177,38 +177,38 @@ export default function PortfolioBody() {
           </p>
           <div
             className={`${
-              sectionExpandedP2
-                ? "section-container-hidden-expanded"
-                : "section-container-hidden-collapsed"
-            } section-container-hidden-transition overflow-hidden`}
+              sectionExpandedP2 && "section-showcase-expanded"
+            } section-showcase-container`}
           >
-            <div
-              onClick={(event) => {
-                window.open("https://github.com/NolanChan1/beesAR-frontend");
-                event.stopPropagation();
-              }}
-              className="github-link-button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 256 256"
+            <div className="overflow-hidden">
+              <div
+                onClick={(event) => {
+                  window.open("https://github.com/NolanChan1/beesAR-frontend");
+                  event.stopPropagation();
+                }}
+                className="github-link-button"
               >
-                <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
-              </svg>
-              <span>Link to the frontend Github repository</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Link to the frontend Github repository</span>
+              </div>
+              <h4 className="section-header-hidden">YouTube Demo</h4>
+              <YouTube
+                videoId="PAmQzdepNf4"
+                opts={youtubePlayerOptions}
+                onReady={(event) => {
+                  setSectionVideoP2(event);
+                }}
+                iframeClassName="section-video-player-iframe"
+                className="section-video-player-container"
+              />
             </div>
-            <h4 className="section-header-hidden">YouTube Demo</h4>
-            <YouTube
-              videoId="PAmQzdepNf4"
-              opts={youtubePlayerOptions}
-              onReady={(event) => {
-                setSectionVideoP2(event);
-              }}
-              iframeClassName="section-video-player-iframe"
-              className="section-video-player-container"
-            />
           </div>
         </PortfolioSectionContainer>
         <PortfolioSectionContainer
@@ -252,58 +252,58 @@ export default function PortfolioBody() {
           </p>
           <div
             className={`${
-              sectionExpandedP3
-                ? "section-container-hidden-expanded"
-                : "section-container-hidden-collapsed"
-            } section-container-hidden-transition overflow-hidden`}
+              sectionExpandedP3 && "section-showcase-expanded"
+            } section-showcase-container`}
           >
-            <div
-              onClick={(event) => {
-                window.open(
-                  "https://github.com/techstartucalgary/decision-frontend"
-                );
-                event.stopPropagation();
-              }}
-              className="github-link-button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 256 256"
+            <div className="overflow-hidden">
+              <div
+                onClick={(event) => {
+                  window.open(
+                    "https://github.com/techstartucalgary/decision-frontend"
+                  );
+                  event.stopPropagation();
+                }}
+                className="github-link-button"
               >
-                <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
-              </svg>
-              <span>Link to the frontend Github repository</span>
-            </div>
-            <h4 className="section-header-hidden">Demo Screenshots</h4>
-            <div className="section-screenshots-grid-container">
-              <div className="section-screenshot-container">
-                <Image
-                  src="/screenshots/wt-00.jpg"
-                  alt="Where To? landing page screenshot"
-                  height={3040}
-                  width={1440}
-                  className="section-screenshot"
-                ></Image>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Link to the frontend Github repository</span>
               </div>
-              <div className="section-screenshot-container">
-                <Image
-                  src="/screenshots/wt-01.jpg"
-                  alt="Where To? preferences page screenshot"
-                  height={3040}
-                  width={1440}
-                  className="section-screenshot"
-                ></Image>
-              </div>
-              <div className="section-screenshot-container">
-                <Image
-                  src="/screenshots/wt-02.jpg"
-                  alt="Where To? link generation page screenshot"
-                  height={3040}
-                  width={1440}
-                  className="section-screenshot"
-                ></Image>
+              <h4 className="section-header-hidden">Demo Screenshots</h4>
+              <div className="section-screenshots-grid-container">
+                <div className="section-screenshot-container">
+                  <Image
+                    src="/screenshots/wt-00.jpg"
+                    alt="Where To? landing page screenshot"
+                    height={3040}
+                    width={1440}
+                    className="section-screenshot"
+                  ></Image>
+                </div>
+                <div className="section-screenshot-container">
+                  <Image
+                    src="/screenshots/wt-01.jpg"
+                    alt="Where To? preferences page screenshot"
+                    height={3040}
+                    width={1440}
+                    className="section-screenshot"
+                  ></Image>
+                </div>
+                <div className="section-screenshot-container">
+                  <Image
+                    src="/screenshots/wt-02.jpg"
+                    alt="Where To? link generation page screenshot"
+                    height={3040}
+                    width={1440}
+                    className="section-screenshot"
+                  ></Image>
+                </div>
               </div>
             </div>
           </div>
@@ -378,38 +378,38 @@ export default function PortfolioBody() {
             </p>
             <div
               className={`${
-                sectionExpandedPH1
-                  ? "section-container-hidden-expanded"
-                  : "section-container-hidden-collapsed"
-              } section-container-hidden-transition overflow-hidden`}
+                sectionExpandedPH1 && "section-showcase-expanded"
+              } section-showcase-container`}
             >
-              <div
-                onClick={(event) => {
-                  window.open("https://github.com/NolanChan1/projectpet");
-                  event.stopPropagation();
-                }}
-                className="github-link-button"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 256 256"
+              <div className="overflow-hidden">
+                <div
+                  onClick={(event) => {
+                    window.open("https://github.com/NolanChan1/projectpet");
+                    event.stopPropagation();
+                  }}
+                  className="github-link-button"
                 >
-                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
-                </svg>
-                <span>Link to Github repository</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                  </svg>
+                  <span>Link to Github repository</span>
+                </div>
+                <h4 className="section-header-hidden">YouTube Demo</h4>
+                <YouTube
+                  videoId="8HMey3eF_vQ"
+                  opts={youtubePlayerOptions}
+                  onReady={(event) => {
+                    setSectionVideoPH1(event);
+                  }}
+                  iframeClassName="section-video-player-iframe"
+                  className="section-video-player-container"
+                />
               </div>
-              <h4 className="section-header-hidden">YouTube Demo</h4>
-              <YouTube
-                videoId="8HMey3eF_vQ"
-                opts={youtubePlayerOptions}
-                onReady={(event) => {
-                  setSectionVideoPH1(event);
-                }}
-                iframeClassName="section-video-player-iframe"
-                className="section-video-player-container"
-              />
             </div>
           </PortfolioSectionContainer>
         </div>
@@ -461,25 +461,25 @@ export default function PortfolioBody() {
           </span>
           <div
             className={`${
-              sectionExpandedE1
-                ? "section-container-hidden-expanded-md"
-                : "section-container-hidden-collapsed"
-            } section-container-hidden-transition overflow-hidden`}
+              sectionExpandedE1 && "section-showcase-expanded"
+            } section-showcase-container`}
           >
-            <h4 className="mb-1 text-xs font-semibold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:mb-2 xl:text-base 2xl:text-lg">
-              Awards:
-            </h4>
-            <div className="awards-row-container mb-1 xl:mb-2">
-              <span>
-                Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000
-              </span>
-              <span>2018 - 2021</span>
-            </div>
-            <div className="awards-row-container">
-              <span>
-                Second Place in Schulich Junior Programming Competition
-              </span>
-              <span>2019</span>
+            <div className="overflow-hidden">
+              <h4 className="mb-1 text-xs font-semibold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:mb-2 xl:text-base 2xl:text-lg">
+                Awards:
+              </h4>
+              <div className="awards-row-container mb-1 xl:mb-2">
+                <span>
+                  Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000
+                </span>
+                <span>2018 - 2021</span>
+              </div>
+              <div className="awards-row-container">
+                <span>
+                  Second Place in Schulich Junior Programming Competition
+                </span>
+                <span>2019</span>
+              </div>
             </div>
           </div>
         </PortfolioSectionContainer>
