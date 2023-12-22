@@ -31,7 +31,7 @@ export default function Home() {
           </p>
           <div className="mt-4 flex flex-row gap-5 lg:mt-6 2xl:mt-8 2xl:gap-6">
             <a
-              href="/files/NolanChan_RESUME_WEB_JULY2023.pdf"
+              href="/files/NOLANCHAN_RESUME_WEB_DEC2023.pdf"
               target="_blank"
               className="rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 hover:bg-light-red dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
             >
