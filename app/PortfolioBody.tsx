@@ -279,7 +279,7 @@ export default function PortfolioBody() {
               <div className="section-screenshots-grid-container">
                 <div className="section-screenshot-container">
                   <Image
-                    src="/screenshots/wt-00.jpg"
+                    src="/screenshots/wt-00.webp"
                     alt="Where To? landing page screenshot"
                     height={3040}
                     width={1440}
@@ -288,7 +288,7 @@ export default function PortfolioBody() {
                 </div>
                 <div className="section-screenshot-container">
                   <Image
-                    src="/screenshots/wt-01.jpg"
+                    src="/screenshots/wt-01.webp"
                     alt="Where To? preferences page screenshot"
                     height={3040}
                     width={1440}
@@ -297,7 +297,7 @@ export default function PortfolioBody() {
                 </div>
                 <div className="section-screenshot-container">
                   <Image
-                    src="/screenshots/wt-02.jpg"
+                    src="/screenshots/wt-02.webp"
                     alt="Where To? link generation page screenshot"
                     height={3040}
                     width={1440}
