@@ -84,7 +84,7 @@ export default function PortfolioBody() {
             recipes. Additionally, integrated backend functions to front-end
             code.
           </p>
-          <p className="section-paragraph">
+          <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
             The project was developed by a{" "}
             <span
               onClick={(event) => {
@@ -97,6 +97,10 @@ export default function PortfolioBody() {
             </span>{" "}
             project team. The project won the Best Overall award at the 2023
             Tech Start showcase.
+          </p>
+          <p className="section-paragraph">
+            After project completion, developed an external website for users to
+            delete their account and their data for deployment onto Google Play.
           </p>
           <div
             className={`${
@@ -120,6 +124,25 @@ export default function PortfolioBody() {
                   <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                 </svg>
                 <span>Link to Github repository</span>
+              </div>
+              <div
+                onClick={(event) => {
+                  window.open(
+                    "https://nolanchan1.github.io/easymeal-account-deletion/"
+                  );
+                  event.stopPropagation();
+                }}
+                className="github-link-button mt-2 xl:mt-2.5 2xl:mt-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
+                </svg>
+                <span>Account deletion website</span>
               </div>
               <h4 className="section-header-hidden">YouTube Demo</h4>
               <YouTube
