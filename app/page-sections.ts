@@ -4,16 +4,16 @@ export const mobileSections = [
     id: "header-section",
   },
   {
+    title: "Work",
+    id: "work-section",
+  },
+  {
     title: "Projects",
     id: "projects-section",
   },
   {
     title: "Education",
     id: "education-section",
-  },
-  {
-    title: "Work",
-    id: "work-section",
   },
   {
     title: "Skills",
@@ -24,18 +24,18 @@ export const mobileSections = [
 export const desktopSections = [
   {
     order: 0,
+    title: "Work",
+    id: "work-section",
+  },
+  {
+    order: 1,
     title: "Projects",
     id: "projects-section",
   },
   {
-    order: 1,
+    order: 2,
     title: "Education",
     id: "education-section",
-  },
-  {
-    order: 2,
-    title: "Work",
-    id: "work-section",
   },
   {
     order: 3,
