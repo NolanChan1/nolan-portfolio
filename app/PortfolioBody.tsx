@@ -18,7 +18,7 @@ export default function PortfolioBody() {
 
   // For keeping track of whether or not the Projects or Work subsections are visible
   const [olderProjectsVisible, setOlderProjectsVisible] = useState(false);
-  const [volunteerWorkVisible, setVolunteerWorkVisible] = useState(false);
+  const [olderWorkVisible, setOlderWorkVisible] = useState(false);
 
   // For keeping track of references to YouTube players
   const [sectionVideoP1, setSectionVideoP1] =
@@ -50,14 +50,129 @@ export default function PortfolioBody() {
     });
   };
 
-  const toggleUnhideVolunteerWork = () => {
-    setVolunteerWorkVisible((prevState) => {
+  const toggleUnhideOlderWork = () => {
+    setOlderWorkVisible((prevState) => {
       return !prevState;
     });
   };
 
   return (
     <main className="mx-5 mt-16 md:relative md:left-[48vw] md:top-0 md:mx-0 md:mt-0 md:w-[39.5vw] md:pl-[4vw] md:pt-[11vh]">
+      <section id="work-section">
+        <h2 className="section-title">Work</h2>
+        <PortfolioSectionContainer>
+          <h3 className="section-header">Front-end Developer Intern</h3>
+          <div className="section-subheader-container">
+            <span className="shrink-0">Vosyn</span>
+            <div className="dot"></div>
+            <span className="section-date italic">February 2024 - Current</span>
+          </div>
+          <div className="section-tag-container">
+            <span className="section-tag">React</span>
+            <span className="section-tag">Redux</span>
+            <span className="section-tag">JavaScript</span>
+            <span className="section-tag">Agile (Methodology)</span>
+          </div>
+          <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
+            Front-end developer intern at{" "}
+            <a
+              href="https://vosyn.ai/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="section-link-text"
+            >
+              Vosyn
+            </a>
+            , an AI startup that aims to change how people consume global
+            content by breaking down language barriers.
+          </p>
+          <p className="section-paragraph">
+            Developed interactive and responsive web pages for two separate
+            software projects. One project is a consumer-facing web application,
+            and the other is a web application designed for internal and
+            potential investor use.
+          </p>
+        </PortfolioSectionContainer>
+
+        {/* Work subsection (older work) */}
+        <button
+          onClick={toggleUnhideOlderWork}
+          className="hide-subsection-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              olderWorkVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            } `}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+          <span
+            className={`${
+              olderWorkVisible
+                ? "text-light-red dark:text-white"
+                : "text-off-white-900 dark:text-light-black-100"
+            } `}
+          >
+            {olderWorkVisible ? "Hide" : "View"} older work experience
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            className={`${
+              olderWorkVisible
+                ? "rotate-180 fill-light-red dark:fill-white"
+                : "fill-off-white-900 dark:fill-light-black-100"
+            }`}
+          >
+            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
+          </svg>
+        </button>
+        <div
+          className={`${
+            olderWorkVisible ? "block" : "hidden"
+          } hidden-section-bottom-margin`}
+        >
+          <PortfolioSectionContainer>
+            <h3 className="section-header">Merchandiser</h3>
+            <div className="section-subheader-container">
+              <span className="shrink-0">KMS Tools & Equipment</span>
+              <div className="dot"></div>
+              <span className="section-date italic">
+                May 2019 - February 2021
+              </span>
+            </div>
+            <p className="section-paragraph mt-1 xl:mt-2">
+              Work involved answering customer questions, organizing/placing
+              stock on store shelves, and setting up display models. Took on
+              additional tasks such as using distribution management software to
+              manage stock received by the store and to invoice customer orders.
+            </p>
+          </PortfolioSectionContainer>
+          <PortfolioSectionContainer>
+            <h3 className="section-header">Calgary Public Library</h3>
+            <div className="section-subheader-container">
+              <span className="section-date italic">
+                January 2017 - June 2017
+              </span>
+            </div>
+            <p className="section-paragraph mt-1 xl:mt-2">
+              Volunteered at a Calgary Public Library branch. Two of the
+              programs volunteered for, Code Club and Coding Buddies, involved
+              teaching and guiding children through fundamental coding
+              paradigms.
+            </p>
+          </PortfolioSectionContainer>
+        </div>
+      </section>
+
       <section id="projects-section">
         <h2 className="section-title">Projects</h2>
         <PortfolioSectionContainer
@@ -373,7 +488,11 @@ export default function PortfolioBody() {
             <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
           </svg>
         </button>
-        <div className={`${olderProjectsVisible ? "block" : "hidden"}`}>
+        <div
+          className={`${
+            olderProjectsVisible ? "block" : "hidden"
+          } hidden-section-bottom-margin`}
+        >
           <PortfolioSectionContainer
             expanded={sectionExpandedPH1}
             expandFunction={setSectionExpandedPH1}
@@ -435,12 +554,6 @@ export default function PortfolioBody() {
               </div>
             </div>
           </PortfolioSectionContainer>
-        </div>
-        <div
-          className={`${
-            olderProjectsVisible ? "block" : "hidden"
-          } hidden-section-bottom-margin`}
-        >
           <PortfolioSectionContainer>
             <h3 className="section-header">Media Bias Project</h3>
             <div className="section-subheader-container">
@@ -508,91 +621,9 @@ export default function PortfolioBody() {
         </PortfolioSectionContainer>
       </section>
 
-      <section id="work-section" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
-        <h2 className="section-title">Work</h2>
-        <PortfolioSectionContainer>
-          <h3 className="section-header">Merchandiser</h3>
-          <div className="section-subheader-container">
-            <span className="shrink-0">KMS Tools & Equipment</span>
-            <div className="dot"></div>
-            <span className="section-date italic">
-              May 2019 - February 2021
-            </span>
-          </div>
-          <p className="section-paragraph mt-1 xl:mt-2">
-            Work involved answering customer questions, organizing/placing stock
-            on store shelves, and setting up display models. Took on additional
-            tasks such as using distribution management software to manage stock
-            received by the store and to invoice customer orders.
-          </p>
-        </PortfolioSectionContainer>
-
-        {/* Work subsection (volunteer work) */}
-        <button
-          onClick={toggleUnhideVolunteerWork}
-          className="hide-subsection-button"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 32 32"
-            className={`${
-              volunteerWorkVisible
-                ? "rotate-180 fill-light-red dark:fill-white"
-                : "fill-off-white-900 dark:fill-light-black-100"
-            } `}
-          >
-            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
-          </svg>
-          <span
-            className={`${
-              volunteerWorkVisible
-                ? "text-light-red dark:text-white"
-                : "text-off-white-900 dark:text-light-black-100"
-            } `}
-          >
-            {volunteerWorkVisible ? "Hide" : "View"} volunteer work
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 32 32"
-            className={`${
-              volunteerWorkVisible
-                ? "rotate-180 fill-light-red dark:fill-white"
-                : "fill-off-white-900 dark:fill-light-black-100"
-            }`}
-          >
-            <path d="M6.906 6.594l-.718.687-3.907 3.907-.687.718L16 26.312l14.406-14.406-.687-.719-3.907-3.906-.718-.687L16 15.687zm-.031 2.843l8.406 8.376.719.687.719-.688 8.406-8.375 2.438 2.438L16 23.469 4.437 11.875z" />
-          </svg>
-        </button>
-        <div
-          className={`${
-            volunteerWorkVisible ? "block" : "hidden"
-          } hidden-section-bottom-margin`}
-        >
-          <PortfolioSectionContainer>
-            <h3 className="section-header">Calgary Public Library</h3>
-            <div className="section-subheader-container">
-              <span className="section-date italic">
-                January 2017 - June 2017
-              </span>
-            </div>
-            <p className="section-paragraph mt-1 xl:mt-2">
-              Volunteered at a Calgary Public Library branch. Two of the
-              programs volunteered for, Code Club and Coding Buddies, involved
-              teaching and guiding children through fundamental coding
-              paradigms.
-            </p>
-          </PortfolioSectionContainer>
-        </div>
-      </section>
-
-      <section id="skills-section">
+      <section id="skills-section" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
         <h2 className="section-title">Technical Skills</h2>
-        <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 xl:border-spacing-y-2">
+        <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 selection:bg-white selection:text-light-black-900 xl:border-spacing-y-2">
           <tbody>
             <tr>
               <th className="skills-table-head-cell skills-table-row-even">
@@ -620,7 +651,7 @@ export default function PortfolioBody() {
             </tr>
             <tr>
               <th className="skills-table-head-cell skills-table-row-even">
-                Web Development:
+                Frontend Development:
               </th>
               <td className="skills-table-data-cell skills-table-row-even">
                 <div className="skills-table-skill-list-container">
@@ -635,10 +666,12 @@ export default function PortfolioBody() {
             </tr>
             <tr>
               <th className="skills-table-head-cell skills-table-row-odd">
-                Databases:
+                Backend Development:
               </th>
               <td className="skills-table-data-cell skills-table-row-odd">
                 <div className="skills-table-skill-list-container">
+                  <span>REST</span>
+                  <span>Django</span>
                   <span>Relational Databases (SQL)</span>
                 </div>
               </td>

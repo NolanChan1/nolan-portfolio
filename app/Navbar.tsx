@@ -18,7 +18,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
   const [navMenuVisible, setNavMenuVisible] = useState(false);
 
   // Whether or not the desktop navbar is visible
-  const [desktopNavbarVisible, setDesktopNavbarVisible] = useState(false);
+  const [desktopNavbarVisible, setDesktopNavbarVisible] = useState(true);
 
   // For blocking updates in handleOnScroll when scrolling is done by the computer
   const [blockOnScrollUpdate, setBlockOnScrollUpdate] = useState(false);

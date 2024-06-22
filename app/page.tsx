@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className={`${darkModeEnabled && "dark"}`}>
-      <div className="bg-off-white-100 font-poppins dark:bg-light-black-900">
+      <div className="bg-off-white-100 font-poppins selection:bg-light-black-900 selection:text-white dark:bg-light-black-900 dark:selection:bg-white dark:selection:text-light-black-900">
         <Navbar toggleThemeFunction={setDarkModeEnabled} />
         <header
           id="header-section"
@@ -21,19 +21,20 @@ export default function Home() {
             Nolan Chan
           </h1>
           <p className="mt-4 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-5 lg:text-sm 2xl:text-base">
-            I recently graduated with a bachelor’s degree in software
-            engineering, and I am looking for industry experience to grow my
-            skills as a software developer.
+            I love building software projects and I am interested in growing my
+            software development skills through industry experience.
           </p>
           <p className="mt-3 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-4 lg:text-sm 2xl:text-base">
-            My background is primarily in front-end web development, but I am
-            also eager to explore other areas of software development.
+            I have a bachelor's degree in software engineering, and I have
+            contributed to a variety of software projects through an internship
+            and also through extracurricular/university projects (mostly in
+            frontend roles).
           </p>
           <div className="mt-4 flex flex-row gap-5 lg:mt-6 2xl:mt-8 2xl:gap-6">
             <a
-              href="/files/NOLANCHAN_RESUME_WEB_DEC2023.pdf"
+              href="/files/NOLANCHAN_RESUME_WEB_JUNE2024.pdf"
               target="_blank"
-              className="rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 hover:bg-light-red dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
+              className="select-none rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 hover:bg-light-red dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base"
             >
               Resume
             </a>

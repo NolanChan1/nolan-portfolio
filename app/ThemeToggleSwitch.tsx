@@ -27,14 +27,14 @@ export const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({
         alt="sun icon"
         height={24}
         width={24}
-        className="ml-2 h-4 w-4 lg:ml-3 lg:h-5 lg:w-5 2xl:h-6 2xl:w-6"
+        className="ml-2 h-4 w-4 select-none lg:ml-3 lg:h-5 lg:w-5 2xl:h-6 2xl:w-6"
       ></Image>
       <Image
         src="/icons/moon-fill.svg"
         alt="moon icon"
         height={24}
         width={24}
-        className="mx-2 h-4 w-4 lg:mx-3 lg:h-5 lg:w-5 2xl:h-6 2xl:w-6"
+        className="mx-2 h-4 w-4 select-none lg:mx-3 lg:h-5 lg:w-5 2xl:h-6 2xl:w-6"
       ></Image>
     </button>
   );
