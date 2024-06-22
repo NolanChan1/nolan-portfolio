@@ -25,7 +25,7 @@ export default function Home() {
             software development skills through industry experience.
           </p>
           <p className="mt-3 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-4 lg:text-sm 2xl:text-base">
-            I have a bachelor's degree in software engineering, and I have
+            I have a bachelor&apos;s degree in software engineering, and I have
             contributed to a variety of software projects through an internship
             and also through extracurricular/university projects (mostly in
             frontend roles).
