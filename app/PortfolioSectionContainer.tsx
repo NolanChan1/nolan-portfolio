@@ -49,7 +49,7 @@ const PortfolioSectionContainer: React.FC<PortfolioSectionContainerProps> = ({
         aria-expanded={expanded}
         className={`${
           expandFunction !== undefined &&
-          "section-container transition-transform hover:-translate-y-1"
+          "section-container transition-transform hover:-translate-y-1 xl:hover:-translate-y-1.5"
         } relative w-full rounded-xl border-2 border-off-black-900 bg-off-white-100 p-4 text-left outline-none dark:border-light-black-100 dark:bg-light-black-900 lg:px-5 xl:rounded-2xl xl:px-6 xl:py-5 2xl:px-8 2xl:py-6`}
       >
         {children}
