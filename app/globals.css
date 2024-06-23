@@ -58,6 +58,12 @@
   }
 
   /* Website body styles */
+  .section-group {
+    @apply mb-5 flex flex-col gap-5 lg:mb-6 lg:gap-6 xl:mb-7 xl:gap-7 2xl:mb-8 2xl:gap-8;
+  }
+  .hidden-section-group-bottom-margin {
+    @apply mb-10 lg:mb-12 xl:mb-14 2xl:mb-16;
+  }
   .section-title {
     @apply mb-3 font-raleway text-3xl font-extrabold text-off-black-900 dark:text-white lg:mb-4 lg:text-4xl xl:mb-5 2xl:text-5xl;
   }
@@ -156,10 +162,6 @@
   }
   .hide-subsection-button span {
     @apply text-xs font-semibold lg:text-sm xl:text-base 2xl:text-lg;
-  }
-
-  .hidden-section-bottom-margin {
-    @apply mb-5 lg:mb-6 xl:mb-7 2xl:mb-8;
   }
 
   /* Education section styles */
