@@ -4,14 +4,10 @@ import { PropsWithChildren } from "react";
 import Image from "next/image";
 
 export type ThemeToggleSwitchProps = PropsWithChildren<{
-  toggleThemeFunction: (
-    updateFunction: (prevState: boolean) => boolean
-  ) => void;
+  toggleThemeFunction: (updateFunction: (prevState: boolean) => boolean) => void;
 }>;
 
-export const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({
-  toggleThemeFunction,
-}) => {
+export const ThemeToggleSwitch: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
   return (
     <button
       onClick={() =>

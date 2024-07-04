@@ -21,14 +21,13 @@ export default function Home() {
             Nolan Chan
           </h1>
           <p className="mt-4 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-5 lg:text-sm 2xl:text-base">
-            I love building software projects and I am interested in growing my
-            software development skills through industry experience.
+            I love building software projects and I am interested in growing my software development skills through
+            industry experience.
           </p>
           <p className="mt-3 text-xs font-semibold leading-normal text-off-black-900 dark:text-light-black-100 lg:mt-4 lg:text-sm 2xl:text-base">
-            I have a bachelor&apos;s degree in software engineering, and I have
-            contributed to a variety of software projects through an internship
-            and also through extracurricular/university projects (mostly in
-            frontend roles).
+            I have a bachelor&apos;s degree in software engineering, and I have contributed to a variety of software
+            projects through an internship and also through extracurricular/university projects (mostly in frontend
+            roles).
           </p>
           <div className="mt-4 flex flex-row gap-5 lg:mt-6 2xl:mt-8 2xl:gap-6">
             <a
@@ -44,11 +43,7 @@ export default function Home() {
           </div>
           <div className="hide-squished absolute bottom-0 left-0 w-full items-center justify-between">
             <div className="flex flex-row items-center md:gap-8 lg:gap-10 2xl:gap-12">
-              <a
-                href="https://github.com/NolanChan1"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href="https://github.com/NolanChan1" target="_blank" rel="noreferrer noopener">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={98}
@@ -63,11 +58,7 @@ export default function Home() {
                   />
                 </svg>
               </a>
-              <a
-                href="https://www.linkedin.com/in/nolanchan1/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href="https://www.linkedin.com/in/nolanchan1/" target="_blank" rel="noreferrer noopener">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={72}
