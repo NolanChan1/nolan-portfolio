@@ -7,12 +7,8 @@ import { mobileSections, desktopSections } from "./page-sections";
 
 const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
   // Mobile and desktop sections currently scrolled to
-  const [currentScrolledSectionM, setCurrentScrolledSectionM] = useState(
-    mobileSections[0].title
-  );
-  const [currentScrolledSectionD, setCurrentScrolledSectionD] = useState(
-    desktopSections[0].order
-  );
+  const [currentScrolledSectionM, setCurrentScrolledSectionM] = useState(mobileSections[0].title);
+  const [currentScrolledSectionD, setCurrentScrolledSectionD] = useState(desktopSections[0].order);
 
   // Whether or not the mobile navigation menu is visible
   const [navMenuVisible, setNavMenuVisible] = useState(false);
@@ -22,8 +18,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
 
   // For blocking updates in handleOnScroll when scrolling is done by the computer
   const [blockOnScrollUpdate, setBlockOnScrollUpdate] = useState(false);
-  const [blockScrollUpdateTimeout, setBlockScrollUpdateTimeout] =
-    useState<any>(undefined);
+  const [blockScrollUpdateTimeout, setBlockScrollUpdateTimeout] = useState<any>(undefined);
 
   // For keeping track if the user has scrolled up or not (hiding/unhiding navbars)
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -56,9 +51,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
         if (sectionRect.top <= 0) {
           if (!blockOnScrollUpdate) {
             setCurrentScrolledSectionM(mobileSections[i].title);
-            setCurrentScrolledSectionD(
-              desktopSections[i === 0 ? 0 : i - 1].order
-            );
+            setCurrentScrolledSectionD(desktopSections[i === 0 ? 0 : i - 1].order);
           }
           break;
         }
@@ -93,11 +86,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
     };
   }, [handleOnScroll]);
 
-  const scrollToSection = (
-    sectionIndex: number,
-    mobile: boolean,
-    reverseIndex: boolean
-  ) => {
+  const scrollToSection = (sectionIndex: number, mobile: boolean, reverseIndex: boolean) => {
     let sectionElement = undefined;
     let desktopIndex = sectionIndex;
     if (reverseIndex) {
@@ -107,9 +96,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
     if (mobile) {
       sectionElement = document.getElementById(mobileSections[sectionIndex].id);
     } else {
-      sectionElement = document.getElementById(
-        desktopSections[desktopIndex].id
-      );
+      sectionElement = document.getElementById(desktopSections[desktopIndex].id);
     }
 
     if (sectionElement) {
@@ -172,9 +159,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
           }}
           aria-controls="primary-navigation"
           aria-expanded={navMenuVisible}
-          className={`${
-            !scrollingUp && "-translate-y-11"
-          } fixed right-3 top-1 z-40 outline-none transition-transform`}
+          className={`${!scrollingUp && "-translate-y-11"} fixed right-3 top-1 z-40 outline-none transition-transform`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -182,38 +167,12 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
             height="1em"
             viewBox="0 0 24 24"
             className={`${
-              navMenuVisible
-                ? "hamburger-icon-expanded"
-                : "hamburger-icon-unexpanded"
+              navMenuVisible ? "hamburger-icon-expanded" : "hamburger-icon-unexpanded"
             } hamburger-icon h-9 w-9 fill-off-black-900 dark:fill-white`}
           >
-            <rect
-              width={7}
-              height={2}
-              x={5}
-              y={7}
-              rx={1}
-              ry={1}
-              className="origin-right"
-            />
-            <rect
-              width={14}
-              height={2}
-              x={5}
-              y={11}
-              rx={1}
-              ry={1}
-              className="origin-center"
-            />
-            <rect
-              width={7}
-              height={2}
-              x={12}
-              y={15}
-              rx={1}
-              ry={1}
-              className="origin-left"
-            />
+            <rect width={7} height={2} x={5} y={7} rx={1} ry={1} className="origin-right" />
+            <rect width={14} height={2} x={5} y={11} rx={1} ry={1} className="origin-center" />
+            <rect width={7} height={2} x={12} y={15} rx={1} ry={1} className="origin-left" />
           </svg>
         </button>
 
@@ -269,11 +228,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
           </div>
           <div className="absolute bottom-0 right-0 flex w-full flex-row items-center justify-between px-6 pb-6">
             <div className="flex flex-row items-center justify-start gap-4">
-              <a
-                href="https://github.com/NolanChan1"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href="https://github.com/NolanChan1" target="_blank" rel="noreferrer noopener">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={98}
@@ -288,11 +243,7 @@ const Navbar: React.FC<ThemeToggleSwitchProps> = ({ toggleThemeFunction }) => {
                   />
                 </svg>
               </a>
-              <a
-                href="https://www.linkedin.com/in/nolanchan1/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href="https://www.linkedin.com/in/nolanchan1/" target="_blank" rel="noreferrer noopener">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={72}

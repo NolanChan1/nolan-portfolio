@@ -5,8 +5,7 @@
 @layer components {
   /* Mobile Nav styles */
   .mobile-navbar-shadow {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06),
-      0 4px 6px -4px rgb(0 0 0 / 0.06);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
   }
   .mobile-nav-shadow {
     box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
@@ -21,8 +20,7 @@
     transform-box: fill-box;
   }
   .hamburger-icon-expanded rect:nth-child(odd) {
-    transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1),
-      rotate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+    transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1), rotate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms;
     rotate: 45deg;
   }
   .hamburger-icon-expanded rect:nth-child(1) {
@@ -36,8 +34,7 @@
     rotate: -45deg;
   }
   .hamburger-icon-unexpanded rect:nth-child(odd) {
-    transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms,
-      rotate 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms, rotate 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .hamburger-icon-unexpanded rect:nth-child(2) {
     transition: rotate 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -87,6 +84,20 @@
   }
   .section-link-text {
     @apply inline font-bold outline-none hover:text-light-red dark:hover:text-white;
+  }
+  .section-container:hover {
+    transform: translateY(-0.25rem);
+  }
+  .section-container:active {
+    transform: translateY(0rem);
+  }
+  @media (min-width: 1280px) {
+    .section-container:hover {
+      transform: translateY(-0.375rem);
+    }
+    .section-container:active {
+      transform: translateY(0rem);
+    }
   }
   .section-container:hover > .hover-chevron {
     opacity: 100;

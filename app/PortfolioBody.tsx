@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import YouTube, { YouTubeProps, YouTubePlayer } from "react-youtube";
+import YouTube, { YouTubeProps, YouTubePlayer, YouTubeEvent } from "react-youtube";
 
 import PortfolioSectionContainer from "./PortfolioSectionContainer";
 
@@ -21,12 +21,9 @@ export default function PortfolioBody() {
   const [olderWorkVisible, setOlderWorkVisible] = useState(false);
 
   // For keeping track of references to YouTube players
-  const [sectionVideoP1, setSectionVideoP1] =
-    useState<YouTubePlayer>(undefined);
-  const [sectionVideoP2, setSectionVideoP2] =
-    useState<YouTubePlayer>(undefined);
-  const [sectionVideoPH1, setSectionVideoPH1] =
-    useState<YouTubePlayer>(undefined);
+  const [sectionVideoP1, setSectionVideoP1] = useState<YouTubePlayer>(undefined);
+  const [sectionVideoP2, setSectionVideoP2] = useState<YouTubePlayer>(undefined);
+  const [sectionVideoPH1, setSectionVideoPH1] = useState<YouTubePlayer>(undefined);
 
   const youtubePlayerOptions: YouTubeProps["opts"] = {
     playerVars: {
@@ -37,10 +34,7 @@ export default function PortfolioBody() {
   const toggleUnhideOlderProjects = () => {
     // Pause any playing video players
     if (sectionVideoPH1 !== undefined) {
-      if (
-        sectionVideoPH1.target.playerInfo.playerState === 1 &&
-        olderProjectsVisible
-      ) {
+      if (sectionVideoPH1.target.playerInfo.playerState === 1 && olderProjectsVisible) {
         sectionVideoPH1.target.pauseVideo();
       }
     }
@@ -66,9 +60,7 @@ export default function PortfolioBody() {
             <div className="section-subheader-container">
               <span className="shrink-0">Vosyn</span>
               <div className="dot"></div>
-              <span className="section-date italic">
-                February 2024 - Current
-              </span>
+              <span className="section-date italic">February 2024 - Current</span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">React</span>
@@ -78,31 +70,21 @@ export default function PortfolioBody() {
             </div>
             <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
               Front-end developer intern at{" "}
-              <a
-                href="https://vosyn.ai/"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="section-link-text"
-              >
+              <a href="https://vosyn.ai/" target="_blank" rel="noreferrer noopener" className="section-link-text">
                 Vosyn
               </a>
-              , an AI startup that aims to change how people consume global
-              content by breaking down language barriers.
+              , an AI startup that aims to change how people consume global content by breaking down language barriers.
             </p>
             <p className="section-paragraph">
-              Developed interactive and responsive web pages for two separate
-              software projects. One project is a consumer-facing web
-              application, and the other is a web application designed for
-              internal and potential investor use.
+              Developed interactive and responsive web pages for two separate software projects. One project is a
+              consumer-facing web application, and the other is a web application designed for internal and potential
+              investor use.
             </p>
           </PortfolioSectionContainer>
         </div>
 
         {/* Work subsection (older work) */}
-        <button
-          onClick={toggleUnhideOlderWork}
-          className="hide-subsection-button"
-        >
+        <button onClick={toggleUnhideOlderWork} className="hide-subsection-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"
@@ -118,9 +100,7 @@ export default function PortfolioBody() {
           </svg>
           <span
             className={`${
-              olderWorkVisible
-                ? "text-light-red dark:text-white"
-                : "text-off-white-900 dark:text-light-black-100"
+              olderWorkVisible ? "text-light-red dark:text-white" : "text-off-white-900 dark:text-light-black-100"
             } `}
           >
             {olderWorkVisible ? "Hide" : "View"} older work experience
@@ -146,30 +126,22 @@ export default function PortfolioBody() {
               <div className="section-subheader-container">
                 <span className="shrink-0">KMS Tools & Equipment</span>
                 <div className="dot"></div>
-                <span className="section-date italic">
-                  May 2019 - February 2021
-                </span>
+                <span className="section-date italic">May 2019 - February 2021</span>
               </div>
               <p className="section-paragraph mt-1 xl:mt-2">
-                Work involved answering customer questions, organizing/placing
-                stock on store shelves, and setting up display models. Took on
-                additional tasks such as using distribution management software
-                to manage stock received by the store and to invoice customer
-                orders.
+                Work involved answering customer questions, organizing/placing stock on store shelves, and setting up
+                display models. Took on additional tasks such as using distribution management software to manage stock
+                received by the store and to invoice customer orders.
               </p>
             </PortfolioSectionContainer>
             <PortfolioSectionContainer>
               <h3 className="section-header">Calgary Public Library</h3>
               <div className="section-subheader-container">
-                <span className="section-date italic">
-                  January 2017 - June 2017
-                </span>
+                <span className="section-date italic">January 2017 - June 2017</span>
               </div>
               <p className="section-paragraph mt-1 xl:mt-2">
-                Volunteered at a Calgary Public Library branch. Two of the
-                programs volunteered for, Code Club and Coding Buddies, involved
-                teaching and guiding children through fundamental coding
-                paradigms.
+                Volunteered at a Calgary Public Library branch. Two of the programs volunteered for, Code Club and
+                Coding Buddies, involved teaching and guiding children through fundamental coding paradigms.
               </p>
             </PortfolioSectionContainer>
           </div>
@@ -188,9 +160,7 @@ export default function PortfolioBody() {
             <div className="section-subheader-container">
               <span className="shrink-0">Front-end Developer</span>
               <div className="dot"></div>
-              <span className="section-date italic">
-                October 2022 - April 2023
-              </span>
+              <span className="section-date italic">October 2022 - April 2023</span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">TypeScript</span>
@@ -198,10 +168,8 @@ export default function PortfolioBody() {
               <span className="section-tag">Expo</span>
             </div>
             <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
-              In charge of front-end development for a mobile application aimed
-              to encourage users to cook more through gamification and by
-              providing recipes. Additionally, integrated backend functions to
-              front-end code.
+              In charge of front-end development for a mobile application aimed to encourage users to cook more through
+              gamification and by providing recipes. Additionally, integrated backend functions to front-end code.
             </p>
             <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
               The project was developed by a{" "}
@@ -214,54 +182,34 @@ export default function PortfolioBody() {
               >
                 Tech Start
               </span>{" "}
-              project team. The project won the Best Overall award at the 2023
-              Tech Start showcase.
+              project team. The project won the Best Overall award at the 2023 Tech Start showcase.
             </p>
             <p className="section-paragraph">
-              After project completion, developed an external website for users
-              to delete their account and their data for deployment onto Google
-              Play.
+              After project completion, developed an external website for users to delete their account and their data
+              for deployment onto Google Play.
             </p>
-            <div
-              className={`${
-                sectionExpandedP1 && "section-showcase-expanded"
-              } section-showcase-container`}
-            >
+            <div className={`${sectionExpandedP1 && "section-showcase-expanded"} section-showcase-container`}>
               <div className="overflow-hidden">
                 <div
                   onClick={(event) => {
-                    window.open(
-                      "https://github.com/techstartucalgary/EasyMeal"
-                    );
+                    window.open("https://github.com/techstartucalgary/EasyMeal");
                     event.stopPropagation();
                   }}
                   className="github-link-button"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 256 256"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
                     <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                   </svg>
                   <span>Link to Github repository</span>
                 </div>
                 <div
                   onClick={(event) => {
-                    window.open(
-                      "https://nolanchan1.github.io/easymeal-account-deletion/"
-                    );
+                    window.open("https://nolanchan1.github.io/easymeal-account-deletion/");
                     event.stopPropagation();
                   }}
                   className="github-link-button mt-2 xl:mt-2.5 2xl:mt-3"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 256 256"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
                     <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                   </svg>
                   <span>Account deletion website</span>
@@ -270,7 +218,7 @@ export default function PortfolioBody() {
                 <YouTube
                   videoId="xKJvQRO3rrg"
                   opts={youtubePlayerOptions}
-                  onReady={(event) => {
+                  onReady={(event: YouTubeEvent) => {
                     setSectionVideoP1(event);
                   }}
                   iframeClassName="section-video-player-iframe"
@@ -288,9 +236,7 @@ export default function PortfolioBody() {
             <div className="section-subheader-container">
               <span className="shrink-0">Project Manager</span>
               <div className="dot"></div>
-              <span className="section-date italic">
-                September 2022 - April 2023
-              </span>
+              <span className="section-date italic">September 2022 - April 2023</span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">Figma</span>
@@ -300,8 +246,7 @@ export default function PortfolioBody() {
               <span className="section-tag">jQuery</span>
             </div>
             <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
-              Project manager for an augmented reality web application capstone
-              project sponsored by{" "}
+              Project manager for an augmented reality web application capstone project sponsored by{" "}
               <span
                 onClick={(event) => {
                   window.open("https://yycwax.com");
@@ -311,36 +256,23 @@ export default function PortfolioBody() {
               >
                 YYC Beeswax
               </span>
-              , a local e-commerce business. The motivation for the project was
-              to create an application that provided an AR visualization of the
-              sponsor’s products to aid customer purchasing decisions and reduce
-              customer returns.
+              , a local e-commerce business. The motivation for the project was to create an application that provided
+              an AR visualization of the sponsor’s products to aid customer purchasing decisions and reduce customer
+              returns.
             </p>
             <p className="section-paragraph">
-              Aside from project management, developed a chunk of the front end
-              and designed the UI/UX for the project.
+              Aside from project management, developed a chunk of the front end and designed the UI/UX for the project.
             </p>
-            <div
-              className={`${
-                sectionExpandedP2 && "section-showcase-expanded"
-              } section-showcase-container`}
-            >
+            <div className={`${sectionExpandedP2 && "section-showcase-expanded"} section-showcase-container`}>
               <div className="overflow-hidden">
                 <div
                   onClick={(event) => {
-                    window.open(
-                      "https://github.com/NolanChan1/beesAR-frontend"
-                    );
+                    window.open("https://github.com/NolanChan1/beesAR-frontend");
                     event.stopPropagation();
                   }}
                   className="github-link-button"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 256 256"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
                     <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                   </svg>
                   <span>Link to the frontend Github repository</span>
@@ -349,7 +281,7 @@ export default function PortfolioBody() {
                 <YouTube
                   videoId="PAmQzdepNf4"
                   opts={youtubePlayerOptions}
-                  onReady={(event) => {
+                  onReady={(event: YouTubeEvent) => {
                     setSectionVideoP2(event);
                   }}
                   iframeClassName="section-video-player-iframe"
@@ -358,17 +290,12 @@ export default function PortfolioBody() {
               </div>
             </div>
           </PortfolioSectionContainer>
-          <PortfolioSectionContainer
-            expanded={sectionExpandedP3}
-            expandFunction={setSectionExpandedP3}
-          >
+          <PortfolioSectionContainer expanded={sectionExpandedP3} expandFunction={setSectionExpandedP3}>
             <h3 className="section-header">Tech Start Where To? Web App</h3>
             <div className="section-subheader-container">
               <span className="shrink-0">Front-end Developer</span>
               <div className="dot"></div>
-              <span className="section-date italic">
-                October 2021 - April 2022
-              </span>
+              <span className="section-date italic">October 2021 - April 2022</span>
             </div>
             <div className="section-tag-container">
               <span className="section-tag">Figma</span>
@@ -378,10 +305,9 @@ export default function PortfolioBody() {
               <span className="section-tag">Chakra UI</span>
             </div>
             <p className="section-paragraph mb-3 xl:mb-3.5 2xl:mb-4">
-              Front-end developer and UI/UX designer for a web app aimed to help
-              friend groups decide on a location to meet up and hang out. After
-              inputting their interests, the web app provides a list of
-              locations that the friend group can then vote on.
+              Front-end developer and UI/UX designer for a web app aimed to help friend groups decide on a location to
+              meet up and hang out. After inputting their interests, the web app provides a list of locations that the
+              friend group can then vote on.
             </p>
             <p className="section-paragraph">
               The project was developed by a{" "}
@@ -394,30 +320,18 @@ export default function PortfolioBody() {
               >
                 Tech Start
               </span>{" "}
-              project team. The project won the Best UI award at the 2022 Tech
-              Start showcase.
+              project team. The project won the Best UI award at the 2022 Tech Start showcase.
             </p>
-            <div
-              className={`${
-                sectionExpandedP3 && "section-showcase-expanded"
-              } section-showcase-container`}
-            >
+            <div className={`${sectionExpandedP3 && "section-showcase-expanded"} section-showcase-container`}>
               <div className="overflow-hidden">
                 <div
                   onClick={(event) => {
-                    window.open(
-                      "https://github.com/techstartucalgary/decision-frontend"
-                    );
+                    window.open("https://github.com/techstartucalgary/decision-frontend");
                     event.stopPropagation();
                   }}
                   className="github-link-button"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 256 256"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
                     <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                   </svg>
                   <span>Link to the frontend Github repository</span>
@@ -458,10 +372,7 @@ export default function PortfolioBody() {
         </div>
 
         {/* Projects subsection (older projects) */}
-        <button
-          onClick={toggleUnhideOlderProjects}
-          className="hide-subsection-button"
-        >
+        <button onClick={toggleUnhideOlderProjects} className="hide-subsection-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"
@@ -477,9 +388,7 @@ export default function PortfolioBody() {
           </svg>
           <span
             className={`${
-              olderProjectsVisible
-                ? "text-light-red dark:text-white"
-                : "text-off-white-900 dark:text-light-black-100"
+              olderProjectsVisible ? "text-light-red dark:text-white" : "text-off-white-900 dark:text-light-black-100"
             } `}
           >
             {olderProjectsVisible ? "Hide" : "View"} older projects
@@ -506,30 +415,20 @@ export default function PortfolioBody() {
               disabled={!olderProjectsVisible}
               videoElement={sectionVideoPH1}
             >
-              <h3 className="section-header">
-                Arduino/Raspberry Pi Tamagotchi Imitation
-              </h3>
+              <h3 className="section-header">Arduino/Raspberry Pi Tamagotchi Imitation</h3>
               <div className="section-subheader-container">
-                <span className="section-date italic">
-                  January 2021 - September 2021
-                </span>
+                <span className="section-date italic">January 2021 - September 2021</span>
               </div>
               <div className="section-tag-container">
                 <span className="section-tag">C++</span>
                 <span className="section-tag">Python</span>
               </div>
               <p className="section-paragraph">
-                Created a digital “pet” program using an Arduino and low-level
-                hardware components such as a 128x32 I2C monochrome display.
-                Later ported the Arduino program to work on a Raspberry Pi to
-                attempt development with an object-oriented approach and to add
-                features such as music playback.
+                Created a digital “pet” program using an Arduino and low-level hardware components such as a 128x32 I2C
+                monochrome display. Later ported the Arduino program to work on a Raspberry Pi to attempt development
+                with an object-oriented approach and to add features such as music playback.
               </p>
-              <div
-                className={`${
-                  sectionExpandedPH1 && "section-showcase-expanded"
-                } section-showcase-container`}
-              >
+              <div className={`${sectionExpandedPH1 && "section-showcase-expanded"} section-showcase-container`}>
                 <div className="overflow-hidden">
                   <div
                     onClick={(event) => {
@@ -538,12 +437,7 @@ export default function PortfolioBody() {
                     }}
                     className="github-link-button"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 256 256"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
                       <path d="M136.37 187.53a12 12 0 010 17l-5.94 5.94a60 60 0 01-84.88-84.88l24.12-24.11A60 60 0 01152 99a12 12 0 11-16 18 36 36 0 00-49.37 1.47l-24.1 24.08a36 36 0 0050.92 50.92l5.94-5.94a12 12 0 0116.98 0zm74.08-142a60.09 60.09 0 00-84.88 0l-5.94 5.94a12 12 0 0017 17l5.94-5.94a36 36 0 0150.92 50.92l-24.11 24.12A36 36 0 01120 139a12 12 0 10-16 18 60 60 0 0082.3-2.43l24.12-24.11a60.09 60.09 0 00.03-84.91z" />
                     </svg>
                     <span>Link to Github repository</span>
@@ -552,7 +446,7 @@ export default function PortfolioBody() {
                   <YouTube
                     videoId="8HMey3eF_vQ"
                     opts={youtubePlayerOptions}
-                    onReady={(event) => {
+                    onReady={(event: YouTubeEvent) => {
                       setSectionVideoPH1(event);
                     }}
                     iframeClassName="section-video-player-iframe"
@@ -564,20 +458,17 @@ export default function PortfolioBody() {
             <PortfolioSectionContainer>
               <h3 className="section-header">Media Bias Project</h3>
               <div className="section-subheader-container">
-                <span className="section-date italic">
-                  June 2021 - August 2021
-                </span>
+                <span className="section-date italic">June 2021 - August 2021</span>
               </div>
               <div className="section-tag-container">
                 <span className="section-tag">MariaDB</span>
                 <span className="section-tag">Python</span>
               </div>
               <p className="section-paragraph">
-                Set up a relational database for storing news articles using
-                MariaDB. This database was for a planned machine learning model
-                that uses natural language processing to predict bias in news
-                media. Additionally, wrote Python code to interface with the
-                database and to extract articles from a CSV dataset.
+                Set up a relational database for storing news articles using MariaDB. This database was for a planned
+                machine learning model that uses natural language processing to predict bias in news media.
+                Additionally, wrote Python code to interface with the database and to extract articles from a CSV
+                dataset.
               </p>
             </PortfolioSectionContainer>
           </div>
@@ -587,42 +478,27 @@ export default function PortfolioBody() {
       <section id="education-section">
         <h2 className="section-title">Education</h2>
         <div className="section-container hidden-section-group-bottom-margin">
-          <PortfolioSectionContainer
-            expanded={sectionExpandedE1}
-            expandFunction={setSectionExpandedE1}
-          >
-            <h3 className="section-header">
-              Bachelor of Science in Software Engineering
-            </h3>
+          <PortfolioSectionContainer expanded={sectionExpandedE1} expandFunction={setSectionExpandedE1}>
+            <h3 className="section-header">Bachelor of Science in Software Engineering</h3>
             <div className="section-subheader-container">
               <span className="shrink-0">University of Calgary</span>
               <div className="dot"></div>
-              <span className="section-date italic">
-                September 2018 - May 2023
-              </span>
+              <span className="section-date italic">September 2018 - May 2023</span>
             </div>
             <span className="mt-1 block text-2xs font-semibold text-off-black-800 dark:text-light-black-100 lg:text-xs xl:mt-2 xl:text-sm 2xl:text-base">
               GPA: 3.90/4.00 — Earned “With Distinction” designation
             </span>
-            <div
-              className={`${
-                sectionExpandedE1 && "section-showcase-expanded"
-              } section-showcase-container`}
-            >
+            <div className={`${sectionExpandedE1 && "section-showcase-expanded"} section-showcase-container`}>
               <div className="overflow-hidden">
                 <h4 className="mb-1 text-xs font-semibold text-off-black-900 dark:text-dark-white-100 lg:text-sm xl:mb-2 xl:text-base 2xl:text-lg">
                   Awards:
                 </h4>
                 <div className="awards-row-container mb-1 xl:mb-2">
-                  <span>
-                    Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000
-                  </span>
+                  <span>Gerald J. Maier/Dean Wirasinghe Entrance Award, $24 000</span>
                   <span>2018 - 2021</span>
                 </div>
                 <div className="awards-row-container">
-                  <span>
-                    Second Place in Schulich Junior Programming Competition
-                  </span>
+                  <span>Second Place in Schulich Junior Programming Competition</span>
                   <span>2019</span>
                 </div>
               </div>
@@ -636,9 +512,7 @@ export default function PortfolioBody() {
         <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 selection:bg-white selection:text-light-black-900 xl:border-spacing-y-2">
           <tbody>
             <tr>
-              <th className="skills-table-head-cell skills-table-row-even">
-                Programming Languages:
-              </th>
+              <th className="skills-table-head-cell skills-table-row-even">Programming Languages:</th>
               <td className="skills-table-data-cell skills-table-row-even">
                 <div className="skills-table-skill-list-container">
                   <span>C/C++</span>
@@ -650,9 +524,7 @@ export default function PortfolioBody() {
               </td>
             </tr>
             <tr>
-              <th className="skills-table-head-cell skills-table-row-odd">
-                App Development:
-              </th>
+              <th className="skills-table-head-cell skills-table-row-odd">App Development:</th>
               <td className="skills-table-data-cell skills-table-row-odd">
                 <div className="skills-table-skill-list-container">
                   <span>React Native</span>
@@ -660,9 +532,7 @@ export default function PortfolioBody() {
               </td>
             </tr>
             <tr>
-              <th className="skills-table-head-cell skills-table-row-even">
-                Frontend Development:
-              </th>
+              <th className="skills-table-head-cell skills-table-row-even">Frontend Development:</th>
               <td className="skills-table-data-cell skills-table-row-even">
                 <div className="skills-table-skill-list-container">
                   <span>HTML</span>
@@ -675,9 +545,7 @@ export default function PortfolioBody() {
               </td>
             </tr>
             <tr>
-              <th className="skills-table-head-cell skills-table-row-odd">
-                Backend Development:
-              </th>
+              <th className="skills-table-head-cell skills-table-row-odd">Backend Development:</th>
               <td className="skills-table-data-cell skills-table-row-odd">
                 <div className="skills-table-skill-list-container">
                   <span>REST</span>
@@ -692,9 +560,8 @@ export default function PortfolioBody() {
 
       <footer>
         <p className="mt-32 pb-16 text-center text-xs font-medium italic leading-normal text-off-black-900 dark:text-dark-white-100 md:pb-[11vh] md:text-left lg:text-sm xl:text-base 2xl:text-lg">
-          This website was designed and developed by me. Built with Next.js and
-          Tailwind CSS–and deployed with Vercel. If you want to look at the
-          source code, you can view it{" "}
+          This website was designed and developed by me. Built with Next.js and Tailwind CSS–and deployed with Vercel.
+          If you want to look at the source code, you can view it{" "}
           <a
             href="https://github.com/NolanChan1/nolan-portfolio"
             target="_blank"

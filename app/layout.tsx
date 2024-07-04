@@ -16,8 +16,7 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: "Nolan Chan | Portfolio",
-  description:
-    "A portfolio website for Nolan Chan, a junior software developer.",
+  description: "A portfolio website for Nolan Chan, a junior software developer.",
 };
 
 /*
@@ -30,11 +29,7 @@ export function generateMetadata(): Metadata {
 }
 */
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${raleway.variable}`}>
       <body>{children}</body>
