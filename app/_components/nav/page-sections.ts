@@ -1,4 +1,9 @@
-export const mobileSections = [
+export type MobileSectionType = {
+  title: string;
+  id: string;
+};
+
+export const mobileSections: MobileSectionType[] = [
   {
     title: "About",
     id: "header-section",
@@ -21,7 +26,13 @@ export const mobileSections = [
   },
 ];
 
-export const desktopSections = [
+export type DesktopSectionType = {
+  order: number;
+  title: string;
+  id: string;
+};
+
+export const desktopSections: DesktopSectionType[] = [
   {
     order: 0,
     title: "Work",
