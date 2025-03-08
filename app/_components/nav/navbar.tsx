@@ -95,7 +95,7 @@ const Navbar = () => {
 
   const scrollToSection = (sectionIndex: number, mobile: boolean) => {
     let sectionElement = undefined;
-    let sectionId = undefined;
+    let sectionId: any = undefined;
 
     if (mobile) {
       sectionId = mobileSections[sectionIndex].id;
