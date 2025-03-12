@@ -41,11 +41,16 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
     <dialog
       ref={menuRef}
       onCancel={closeNavMenu}
-      className={`${styles.navMenuContainer} ml-auto mr-0 flex h-full max-h-full w-64 max-w-full flex-col justify-center bg-off-white-100 dark:bg-light-black-900`}
+      className={`${styles.navMenuContainer} fixed top-0 z-20 ml-auto mr-0 flex h-full max-h-screen w-64 max-w-full flex-col justify-center overflow-visible bg-off-white-100 dark:bg-light-black-900`}
     >
+      {/* Hidden background to mask background shift when scrolling in mobile browsers */}
+      <div
+        className={`${styles.hiddenBackgroundShadow} fixed right-0 top-0 z-10 h-screen w-full bg-off-white-100 dark:bg-light-black-900`}
+      ></div>
+
       <ToggleMobileNavMenuButton isNavMenuOpen={isOpen} isNavbarButton={false} toggleNavMenu={toggleNavMenu} />
 
-      <ul role="list" className="my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
+      <ul role="list" className="relative z-40 my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
         {mobileSections.map((mSection, idx) => {
           return (
             <li key={mSection.title}>
@@ -85,7 +90,7 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
         })}
       </ul>
 
-      <div className="absolute bottom-0 right-0 flex w-full flex-row items-center justify-between px-6 pb-6">
+      <div className="absolute bottom-0 right-0 z-40 flex w-full flex-row items-center justify-between px-6 pb-6">
         <SocialLinks />
         <ThemeToggleSwitch />
       </div>
