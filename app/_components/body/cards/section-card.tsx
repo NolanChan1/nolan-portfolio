@@ -3,6 +3,8 @@
 import { PropsWithChildren } from "react";
 import { YouTubePlayer } from "react-youtube";
 
+import styles from "./section-cards.module.css";
+
 type SectionCardProps = PropsWithChildren<{
   sectionCardTitle?: string;
   isExpanded?: boolean;
@@ -41,9 +43,11 @@ const SectionCard: React.FC<SectionCardProps> = ({
           onClick={toggleExpandContainer}
           aria-expanded={isExpanded}
           aria-label={`Expand ${sectionCardTitle} card`}
-          className="section-wrapper relative rounded-xl bg-off-black-900 outline-none xl:rounded-2xl dark:bg-light-black-100"
+          className={`${styles.cardWrapper} relative rounded-xl bg-off-black-900 outline-none xl:rounded-2xl dark:bg-light-black-100`}
         >
-          <div className="section-container relative rounded-xl border-2 border-off-black-900 bg-off-white-100 p-4 text-left transition-transform lg:px-5 xl:rounded-2xl xl:px-6 xl:py-5 2xl:px-8 2xl:py-6 dark:border-light-black-100 dark:bg-light-black-900">
+          <div
+            className={`${styles.cardContainer} relative rounded-xl border-2 border-off-black-900 bg-off-white-100 p-4 text-left transition-transform lg:px-5 xl:rounded-2xl xl:px-6 xl:py-5 2xl:px-8 2xl:py-6 dark:border-light-black-100 dark:bg-light-black-900`}
+          >
             {children}
 
             {/* Text to inform section is expandable */}
@@ -68,7 +72,11 @@ const SectionCard: React.FC<SectionCardProps> = ({
           {/* Hover effect with chevrons */}
           <div
             className={`${
-              isExpanded ? "expanded-hover-chevron -bottom-5 xl:-bottom-6" : "hover-chevron bottom-2.5 xl:bottom-2"
+              isExpanded
+                ? `${styles.upwardsChevron} -bottom-5 xl:-bottom-6`
+                : `${styles.downwardsChevron} bottom-2.5 xl:bottom-2`
+            } ${
+              styles.chevronTransition
             } absolute -right-6 hidden flex-col content-start items-center opacity-0 md:flex lg:-right-7 xl:-right-8 2xl:-right-9`}
           >
             <svg

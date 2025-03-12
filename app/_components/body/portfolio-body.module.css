@@ -1,0 +1,31 @@
+/* Position the body the width of the left margin + header width (or half of the screen - middle gap/2) */
+/* Padding left of the body is middle gap */
+/* The width of the body is half of the screen - right margin + middle gap/2 */
+@media (min-width: 768px) {
+  .bodyContainer {
+    left: calc(50vw - 1rem);
+    padding-left: 2rem;
+    width: calc(50vw - 12.5vw + 1rem);
+  }
+}
+@media (min-width: 1024px) {
+  .bodyContainer {
+    left: calc(50vw - 1.25rem);
+    padding-left: 2.5rem;
+    width: calc(50vw - 12.5vw + 1.25rem);
+  }
+}
+@media (min-width: 1280px) {
+  .bodyContainer {
+    left: calc(50vw - 1.5rem);
+    padding-left: 3rem;
+    width: calc(50vw - 12.5vw + 1.5rem);
+  }
+}
+@media (min-width: 1536px) {
+  .bodyContainer {
+    left: calc(50vw - 2rem);
+    padding-left: 4rem;
+    width: calc(50vw - 12.5vw + 2rem);
+  }
+}

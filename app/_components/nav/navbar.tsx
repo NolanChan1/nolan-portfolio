@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import { mobileSections, desktopSections } from "./page-sections";
 import DesktopNavbar from "@/app/_components/nav/desktop-navbar";
-import MobileNavbar from "@/app/_components/nav/mobile-navbar";
+import MobileNav from "@/app/_components/nav/mobile-nav";
 
 const Navbar = () => {
   // Mobile and desktop sections currently scrolled to
@@ -145,7 +145,7 @@ const Navbar = () => {
 
   return (
     <>
-      <MobileNavbar
+      <MobileNav
         mobileSections={mobileSections}
         currentScrolledSectionM={currentScrolledSectionM}
         isScrollingUp={isScrollingUp}
