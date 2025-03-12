@@ -35,7 +35,7 @@ const Navbar = () => {
               window.location.hash = `#${hashSection}`;
               setHashSection(undefined);
             }
-          }, 100)
+          }, 500)
         );
       }
 
@@ -122,7 +122,7 @@ const Navbar = () => {
         setTimeout(() => {
           setBlockOnScrollUpdate(false);
           window.location.hash = `#${sectionId}`;
-        }, 100)
+        }, 500)
       );
       /* Scroll with offset
       let sectionRect = sectionElement.getBoundingClientRect();
