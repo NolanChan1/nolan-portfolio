@@ -8,7 +8,7 @@ import styles from "./header.module.css";
 const Header = () => {
   return (
     <header
-      id="header-section"
+      id="about"
       className={`${styles.headerWidth} relative mx-5 pt-[4.5rem] md:fixed md:mx-0 md:ml-[12.5vw] md:h-[89vh] md:pt-[11vh]`}
     >
       <HeaderInfo />

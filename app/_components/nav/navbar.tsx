@@ -122,6 +122,7 @@ const Navbar = () => {
       sectionId = mobileSections[sectionIndex].id;
     } else {
       sectionId = desktopSections[sectionIndex].id;
+      console.log(sectionId);
     }
     sectionElement = document.getElementById(sectionId);
 

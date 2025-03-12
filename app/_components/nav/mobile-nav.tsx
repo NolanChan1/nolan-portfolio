@@ -42,7 +42,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
             : `${styles.hideNavbarTransition} -translate-y-11 opacity-0`
         } ${
           styles.navbarShadow
-        } fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center bg-off-white-100 pl-5 pr-3 dark:bg-light-black-900`}
+        } fixed left-0 top-0 z-10 flex h-11 w-full flex-row items-center border-b-2 border-off-black-900 bg-off-white-100 pl-5 pr-3 dark:border-light-black-100 dark:bg-light-black-900`}
       >
         <span className="font-raleway text-base font-black text-off-black-900 dark:text-white">
           {currentScrolledSectionM}
@@ -88,7 +88,7 @@ export const ToggleMobileNavMenuButton: React.FC<ToggleMobileNavMenuButtonProps>
         isNavbarButton ? "" : `${styles.reverseMenuTransforms} ${isNavMenuOpen ? styles.undoReverseMenuTransforms : ""}`
       } ${
         isButtonHidden ? "-translate-y-11" : ""
-      } fixed right-3 top-1 z-40 rounded-lg outline-none transition-transform focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-2 focus-visible:outline-off-black-900`}
+      } fixed right-3 top-1 z-40 rounded-lg bg-off-white-100 outline-none transition-transform focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-2 focus-visible:outline-off-black-900 dark:bg-light-black-900`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

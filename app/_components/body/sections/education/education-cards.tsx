@@ -3,7 +3,7 @@ import { BachelorsDegreeCard } from "@/app/_components/body/sections/education/e
 
 const EducationSection = () => {
   return (
-    <section id="education-section">
+    <section id="education">
       <SectionHeader headerTitle="Education" />
       <SectionGroup bottomMarginSize="large">
         <BachelorsDegreeCard />

@@ -48,7 +48,7 @@ type CardTagProps = {
 };
 export const CardTag: React.FC<CardTagProps> = ({ tagText }) => {
   return (
-    <li className="rounded-full bg-off-white-900 px-2 py-0.5 text-center text-3xs font-normal text-off-white-100 lg:px-2.5 lg:text-2xs xl:py-1 xl:text-xs 2xl:px-3 2xl:text-sm dark:bg-light-black-800 dark:text-light-black-100">
+    <li className="rounded-full bg-off-white-900 px-2 py-0.5 text-center text-3xs font-normal text-off-white-100 selection:bg-white selection:text-light-black-900 lg:px-2.5 lg:text-2xs xl:py-1 xl:text-xs 2xl:px-3 2xl:text-sm dark:bg-light-black-800 dark:text-light-black-100">
       {tagText}
     </li>
   );

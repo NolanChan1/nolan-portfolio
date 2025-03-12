@@ -19,7 +19,7 @@ const WorkSection = () => {
   };
 
   return (
-    <section id="work-section">
+    <section id="work">
       <SectionHeader headerTitle="Work" />
 
       <SectionGroup bottomMarginSize="small">
