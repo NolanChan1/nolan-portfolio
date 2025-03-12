@@ -26,17 +26,25 @@ const Navbar = () => {
   const handleOnScroll = useCallback(
     (e: Event) => {
       // For browsers that do not support onscrollend, use a timeout function
-      if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
-        clearTimeout(blockScrollUpdateTimeout);
-        setBlockScrollUpdateTimeout(
-          setTimeout(() => {
-            setBlockOnScrollUpdate(false);
-            if (hashSection) {
-              window.location.hash = `#${hashSection}`;
-              setHashSection(undefined);
-            }
-          }, 500)
-        );
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
+          clearTimeout(blockScrollUpdateTimeout);
+          setBlockScrollUpdateTimeout(
+            setTimeout(() => {
+              if (hashSection) {
+                window.location.hash = `#${hashSection}`;
+                setHashSection(undefined);
+
+                // Delay re-enabling scroll updates shortly after setting hash shebang
+                setTimeout(() => {
+                  setBlockOnScrollUpdate(false);
+                }, 100);
+              } else {
+                setBlockOnScrollUpdate(false);
+              }
+            }, 100)
+          );
+        }
       }
 
       // Determine which section the user has scrolled to
@@ -75,13 +83,19 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    // const handleOnScrollEnd = () => {
-    //   setBlockOnScrollUpdate(false);
-    //   if (hashSection) {
-    //     window.location.hash = `#${hashSection}`;
-    //     setHashSection(undefined);
-    //   }
-    // };
+    const handleOnScrollEnd = () => {
+      if (hashSection) {
+        window.location.hash = `#${hashSection}`;
+        setHashSection(undefined);
+
+        // Delay re-enabling scroll updates shortly after setting hash shebang
+        setTimeout(() => {
+          setBlockOnScrollUpdate(false);
+        }, 100);
+      } else {
+        setBlockOnScrollUpdate(false);
+      }
+    };
 
     const handleResize = () => {
       // Hide nav menu when it is no longer visible
@@ -91,11 +105,11 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleOnScroll);
-    //window.addEventListener("scrollend", handleOnScrollEnd);
+    window.addEventListener("scrollend", handleOnScrollEnd);
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", handleOnScroll);
-      //window.removeEventListener("scrollend", handleOnScrollEnd);
+      window.removeEventListener("scrollend", handleOnScrollEnd);
       window.removeEventListener("resize", handleResize);
     };
   }, [handleOnScroll, hashSection]);
@@ -115,15 +129,21 @@ const Navbar = () => {
       setBlockOnScrollUpdate(true);
 
       // If browser does not support onscrollend, use a timeout function
-      if (blockScrollUpdateTimeout) {
-        clearTimeout(blockScrollUpdateTimeout);
+      if (!("onscrollend" in window)) {
+        if (blockScrollUpdateTimeout) {
+          clearTimeout(blockScrollUpdateTimeout);
+        }
+        setBlockScrollUpdateTimeout(
+          setTimeout(() => {
+            window.location.hash = `#${sectionId}`;
+
+            // Delay re-enabling scroll updates shortly after setting hash shebang
+            setTimeout(() => {
+              setBlockOnScrollUpdate(false);
+            }, 100);
+          }, 100)
+        );
       }
-      setBlockScrollUpdateTimeout(
-        setTimeout(() => {
-          setBlockOnScrollUpdate(false);
-          window.location.hash = `#${sectionId}`;
-        }, 500)
-      );
       /* Scroll with offset
       let sectionRect = sectionElement.getBoundingClientRect();
       window.scrollBy({
