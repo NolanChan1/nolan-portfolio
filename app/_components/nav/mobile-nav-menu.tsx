@@ -41,10 +41,10 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
     <dialog
       ref={menuRef}
       onCancel={closeNavMenu}
-      className={`${styles.navMenuContainer} fixed top-0 z-20 ml-auto mr-0 flex h-full max-h-full w-64 max-w-full flex-col justify-center bg-off-white-100 dark:bg-light-black-900`}
+      className={`${styles.navMenuContainer} fixed top-0 z-20 ml-auto mr-0 flex h-full max-h-screen w-64 max-w-full flex-col justify-center bg-off-white-100 dark:bg-light-black-900`}
     >
       {/* Hidden background to mask background shift when scrolling in mobile browsers */}
-      <div className="fixed right-0 top-0 z-10 h-[100vh] w-full bg-off-white-100 dark:bg-light-black-900"></div>
+      <div className="fixed right-0 top-0 z-10 h-screen w-full bg-off-white-100 dark:bg-light-black-900"></div>
 
       <ToggleMobileNavMenuButton isNavMenuOpen={isOpen} isNavbarButton={false} toggleNavMenu={toggleNavMenu} />
 
