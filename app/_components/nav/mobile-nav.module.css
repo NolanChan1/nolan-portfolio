@@ -92,7 +92,7 @@
 /* START - Mobile nav menu styles */
 
 .navMenuContainer {
-  @apply hidden translate-x-64 shadow-none;
+  @apply hidden translate-x-64;
 
   transition-property: transform, overlay, display;
   transition-behavior: allow-discrete;
@@ -102,7 +102,6 @@
 
 .navMenuContainer[open] {
   @apply flex translate-x-0;
-  box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
 }
 
 @starting-style {
@@ -130,8 +129,21 @@
   }
 }
 
-.navMenuContainer::before {
-  @apply fixed right-0 top-0 flex h-[100vh] w-64 bg-dev dark:bg-light-black-900;
+.hiddenBackgroundTransition {
+  transition-property: transform, overlay, display;
+  transition-behavior: allow-discrete;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.activeHiddenBackground {
+  box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
+}
+
+@starting-style {
+  .activeHiddenBackground {
+    @apply translate-x-64;
+  }
 }
 
 .arrowTransition {
