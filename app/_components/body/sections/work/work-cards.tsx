@@ -16,7 +16,7 @@ export const VosynCard = () => {
       <CardSubheaderContainer>
         <span className="shrink-0">Vosyn</span>
         <Dot />
-        <span className="section-date italic">February 2024 - Current</span>
+        <span className="truncate pr-1 italic">February 2024 - Current</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="React" />
@@ -44,7 +44,7 @@ export const KMSToolsCard = () => {
       <CardSubheaderContainer>
         <span className="shrink-0">KMS Tools & Equipment</span>
         <Dot />
-        <span className="section-date italic">May 2019 - February 2021</span>
+        <span className="truncate pr-1 italic">May 2019 - February 2021</span>
       </CardSubheaderContainer>
       <CardParagraph addMargin="top">
         Responsibilities included answering customer questions, organizing/placing stock on store shelves, and setting
@@ -62,7 +62,7 @@ export const CalgaryPublicLibraryCard = () => {
       <CardSubheaderContainer>
         <span className="shrink-0">Calgary Public Library</span>
         <Dot />
-        <span className="section-date italic">January 2017 - June 2017</span>
+        <span className="truncate pr-1 italic">January 2017 - June 2017</span>
       </CardSubheaderContainer>
       <CardParagraph addMargin="top">
         Volunteered at a Calgary Public Library branch. Two of the programs volunteered for, Code Club and Coding

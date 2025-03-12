@@ -1,0 +1,62 @@
+/* START - Section card styles */
+
+.cardWrapper:hover > .cardContainer {
+  transform: translateY(-0.25rem);
+}
+.cardWrapper:focus-visible > .cardContainer {
+  transform: translateY(-0.25rem);
+}
+.cardWrapper:active > .cardContainer {
+  transform: translateY(0rem);
+}
+@media (min-width: 1280px) {
+  .cardWrapper:hover > .cardContainer {
+    transform: translateY(-0.375rem);
+  }
+  .cardWrapper:focus-visible > .cardContainer {
+    transform: translateY(-0.375rem);
+  }
+  .cardWrapper:active > .cardContainer {
+    transform: translateY(0rem);
+  }
+}
+
+.cardWrapper:hover > .downwardsChevron {
+  @apply translate-y-4 opacity-100;
+}
+.cardWrapper:hover > .upwardsChevron {
+  @apply -translate-y-4 opacity-100;
+}
+
+.chevronTransition {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* END - Section card styles */
+
+/* START - Section card components styles */
+
+.expandableCardSection {
+  grid-template-rows: 0fr;
+
+  transition-property: grid-template-rows, margin-top, display;
+  transition-timing-function: ease-in-out;
+  transition-duration: 250ms;
+  transition-behavior: allow-discrete;
+}
+
+.expandedCardSection {
+  grid-template-rows: 1fr;
+}
+
+@starting-style {
+  .expandedCardSection {
+    @apply mt-0;
+
+    grid-template-rows: 0fr;
+  }
+}
+
+/* END - Section card components styles */

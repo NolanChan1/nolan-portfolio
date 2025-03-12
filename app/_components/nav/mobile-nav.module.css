@@ -1,0 +1,139 @@
+/* START - Mobile navbar styles */
+
+.displayNavbarTransition {
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0ms;
+}
+
+.hideNavbarTransition {
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0ms 150ms;
+}
+
+.navbarShadow {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+}
+
+/* END - Mobile navbar styles */
+
+/* START - Toggle mobile nav menu button styles */
+
+.reverseMenuTransforms {
+  @apply -translate-x-64;
+
+  transition-property: transform, overlay, display;
+  transition-behavior: allow-discrete;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.reverseMenuTransforms.undoReverseMenuTransforms {
+  @apply translate-x-0;
+}
+
+@starting-style {
+  .reverseMenuTransforms.undoReverseMenuTransforms {
+    @apply -translate-x-64;
+  }
+}
+
+.hamburgerIcon rect {
+  transform-box: fill-box;
+}
+
+.expandedHamburgerIcon rect:nth-child(odd) {
+  transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1), rotate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms,
+    overlay 300ms allow-discrete, display 300ms allow-discrete;
+  rotate: 45deg;
+}
+.expandedHamburgerIcon rect:nth-child(1) {
+  translate: 0px 4px;
+}
+.expandedHamburgerIcon rect:nth-child(3) {
+  translate: 0px -4px;
+}
+.expandedHamburgerIcon rect:nth-child(2) {
+  transition: rotate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms, overlay 300ms allow-discrete,
+    display 300ms allow-discrete;
+  rotate: -45deg;
+}
+
+.unexpandedHamburgerIcon rect:nth-child(odd) {
+  transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1) 150ms, rotate 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    overlay 300ms allow-discrete, display 300ms allow-discrete;
+}
+.unexpandedHamburgerIcon rect:nth-child(2) {
+  transition: rotate 150ms cubic-bezier(0.4, 0, 0.2, 1), overlay 300ms allow-discrete, display 300ms allow-discrete;
+}
+
+@starting-style {
+  .expandedHamburgerIcon rect:nth-child(odd) {
+    rotate: 0deg;
+    translate: 0px 0px;
+  }
+  .expandedHamburgerIcon rect:nth-child(2) {
+    rotate: 0deg;
+  }
+
+  .unexpandedHamburgerIcon rect:nth-child(odd) {
+    rotate: 45deg;
+  }
+  .unexpandedHamburgerIcon rect:nth-child(1) {
+    translate: 0px 4px;
+  }
+  .unexpandedHamburgerIcon rect:nth-child(3) {
+    translate: 0px -4px;
+  }
+  .unexpandedHamburgerIcon rect:nth-child(2) {
+    rotate: -45deg;
+  }
+}
+
+/* END - Toggle mobile nav menu button styles */
+
+/* START - Mobile nav menu styles */
+
+.navMenuContainer {
+  @apply hidden translate-x-64 shadow-none;
+
+  transition-property: transform, overlay, display;
+  transition-behavior: allow-discrete;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.navMenuContainer[open] {
+  @apply flex translate-x-0;
+  box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
+}
+
+@starting-style {
+  .navMenuContainer[open] {
+    @apply translate-x-64;
+  }
+}
+
+.navMenuContainer::backdrop {
+  @apply bg-black opacity-0;
+
+  transition-property: opacity, overlay, display;
+  transition-behavior: allow-discrete;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.navMenuContainer[open]::backdrop {
+  @apply opacity-60;
+}
+
+@starting-style {
+  .navMenuContainer[open]::backdrop {
+    @apply opacity-0;
+  }
+}
+
+.arrowTransition {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* END - Mobile nav menu styles */

@@ -39,7 +39,7 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElemen
       <CardSubheaderContainer>
         <span className="shrink-0">Front-end Developer</span>
         <Dot />
-        <span className="section-date italic">October 2022 - April 2023</span>
+        <span className="truncate pr-1 italic">October 2022 - April 2023</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="TypeScript" />
@@ -93,7 +93,7 @@ export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement,
       <CardSubheaderContainer>
         <span className="shrink-0">Project Manager</span>
         <Dot />
-        <span className="section-date italic">September 2022 - April 2023</span>
+        <span className="truncate pr-1 italic">September 2022 - April 2023</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="Figma" />
@@ -138,7 +138,7 @@ export const WhereToCard = () => {
       <CardSubheaderContainer>
         <span className="shrink-0">Front-end Developer</span>
         <Dot />
-        <span className="section-date italic">October 2021 - April 2022</span>
+        <span className="truncate pr-1 italic">October 2021 - April 2022</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="Figma" />
@@ -202,7 +202,7 @@ export const TamagotchiImitationCard: React.FC<CardWithYoutubePlayerProps> = ({ 
     >
       <CardHeader headerText="Arduino/Raspberry Pi Tamagotchi Imitation" />
       <CardSubheaderContainer>
-        <span className="section-date italic">January 2021 - September 2021</span>
+        <span className="truncate pr-1 italic">January 2021 - September 2021</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="C++" />
@@ -232,7 +232,7 @@ export const MediaBiasCard = () => {
     <SectionCard>
       <CardHeader headerText="Media Bias Project" />
       <CardSubheaderContainer>
-        <span className="section-date italic">June 2021 - August 2021</span>
+        <span className="truncate pr-1 italic">June 2021 - August 2021</span>
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="MariaDB" />
