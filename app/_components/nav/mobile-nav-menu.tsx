@@ -41,7 +41,7 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
     <dialog
       ref={menuRef}
       onCancel={closeNavMenu}
-      className={`${styles.navMenuContainer} ml-auto mr-0 flex h-full max-h-full w-64 max-w-full flex-col justify-center bg-off-white-100 dark:bg-light-black-900`}
+      className={`${styles.navMenuContainer} ml-auto mr-0 flex h-[100vh] max-h-[100vh] w-64 max-w-full flex-col justify-center bg-off-white-100 dark:bg-light-black-900`}
     >
       <ToggleMobileNavMenuButton isNavMenuOpen={isOpen} isNavbarButton={false} toggleNavMenu={toggleNavMenu} />
 
