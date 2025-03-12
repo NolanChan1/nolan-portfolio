@@ -6,23 +6,23 @@ export type MobileSectionType = {
 export const mobileSections: MobileSectionType[] = [
   {
     title: "About",
-    id: "header-section",
+    id: "about",
   },
   {
     title: "Work",
-    id: "work-section",
+    id: "work",
   },
   {
     title: "Projects",
-    id: "projects-section",
+    id: "projects",
   },
   {
     title: "Education",
-    id: "education-section",
+    id: "education",
   },
   {
     title: "Skills",
-    id: "skills-section",
+    id: "skills",
   },
 ];
 
@@ -36,21 +36,21 @@ export const desktopSections: DesktopSectionType[] = [
   {
     order: 0,
     title: "Work",
-    id: "work-section",
+    id: "work",
   },
   {
     order: 1,
     title: "Projects",
-    id: "projects-section",
+    id: "projects",
   },
   {
     order: 2,
     title: "Education",
-    id: "education-section",
+    id: "education",
   },
   {
     order: 3,
     title: "Technical Skills",
-    id: "skills-section",
+    id: "skills",
   },
 ];

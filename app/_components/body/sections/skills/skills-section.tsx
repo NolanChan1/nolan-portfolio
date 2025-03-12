@@ -4,7 +4,7 @@ import { SectionHeader } from "@/app/_components/body/sections/section-component
 
 const SkillsSection = () => {
   return (
-    <section id="skills-section" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
+    <section id="skills" className="mt-5 lg:mt-6 xl:mt-7 2xl:mt-8">
       <SectionHeader headerTitle="Technical Skills" />
       <table className="w-full border-separate border-spacing-x-0 border-spacing-y-1.5 selection:bg-white selection:text-light-black-900 xl:border-spacing-y-2">
         <tbody>

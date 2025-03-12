@@ -38,7 +38,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects-section">
+    <section id="projects">
       <SectionHeader headerTitle="Projects" />
 
       <SectionGroup bottomMarginSize="small">

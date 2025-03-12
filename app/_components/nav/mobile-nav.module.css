@@ -139,4 +139,11 @@
   transition-duration: 150ms;
 }
 
+/* At squished/short screens, hide bottom components to prevent overlap */
+@media (max-height: 440px) {
+  .hideSquished {
+    display: none;
+  }
+}
+
 /* END - Mobile nav menu styles */

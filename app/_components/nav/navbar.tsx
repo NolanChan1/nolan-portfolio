@@ -31,10 +31,16 @@ const Navbar = () => {
           clearTimeout(blockScrollUpdateTimeout);
           setBlockScrollUpdateTimeout(
             setTimeout(() => {
-              setBlockOnScrollUpdate(false);
               if (hashSection) {
                 window.location.hash = `#${hashSection}`;
                 setHashSection(undefined);
+
+                // Delay re-enabling scroll updates shortly after setting hash shebang
+                setTimeout(() => {
+                  setBlockOnScrollUpdate(false);
+                }, 100);
+              } else {
+                setBlockOnScrollUpdate(false);
               }
             }, 100)
           );
@@ -78,18 +84,33 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleOnScrollEnd = () => {
-      setBlockOnScrollUpdate(false);
       if (hashSection) {
         window.location.hash = `#${hashSection}`;
         setHashSection(undefined);
+
+        // Delay re-enabling scroll updates shortly after setting hash shebang
+        setTimeout(() => {
+          setBlockOnScrollUpdate(false);
+        }, 100);
+      } else {
+        setBlockOnScrollUpdate(false);
+      }
+    };
+
+    const handleResize = () => {
+      // Hide nav menu when it is no longer visible
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        setIsNavMenuVisible(false);
       }
     };
 
     window.addEventListener("scroll", handleOnScroll);
     window.addEventListener("scrollend", handleOnScrollEnd);
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", handleOnScroll);
       window.removeEventListener("scrollend", handleOnScrollEnd);
+      window.removeEventListener("resize", handleResize);
     };
   }, [handleOnScroll, hashSection]);
 
@@ -114,8 +135,12 @@ const Navbar = () => {
         }
         setBlockScrollUpdateTimeout(
           setTimeout(() => {
-            setBlockOnScrollUpdate(false);
             window.location.hash = `#${sectionId}`;
+
+            // Delay re-enabling scroll updates shortly after setting hash shebang
+            setTimeout(() => {
+              setBlockOnScrollUpdate(false);
+            }, 100);
           }, 100)
         );
       }

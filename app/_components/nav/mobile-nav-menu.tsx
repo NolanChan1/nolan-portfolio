@@ -50,7 +50,7 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
 
       <ToggleMobileNavMenuButton isNavMenuOpen={isOpen} isNavbarButton={false} toggleNavMenu={toggleNavMenu} />
 
-      <ul role="list" className="relative z-40 my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
+      <ul role="list" className="relative z-30 my-auto mr-6 flex flex-col items-end justify-start gap-6 align-middle">
         {mobileSections.map((mSection, idx) => {
           return (
             <li key={mSection.title}>
@@ -90,7 +90,9 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({
         })}
       </ul>
 
-      <div className="absolute bottom-0 right-0 z-40 flex w-full flex-row items-center justify-between px-6 pb-6">
+      <div
+        className={`${styles.hideSquished} absolute bottom-0 right-0 z-40 flex w-full flex-row items-center justify-between px-6 pb-6`}
+      >
         <SocialLinks />
         <ThemeToggleSwitch />
       </div>
