@@ -26,19 +26,17 @@ const Navbar = () => {
   const handleOnScroll = useCallback(
     (e: Event) => {
       // For browsers that do not support onscrollend, use a timeout function
-      if (!("onscrollend" in window)) {
-        if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
-          clearTimeout(blockScrollUpdateTimeout);
-          setBlockScrollUpdateTimeout(
-            setTimeout(() => {
-              setBlockOnScrollUpdate(true);
-              if (hashSection) {
-                window.location.hash = `#${hashSection}`;
-                setHashSection(undefined);
-              }
-            }, 300)
-          );
-        }
+      if (blockScrollUpdateTimeout && blockOnScrollUpdate === true) {
+        clearTimeout(blockScrollUpdateTimeout);
+        setBlockScrollUpdateTimeout(
+          setTimeout(() => {
+            setBlockOnScrollUpdate(false);
+            if (hashSection) {
+              window.location.hash = `#${hashSection}`;
+              setHashSection(undefined);
+            }
+          }, 100)
+        );
       }
 
       // Determine which section the user has scrolled to
@@ -77,13 +75,13 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    const handleOnScrollEnd = () => {
-      setBlockOnScrollUpdate(false);
-      if (hashSection) {
-        window.location.hash = `#${hashSection}`;
-        setHashSection(undefined);
-      }
-    };
+    // const handleOnScrollEnd = () => {
+    //   setBlockOnScrollUpdate(false);
+    //   if (hashSection) {
+    //     window.location.hash = `#${hashSection}`;
+    //     setHashSection(undefined);
+    //   }
+    // };
 
     const handleResize = () => {
       // Hide nav menu when it is no longer visible
@@ -93,11 +91,11 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleOnScroll);
-    window.addEventListener("scrollend", handleOnScrollEnd);
+    //window.addEventListener("scrollend", handleOnScrollEnd);
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", handleOnScroll);
-      window.removeEventListener("scrollend", handleOnScrollEnd);
+      //window.removeEventListener("scrollend", handleOnScrollEnd);
       window.removeEventListener("resize", handleResize);
     };
   }, [handleOnScroll, hashSection]);
@@ -117,17 +115,15 @@ const Navbar = () => {
       setBlockOnScrollUpdate(true);
 
       // If browser does not support onscrollend, use a timeout function
-      if (!("onscrollend" in window)) {
-        if (blockScrollUpdateTimeout) {
-          clearTimeout(blockScrollUpdateTimeout);
-        }
-        setBlockScrollUpdateTimeout(
-          setTimeout(() => {
-            setBlockOnScrollUpdate(true);
-            window.location.hash = `#${sectionId}`;
-          }, 300)
-        );
+      if (blockScrollUpdateTimeout) {
+        clearTimeout(blockScrollUpdateTimeout);
       }
+      setBlockScrollUpdateTimeout(
+        setTimeout(() => {
+          setBlockOnScrollUpdate(false);
+          window.location.hash = `#${sectionId}`;
+        }, 100)
+      );
       /* Scroll with offset
       let sectionRect = sectionElement.getBoundingClientRect();
       window.scrollBy({
