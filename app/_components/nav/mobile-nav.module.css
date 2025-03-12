@@ -129,23 +129,6 @@
   }
 }
 
-.hiddenBackgroundTransition {
-  transition-property: transform, overlay, display;
-  transition-behavior: allow-discrete;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.activeHiddenBackground {
-  box-shadow: -10px 0px 16px rgb(0 0 0 / 0.1);
-}
-
-@starting-style {
-  .activeHiddenBackground {
-    @apply translate-x-64;
-  }
-}
-
 .arrowTransition {
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

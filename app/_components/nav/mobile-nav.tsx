@@ -85,12 +85,10 @@ export const ToggleMobileNavMenuButton: React.FC<ToggleMobileNavMenuButtonProps>
       onClick={toggleNavMenu}
       aria-label={`${isNavMenuOpen ? "Close mobile navigation menu" : "Open mobile navigation menu"}`}
       className={`${
-        isNavbarButton
-          ? "z-40"
-          : `${styles.reverseMenuTransforms} ${isNavMenuOpen ? styles.undoReverseMenuTransforms : ""}`
+        isNavbarButton ? "" : `${styles.reverseMenuTransforms} ${isNavMenuOpen ? styles.undoReverseMenuTransforms : ""}`
       } ${
         isButtonHidden ? "-translate-y-11" : ""
-      } fixed right-3 top-1 rounded-lg outline-none transition-transform focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-2 focus-visible:outline-off-black-900`}
+      } fixed right-3 top-1 z-40 rounded-lg outline-none transition-transform focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-2 focus-visible:outline-off-black-900`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
