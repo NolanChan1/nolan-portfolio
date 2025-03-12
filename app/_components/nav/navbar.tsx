@@ -31,7 +31,7 @@ const Navbar = () => {
           clearTimeout(blockScrollUpdateTimeout);
           setBlockScrollUpdateTimeout(
             setTimeout(() => {
-              setBlockOnScrollUpdate(false);
+              setBlockOnScrollUpdate(true);
               if (hashSection) {
                 window.location.hash = `#${hashSection}`;
                 setHashSection(undefined);
@@ -78,7 +78,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleOnScrollEnd = () => {
-      setBlockOnScrollUpdate(false);
+      setBlockOnScrollUpdate(true);
       if (hashSection) {
         window.location.hash = `#${hashSection}`;
         setHashSection(undefined);
@@ -123,7 +123,7 @@ const Navbar = () => {
         }
         setBlockScrollUpdateTimeout(
           setTimeout(() => {
-            setBlockOnScrollUpdate(false);
+            setBlockOnScrollUpdate(true);
             window.location.hash = `#${sectionId}`;
           }, 300)
         );
