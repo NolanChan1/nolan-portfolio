@@ -130,6 +130,10 @@
   }
 }
 
+.navMenuContainer::before {
+  @apply fixed right-0 top-0 flex h-[100vh] w-64 bg-dev dark:bg-light-black-900;
+}
+
 .arrowTransition {
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
