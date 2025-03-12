@@ -36,7 +36,7 @@ const Navbar = () => {
                 window.location.hash = `#${hashSection}`;
                 setHashSection(undefined);
               }
-            }, 100)
+            }, 300)
           );
         }
       }
@@ -85,11 +85,20 @@ const Navbar = () => {
       }
     };
 
+    const handleResize = () => {
+      // Hide nav menu when it is no longer visible
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        setIsNavMenuVisible(false);
+      }
+    };
+
     window.addEventListener("scroll", handleOnScroll);
     window.addEventListener("scrollend", handleOnScrollEnd);
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", handleOnScroll);
       window.removeEventListener("scrollend", handleOnScrollEnd);
+      window.removeEventListener("resize", handleResize);
     };
   }, [handleOnScroll, hashSection]);
 
@@ -116,7 +125,7 @@ const Navbar = () => {
           setTimeout(() => {
             setBlockOnScrollUpdate(false);
             window.location.hash = `#${sectionId}`;
-          }, 100)
+          }, 300)
         );
       }
       /* Scroll with offset
