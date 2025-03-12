@@ -78,7 +78,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleOnScrollEnd = () => {
-      setBlockOnScrollUpdate(true);
+      setBlockOnScrollUpdate(false);
       if (hashSection) {
         window.location.hash = `#${hashSection}`;
         setHashSection(undefined);
