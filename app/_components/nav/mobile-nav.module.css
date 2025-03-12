@@ -111,7 +111,7 @@
 }
 
 .navMenuContainer::backdrop {
-  @apply h-[100vh] bg-black opacity-0;
+  @apply h-screen bg-black opacity-0;
 
   transition-property: opacity, overlay, display;
   transition-behavior: allow-discrete;
