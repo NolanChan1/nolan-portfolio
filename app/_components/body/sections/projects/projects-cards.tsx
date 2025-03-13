@@ -73,7 +73,7 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElemen
           addTopMargin={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="xKJvQRO3rrg" setVideoElement={setVideoElement} />
+        {/* <CardYouTubePlayer videoId="xKJvQRO3rrg" setVideoElement={setVideoElement} /> */}
       </ExpandedCardContent>
     </SectionCard>
   );
@@ -119,7 +119,7 @@ export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement,
           stopPropagation={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="PAmQzdepNf4" setVideoElement={setVideoElement} />
+        {/* <CardYouTubePlayer videoId="PAmQzdepNf4" setVideoElement={setVideoElement} /> */}
       </ExpandedCardContent>
     </SectionCard>
   );
@@ -221,7 +221,7 @@ export const TamagotchiImitationCard: React.FC<CardWithYoutubePlayerProps> = ({ 
           stopPropagation={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="8HMey3eF_vQ" setVideoElement={setVideoElement} />
+        {/* <CardYouTubePlayer videoId="8HMey3eF_vQ" setVideoElement={setVideoElement} /> */}
       </ExpandedCardContent>
     </SectionCard>
   );

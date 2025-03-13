@@ -9,11 +9,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   display: "swap",
+  fallback: ["system-ui", "arial"],
 });
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
   display: "swap",
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {
