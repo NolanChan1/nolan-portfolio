@@ -1,7 +1,7 @@
 const HeaderInfo = () => {
   return (
     <>
-      <h1 className="font-raleway text-5xl font-black text-off-black-900 lg:text-6xl xl:text-7xl 2xl:text-8xl dark:text-white">
+      <h1 className="font-raleway text-5xl font-black text-off-black-900 lg:text-6xl xl:text-7xl 2xl:text-8xl dark:text-dark-white-50">
         Nolan Chan
       </h1>
       <p className="mt-4 text-xs font-semibold leading-normal text-off-black-900 lg:mt-5 lg:text-sm 2xl:text-base dark:text-light-black-100">

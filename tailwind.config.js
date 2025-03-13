@@ -18,8 +18,11 @@ module.exports = {
       },
       "light-red": "#df2935",
       "dark-white": {
+        50: "#f8f8f8",
         100: "#f0f0f0",
+        200: "#e0e0e0",
         300: "#b0b0b0",
+        400: "#a7a7a7",
       },
       "off-black": {
         900: "#040f16",

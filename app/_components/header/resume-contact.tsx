@@ -4,7 +4,7 @@ const ResumeContact = () => {
       <a
         href="/files/NOLANCHAN_RESUME_WEB_JUNE2024.pdf"
         target="_blank"
-        className="select-none rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 outline-none hover:bg-light-red focus-visible:bg-light-red lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base dark:bg-dark-white-100 dark:text-light-black-900 dark:hover:bg-white dark:focus-visible:bg-white"
+        className="select-none rounded bg-off-black-900 px-4 py-1.5 text-3xs font-semibold text-off-white-100 outline-none hover:bg-light-red focus-visible:bg-light-red lg:px-5 lg:py-2 lg:text-xs xl:rounded-md xl:px-6 2xl:rounded-lg 2xl:px-7 2xl:py-2.5 2xl:text-base dark:bg-dark-white-200 dark:text-light-black-900 dark:hover:bg-white dark:focus-visible:bg-white"
       >
         Resume
       </a>
