@@ -139,7 +139,7 @@ export const CardButtonLink: React.FC<CardButtonLinkProps> = ({
       }
       className={`${
         addTopMargin ? "mt-2 xl:mt-2.5 2xl:mt-3" : ""
-      } flex w-fit flex-row items-center gap-1.5 rounded bg-off-black-900 py-1.5 pl-2 outline-none hover:bg-light-red focus-visible:bg-light-red lg:gap-2 lg:py-2 lg:pl-3 dark:bg-dark-white-100 dark:hover:bg-white dark:focus-visible:bg-white`}
+      } flex w-fit select-none flex-row items-center gap-1.5 rounded bg-off-black-900 py-1.5 pl-2 outline-none hover:bg-light-red focus-visible:bg-light-red lg:gap-2 lg:py-2 lg:pl-3 dark:bg-dark-white-200 dark:hover:bg-white dark:focus-visible:bg-white`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ export const CardYouTubePlayer: React.FC<CardYouTubePlayerProps> = ({ videoId, s
         setVideoElement(event);
       }}
       iframeClassName="absolute left-0 top-0 h-full w-full rounded"
-      className="relative mb-0 w-full rounded border-2 border-off-white-900 bg-off-white-900 pb-[56.25%] lg:mb-1 2xl:mb-2 dark:border-light-black-100 dark:bg-light-black-100"
+      className="relative mb-0 w-full select-none rounded border-2 border-off-white-900 bg-off-white-900 pb-[56.25%] lg:mb-1 2xl:mb-2 dark:border-dark-white-400 dark:bg-dark-white-400"
     />
   );
 };
@@ -208,13 +208,13 @@ type CardGridImageProps = {
 };
 export const CardGridImage: React.FC<CardGridImageProps> = ({ imageSrc, altText, width, height }) => {
   return (
-    <div className="rounded bg-off-white-900 dark:bg-light-black-100">
+    <div className="select-none rounded bg-off-white-900 dark:bg-dark-white-400">
       <Image
         src={imageSrc}
         alt={altText}
         width={width}
         height={height}
-        className="rounded border-2 border-off-white-900 dark:border-light-black-100"
+        className="rounded border-2 border-off-white-900 dark:border-dark-white-400"
       ></Image>
     </div>
   );

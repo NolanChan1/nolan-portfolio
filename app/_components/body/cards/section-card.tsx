@@ -43,7 +43,7 @@ const SectionCard: React.FC<SectionCardProps> = ({
           onClick={toggleExpandContainer}
           aria-expanded={isExpanded}
           aria-label={`Expand ${sectionCardTitle} card`}
-          className={`${styles.cardWrapper} relative rounded-xl bg-off-black-900 outline-none xl:rounded-2xl dark:bg-light-black-100`}
+          className={`${styles.cardWrapper} relative select-text rounded-xl bg-off-black-900 outline-none xl:rounded-2xl dark:bg-light-black-100`}
         >
           <div
             className={`${styles.cardContainer} relative rounded-xl border-2 border-off-black-900 bg-off-white-100 p-4 text-left transition-transform lg:px-5 xl:rounded-2xl xl:px-6 xl:py-5 2xl:px-8 2xl:py-6 dark:border-light-black-100 dark:bg-light-black-900`}
@@ -52,7 +52,7 @@ const SectionCard: React.FC<SectionCardProps> = ({
 
             {/* Text to inform section is expandable */}
             {!isExpanded && (
-              <div className="absolute bottom-0.5 right-1.5 flex flex-row items-center justify-start gap-0.5 lg:gap-1 2xl:bottom-1 2xl:right-2">
+              <div className="absolute bottom-0.5 right-1.5 flex select-none flex-row items-center justify-start gap-0.5 lg:gap-1 2xl:bottom-1 2xl:right-2">
                 <span className="text-4xs italic text-off-black-600 lg:text-3xs 2xl:text-2xs">Expand to see more</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
