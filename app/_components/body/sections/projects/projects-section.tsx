@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { YouTubePlayer } from "react-youtube";
 
 import {
   SectionHeader,
@@ -20,16 +19,14 @@ const ProjectsSection = () => {
   const [isOlderProjectsVisible, setIsOlderProjectsVisible] = useState(false);
 
   // References to YouTube video players
-  const [easyMealVideo, setEasyMealVideo] = useState<YouTubePlayer>(undefined);
-  const [beesARVideo, setBeesARVideo] = useState<YouTubePlayer>(undefined);
-  const [tamagotchiImitationVideo, setTamagotchiImitationVideo] = useState<YouTubePlayer>(undefined);
+  const [isEasyMealVideoPlaying, setIsEasyMealVideoPlaying] = useState(true);
+  const [isBeesARVideoPlaying, setIsBeesARVideoPlaying] = useState(true);
+  const [isTamagotchiImitationVideoPlaying, setIsTamagotchiImitationVideoPlaying] = useState(true);
 
   const toggleHideOlderProjects = () => {
     // Pause any playing video players
-    if (tamagotchiImitationVideo !== undefined) {
-      if (tamagotchiImitationVideo.target.playerInfo.playerState === 1 && isOlderProjectsVisible) {
-        tamagotchiImitationVideo.target.pauseVideo();
-      }
+    if (isOlderProjectsVisible) {
+      setIsTamagotchiImitationVideoPlaying(false);
     }
 
     setIsOlderProjectsVisible((prevState) => {
@@ -42,8 +39,8 @@ const ProjectsSection = () => {
       <SectionHeader headerTitle="Projects" />
 
       <SectionGroup bottomMarginSize="small">
-        <EasyMealCard videoElement={easyMealVideo} setVideoElement={setEasyMealVideo} />
-        <BeesARCard videoElement={beesARVideo} setVideoElement={setBeesARVideo} />
+        <EasyMealCard isVideoPlaying={isEasyMealVideoPlaying} setIsVideoPlaying={setIsEasyMealVideoPlaying} />
+        <BeesARCard isVideoPlaying={isBeesARVideoPlaying} setIsVideoPlaying={setIsBeesARVideoPlaying} />
         <WhereToCard />
       </SectionGroup>
 
@@ -56,8 +53,8 @@ const ProjectsSection = () => {
 
       <SectionGroup isGroupVisible={isOlderProjectsVisible} sectionGroupId="old-projects" bottomMarginSize="large">
         <TamagotchiImitationCard
-          videoElement={tamagotchiImitationVideo}
-          setVideoElement={setTamagotchiImitationVideo}
+          isVideoPlaying={isTamagotchiImitationVideoPlaying}
+          setIsVideoPlaying={setIsTamagotchiImitationVideoPlaying}
         />
         <MediaBiasCard />
       </SectionGroup>
