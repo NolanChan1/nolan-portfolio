@@ -18,6 +18,9 @@ import {
 const ProjectsSection = () => {
   const [isOlderProjectsVisible, setIsOlderProjectsVisible] = useState(false);
 
+  // Needed to unexpand card when older projects are hidden
+  const [isTamagotchiImitationCardExpanded, setIsTamagotchiImitationCardExpanded] = useState(false);
+
   // References to YouTube video players
   const [isEasyMealVideoPlaying, setIsEasyMealVideoPlaying] = useState(true);
   const [isBeesARVideoPlaying, setIsBeesARVideoPlaying] = useState(true);
@@ -27,6 +30,7 @@ const ProjectsSection = () => {
     // Pause any playing video players
     if (isOlderProjectsVisible) {
       setIsTamagotchiImitationVideoPlaying(false);
+      setIsTamagotchiImitationCardExpanded(false);
     }
 
     setIsOlderProjectsVisible((prevState) => {
@@ -55,6 +59,8 @@ const ProjectsSection = () => {
         <TamagotchiImitationCard
           isVideoPlaying={isTamagotchiImitationVideoPlaying}
           setIsVideoPlaying={setIsTamagotchiImitationVideoPlaying}
+          isCardExpanded={isTamagotchiImitationCardExpanded}
+          setIsCardExpanded={setIsTamagotchiImitationCardExpanded}
         />
         <MediaBiasCard />
       </SectionGroup>

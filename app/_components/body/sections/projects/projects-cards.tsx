@@ -205,12 +205,19 @@ export const WhereToCard = () => {
   );
 };
 
-export const TamagotchiImitationCard: React.FC<CardWithYoutubePlayerProps> = ({
+type TamagotchiImitationCardProps = {
+  isVideoPlaying: boolean;
+  setIsVideoPlaying: (newState: boolean) => void;
+  isCardExpanded: boolean;
+  setIsCardExpanded: (updateFunction: (prevState: boolean) => boolean) => void;
+};
+
+export const TamagotchiImitationCard: React.FC<TamagotchiImitationCardProps> = ({
   isVideoPlaying,
   setIsVideoPlaying,
+  isCardExpanded,
+  setIsCardExpanded,
 }) => {
-  const [isCardExpanded, setIsCardExpanded] = useState(false);
-
   return (
     <SectionCard
       sectionCardTitle="Arduino/Raspberry Pi Tamagotchi Imitation Project"
