@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { YouTubePlayer, YouTubeEvent } from "react-youtube";
 
 import SectionCard from "@/app/_components/body/cards/section-card";
 import {
@@ -21,11 +20,11 @@ import {
 } from "@/app/_components/body/cards/card-components";
 
 type CardWithYoutubePlayerProps = {
-  videoElement: YouTubePlayer;
-  setVideoElement: (videoElement: YouTubeEvent) => void;
+  isVideoPlaying: boolean;
+  setIsVideoPlaying: (newState: boolean) => void;
 };
 
-export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement, setVideoElement }) => {
+export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlaying, setIsVideoPlaying }) => {
   const [isCardExpanded, setIsCardExpanded] = useState(false);
 
   return (
@@ -33,7 +32,7 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElemen
       sectionCardTitle="Tech Start EasyMeal Project"
       isExpanded={isCardExpanded}
       setIsExpanded={setIsCardExpanded}
-      videoElement={videoElement}
+      setIsVideoPlaying={setIsVideoPlaying}
     >
       <CardHeader headerText="Tech Start EasyMeal Mobile App" />
       <CardSubheaderContainer>
@@ -73,13 +72,21 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElemen
           addTopMargin={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="xKJvQRO3rrg" setVideoElement={setVideoElement} />
+        <CardYouTubePlayer
+          videoId="xKJvQRO3rrg"
+          isVideoPlaying={isVideoPlaying}
+          setIsVideoPlaying={setIsVideoPlaying}
+          thumbnailSrc="/video-thumbnails/easymeal.webp"
+          thumbnailWidth={1280}
+          thumbnailHeight={720}
+          thumbnailAlt="EasyMeal demo video thumbnail"
+        />
       </ExpandedCardContent>
     </SectionCard>
   );
 };
 
-export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement, setVideoElement }) => {
+export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlaying, setIsVideoPlaying }) => {
   const [isCardExpanded, setIsCardExpanded] = useState(false);
 
   return (
@@ -87,7 +94,7 @@ export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement,
       sectionCardTitle="Bees AR Capstone Project"
       isExpanded={isCardExpanded}
       setIsExpanded={setIsCardExpanded}
-      videoElement={videoElement}
+      setIsVideoPlaying={setIsVideoPlaying}
     >
       <CardHeader headerText="Bees AR Capstone Project" />
       <CardSubheaderContainer>
@@ -119,7 +126,15 @@ export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement,
           stopPropagation={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="PAmQzdepNf4" setVideoElement={setVideoElement} />
+        <CardYouTubePlayer
+          videoId="PAmQzdepNf4"
+          isVideoPlaying={isVideoPlaying}
+          setIsVideoPlaying={setIsVideoPlaying}
+          thumbnailSrc="/video-thumbnails/beesAR.webp"
+          thumbnailWidth={1280}
+          thumbnailHeight={720}
+          thumbnailAlt="Bees AR demo video thumbnail"
+        />
       </ExpandedCardContent>
     </SectionCard>
   );
@@ -190,15 +205,25 @@ export const WhereToCard = () => {
   );
 };
 
-export const TamagotchiImitationCard: React.FC<CardWithYoutubePlayerProps> = ({ videoElement, setVideoElement }) => {
-  const [isCardExpanded, setIsCardExpanded] = useState(false);
+type TamagotchiImitationCardProps = {
+  isVideoPlaying: boolean;
+  setIsVideoPlaying: (newState: boolean) => void;
+  isCardExpanded: boolean;
+  setIsCardExpanded: (updateFunction: (prevState: boolean) => boolean) => void;
+};
 
+export const TamagotchiImitationCard: React.FC<TamagotchiImitationCardProps> = ({
+  isVideoPlaying,
+  setIsVideoPlaying,
+  isCardExpanded,
+  setIsCardExpanded,
+}) => {
   return (
     <SectionCard
       sectionCardTitle="Arduino/Raspberry Pi Tamagotchi Imitation Project"
       isExpanded={isCardExpanded}
       setIsExpanded={setIsCardExpanded}
-      videoElement={videoElement}
+      setIsVideoPlaying={setIsVideoPlaying}
     >
       <CardHeader headerText="Arduino/Raspberry Pi Tamagotchi Imitation" />
       <CardSubheaderContainer>
@@ -221,7 +246,15 @@ export const TamagotchiImitationCard: React.FC<CardWithYoutubePlayerProps> = ({ 
           stopPropagation={true}
         />
         <ExpandedCardHeader headerText="YouTube Demo" />
-        <CardYouTubePlayer videoId="8HMey3eF_vQ" setVideoElement={setVideoElement} />
+        <CardYouTubePlayer
+          videoId="8HMey3eF_vQ"
+          isVideoPlaying={isVideoPlaying}
+          setIsVideoPlaying={setIsVideoPlaying}
+          thumbnailSrc="/video-thumbnails/tamagotchiImitation.webp"
+          thumbnailWidth={1280}
+          thumbnailHeight={720}
+          thumbnailAlt="Tamagotchi imitation demo video thumbnail"
+        />
       </ExpandedCardContent>
     </SectionCard>
   );

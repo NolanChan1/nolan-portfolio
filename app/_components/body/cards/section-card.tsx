@@ -1,7 +1,6 @@
 "use client";
 
 import { PropsWithChildren } from "react";
-import { YouTubePlayer } from "react-youtube";
 
 import styles from "./section-cards.module.css";
 
@@ -9,7 +8,7 @@ type SectionCardProps = PropsWithChildren<{
   sectionCardTitle?: string;
   isExpanded?: boolean;
   setIsExpanded?: (updateFunction: (prevState: boolean) => boolean) => void;
-  videoElement?: YouTubePlayer;
+  setIsVideoPlaying?: (newState: boolean) => void;
 }>;
 
 const SectionCard: React.FC<SectionCardProps> = ({
@@ -17,17 +16,15 @@ const SectionCard: React.FC<SectionCardProps> = ({
   sectionCardTitle,
   isExpanded,
   setIsExpanded,
-  videoElement,
+  setIsVideoPlaying,
 }) => {
   const isCardExpandable = setIsExpanded !== undefined;
 
   const toggleExpandContainer = () => {
     if (isCardExpandable) {
       // Pause the video player
-      if (videoElement !== undefined) {
-        if (videoElement.target.playerInfo.playerState === 1 && isExpanded) {
-          videoElement.target.pauseVideo();
-        }
+      if (setIsVideoPlaying !== undefined && isExpanded) {
+        setIsVideoPlaying(false);
       }
 
       setIsExpanded((prevState) => {

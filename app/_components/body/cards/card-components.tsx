@@ -1,6 +1,9 @@
+"use client";
+
 import { PropsWithChildren } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import YouTube, { YouTubeProps, YouTubeEvent } from "react-youtube";
+const ReactPlayer = dynamic(() => import("react-player/youtube"), { ssr: false });
 
 import styles from "./section-cards.module.css";
 
@@ -172,24 +175,72 @@ export const ExpandedCardHeader: React.FC<ExpandedCardHeaderProps> = ({ headerTe
 
 type CardYouTubePlayerProps = {
   videoId: string;
-  setVideoElement: (videoElement: YouTubeEvent) => void;
+  isVideoPlaying: boolean;
+  setIsVideoPlaying: (newState: boolean) => void;
+  thumbnailSrc: string;
+  thumbnailWidth: number;
+  thumbnailHeight: number;
+  thumbnailAlt: string;
 };
-const youtubePlayerOptions: YouTubeProps["opts"] = {
-  playerVars: {
-    modestbranding: 1,
-  },
-};
-export const CardYouTubePlayer: React.FC<CardYouTubePlayerProps> = ({ videoId, setVideoElement }) => {
+export const CardYouTubePlayer: React.FC<CardYouTubePlayerProps> = ({
+  videoId,
+  isVideoPlaying,
+  setIsVideoPlaying,
+  thumbnailSrc,
+  thumbnailWidth,
+  thumbnailHeight,
+  thumbnailAlt,
+}) => {
+  const playVideo = () => {
+    setIsVideoPlaying(true);
+  };
+
+  const pauseVideo = () => {
+    setIsVideoPlaying(false);
+  };
+
   return (
-    <YouTube
-      videoId={videoId}
-      opts={youtubePlayerOptions}
-      onReady={(event: YouTubeEvent) => {
-        setVideoElement(event);
-      }}
-      iframeClassName="absolute left-0 top-0 h-full w-full rounded"
-      className="relative mb-0 w-full select-none rounded border-2 border-off-white-900 bg-off-white-900 pb-[56.25%] lg:mb-1 2xl:mb-2 dark:border-dark-white-400 dark:bg-dark-white-400"
-    />
+    <div className="relative mb-0 w-full select-none rounded border-2 border-off-white-900 bg-off-white-900 pb-[56.25%] lg:mb-1 2xl:mb-2 dark:border-dark-white-400 dark:bg-dark-white-400">
+      <ReactPlayer
+        playing={isVideoPlaying}
+        onPlay={playVideo}
+        onPause={pauseVideo}
+        onEnded={pauseVideo}
+        onClickPreview={(e) => {
+          e.stopPropagation();
+        }}
+        url={`https://www.youtube-nocookie.com/embed/${videoId}`}
+        controls={true}
+        light={
+          <Image
+            src={thumbnailSrc}
+            width={thumbnailWidth}
+            height={thumbnailHeight}
+            alt={thumbnailAlt}
+            className="absolute left-0 top-0 h-full w-full rounded"
+          />
+        }
+        playIcon={
+          <div className="relative rounded-lg bg-off-black-900 p-2 lg:rounded-xl lg:p-3 2xl:rounded-2xl 2xl:p-4 dark:bg-light-black-900">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+              aria-hidden="true"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="h-5 w-5 fill-off-white-100 lg:h-[1.375rem] lg:w-[1.375rem] xl:h-6 xl:w-6 2xl:h-8 2xl:w-8 dark:fill-dark-white-100"
+            >
+              <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+            </svg>
+          </div>
+        }
+        config={{ playerVars: { rel: "0" } }}
+        width="100%"
+        height="100%"
+        className="absolute left-0 top-0 h-full w-full rounded"
+      />
+    </div>
   );
 };
 
