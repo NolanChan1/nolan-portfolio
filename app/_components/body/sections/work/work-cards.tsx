@@ -12,7 +12,7 @@ import {
 export const VosynCard = () => {
   return (
     <SectionCard>
-      <CardHeader headerText="Front-end Developer Intern" />
+      <CardHeader headerText="Frontend Developer Intern" />
       <CardSubheaderContainer>
         <span className="shrink-0">Vosyn</span>
         <Dot />
@@ -20,18 +20,22 @@ export const VosynCard = () => {
       </CardSubheaderContainer>
       <CardTags>
         <CardTag tagText="React" />
-        <CardTag tagText="Redux" />
-        <CardTag tagText="JavaScript" />
+        <CardTag tagText="Next.js" />
+        <CardTag tagText="Material UI" />
+        <CardTag tagText="React Testing Library" />
         <CardTag tagText="Agile (Methodology)" />
       </CardTags>
       <CardParagraph addMargin="bottom">
-        Front-end developer intern at <CardParagraphLink linkText="Vosyn" hrefLink="https://vosyn.ai/" />, an AI startup
-        that aims to change how people consume global content by breaking down language barriers.
+        Frontend developer at <CardParagraphLink linkText="Vosyn" hrefLink="https://vosyn.ai/" />, a startup that aims
+        to change how people consume global content by breaking down language barriers through AI.
+      </CardParagraph>
+      <CardParagraph addMargin="bottom">
+        Developed interactive and responsive web pages for two separate software projects in an Agile development
+        environment.
       </CardParagraph>
       <CardParagraph>
-        Developed interactive and responsive web pages for two separate software projects. One project is a
-        consumer-facing web application, and the other is a web application designed for internal and potential investor
-        use.
+        Additionally, led a small team in the development of a set of features for a period of ~3 months. Leadership
+        responsibilities included assigning tasks, guiding team members, and presenting progress updates.
       </CardParagraph>
     </SectionCard>
   );
@@ -47,9 +51,9 @@ export const KMSToolsCard = () => {
         <span className="truncate pr-1 italic">May 2019 - February 2021</span>
       </CardSubheaderContainer>
       <CardParagraph addMargin="top">
-        Responsibilities included answering customer questions, organizing/placing stock on store shelves, and setting
-        up display models. Took on additional tasks such as using distribution management software to manage stock
-        received by the store and to invoice customer orders.
+        Answered customer questions, organized/placed stock on store shelves, and set up display models. Took on
+        additional tasks such as using distribution management software to manage stock received by the store and to
+        invoice customer orders.
       </CardParagraph>
     </SectionCard>
   );

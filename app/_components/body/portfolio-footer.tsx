@@ -2,8 +2,8 @@ const PortfolioFooter = () => {
   return (
     <footer>
       <p className="mt-32 pb-16 text-center text-xs font-medium italic leading-normal text-off-black-900 md:pb-[11vh] md:text-left lg:text-sm xl:text-base 2xl:text-lg dark:text-dark-white-100">
-        This website was designed and developed by me. Built with Next.js and Tailwind CSS–and deployed with Vercel. If
-        you want to view the source code, you can find it{" "}
+        This website was designed and developed by me. Developed using Next.js and Tailwind CSS, and deployed through
+        Vercel. If you want to view the source code, you can find it{" "}
         <a
           href="https://github.com/NolanChan1/nolan-portfolio"
           target="_blank"
