@@ -36,7 +36,7 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
     >
       <CardHeader headerText="Tech Start EasyMeal Mobile App" />
       <CardSubheaderContainer>
-        <span className="shrink-0">Front-end Developer</span>
+        <span className="shrink-0">Frontend Developer</span>
         <Dot />
         <span className="truncate pr-1 italic">October 2022 - April 2023</span>
       </CardSubheaderContainer>
@@ -46,8 +46,8 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
         <CardTag tagText="Expo" />
       </CardTags>
       <CardParagraph addMargin="bottom">
-        In charge of front-end development for a mobile application aimed to encourage users to cook more through
-        gamification and by providing recipes. Additionally, integrated backend functions to front-end code.
+        Frontend developer for a mobile application aimed to encourage users to cook more through gamification and by
+        providing recipes. Additionally, integrated backend functions to frontend code.
       </CardParagraph>
       <CardParagraph addMargin="bottom">
         The project was developed by a{" "}
@@ -55,8 +55,8 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
         project team. The project won the Best Overall award at the 2023 Tech Start showcase.
       </CardParagraph>
       <CardParagraph>
-        After project completion, developed an external website for users to delete their account and their data for
-        deployment onto Google Play.
+        Aside from the mobile application, developed an external website for users to delete their account and their
+        data.
       </CardParagraph>
 
       <ExpandedCardContent isVisible={isCardExpanded}>
@@ -110,18 +110,18 @@ export const BeesARCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlayin
         <CardTag tagText="jQuery" />
       </CardTags>
       <CardParagraph addMargin="bottom">
-        Project manager for an augmented reality web application capstone project sponsored by{" "}
+        Project manager for an augmented reality web application sponsored by{" "}
         <CardParagraphLink linkText="YYC Beeswax" hrefLink="https://yycwax.com" stopPropagation={true} />, a local
         e-commerce business. The motivation for the project was to create an application that provided an AR
-        visualization of the sponsor’s products to aid customer purchasing decisions and reduce customer returns.
+        visualization of the sponsor&apos;s products to aid customer purchasing decisions and reduce customer returns.
       </CardParagraph>
       <CardParagraph>
-        Aside from project management, developed a chunk of the front end and designed the UI/UX for the project.
+        Aside from project management, worked on the project&apos;s front end and designed its UI/UX.
       </CardParagraph>
 
       <ExpandedCardContent isVisible={isCardExpanded}>
         <CardButtonLink
-          buttonText="Link to the frontend Github repository"
+          buttonText="Link to the front end Github repository"
           hrefLink="https://github.com/NolanChan1/beesAR-frontend"
           stopPropagation={true}
         />
@@ -151,7 +151,7 @@ export const WhereToCard = () => {
     >
       <CardHeader headerText="Tech Start Where To? Web App" />
       <CardSubheaderContainer>
-        <span className="shrink-0">Front-end Developer</span>
+        <span className="shrink-0">Frontend Developer</span>
         <Dot />
         <span className="truncate pr-1 italic">October 2021 - April 2022</span>
       </CardSubheaderContainer>
@@ -163,7 +163,7 @@ export const WhereToCard = () => {
         <CardTag tagText="Chakra UI" />
       </CardTags>
       <CardParagraph addMargin="bottom">
-        Front-end developer and UI/UX designer for a web app aimed to help friend groups decide on a location to meet up
+        Frontend developer and UI/UX designer for a web app aimed to help friend groups decide on a location to meet up
         and hang out. After inputting their interests, the web app provides a list of locations that the friend group
         can then vote on.
       </CardParagraph>
@@ -175,7 +175,7 @@ export const WhereToCard = () => {
 
       <ExpandedCardContent isVisible={isCardExpanded}>
         <CardButtonLink
-          buttonText="Link to the frontend Github repository"
+          buttonText="Link to the front end Github repository"
           hrefLink="https://github.com/techstartucalgary/decision-frontend"
           stopPropagation={true}
         />
@@ -235,7 +235,7 @@ export const TamagotchiImitationCard: React.FC<TamagotchiImitationCardProps> = (
       </CardTags>
       <CardParagraph>
         Created a digital “pet” program using an Arduino and low-level hardware components such as a 128x32 I2C
-        monochrome display. Later ported the Arduino program to work on a Raspberry Pi to attempt development with an
+        monochrome display. Later ported the Arduino program to work on a Raspberry Pi to practice development with an
         object-oriented approach and to add features such as music playback.
       </CardParagraph>
 
