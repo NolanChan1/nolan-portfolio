@@ -47,7 +47,7 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
       </CardTags>
       <CardParagraph addMargin="bottom">
         Frontend developer for a mobile application aimed to encourage users to cook more through gamification and by
-        providing recipes. Additionally, integrated backend functions to frontend code.
+        providing recipes. Additionally, integrated backend functions to the front end.
       </CardParagraph>
       <CardParagraph addMargin="bottom">
         The project was developed by a{" "}
@@ -55,8 +55,8 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
         project team. The project won the Best Overall award at the 2023 Tech Start showcase.
       </CardParagraph>
       <CardParagraph>
-        Aside from the mobile application, developed an external website for users to delete their account and their
-        data.
+        Aside from the mobile application, developed an external website for users to delete their accounts and
+        associated data.
       </CardParagraph>
 
       <ExpandedCardContent isVisible={isCardExpanded}>
