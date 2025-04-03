@@ -38,6 +38,7 @@ const SkillsSection = () => {
                 <TableTag tagText="React" />
                 <TableTag tagText="Next.js" />
                 <TableTag tagText="Angular" />
+                <TableTag tagText="React Testing Library" />
               </TableTagsList>
             </TableDataCell>
           </tr>
@@ -45,7 +46,7 @@ const SkillsSection = () => {
             <TableHeadCell variant="light" cellText="Backend Development:" />
             <TableDataCell variant="light">
               <TableTagsList>
-                <TableTag tagText="REST" />
+                <TableTag tagText="REST APIs" />
                 <TableTag tagText="Django" />
                 <TableTag tagText="Relational Databases (SQL)" />
               </TableTagsList>

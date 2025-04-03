@@ -47,16 +47,16 @@ export const EasyMealCard: React.FC<CardWithYoutubePlayerProps> = ({ isVideoPlay
       </CardTags>
       <CardParagraph addMargin="bottom">
         Frontend developer for a mobile application aimed to encourage users to cook more through gamification and by
-        providing recipes. Additionally, integrated backend functions to the front end.
+        providing recipes. Additionally, integrated backend logic into the front end.
       </CardParagraph>
       <CardParagraph addMargin="bottom">
-        The project was developed by a{" "}
-        <CardParagraphLink linkText="Tech Start" hrefLink="https://techstartucalgary.com" stopPropagation={true} />{" "}
-        project team. The project won the Best Overall award at the 2023 Tech Start showcase.
-      </CardParagraph>
-      <CardParagraph>
         Aside from the mobile application, developed an external website for users to delete their accounts and
         associated data.
+      </CardParagraph>
+      <CardParagraph>
+        This project was developed within{" "}
+        <CardParagraphLink linkText="Tech Start" hrefLink="https://techstartucalgary.com" stopPropagation={true} />, a
+        university software development club. The project won the Best Overall award at the 2023 Tech Start showcase.
       </CardParagraph>
 
       <ExpandedCardContent isVisible={isCardExpanded}>
@@ -168,9 +168,9 @@ export const WhereToCard = () => {
         can then vote on.
       </CardParagraph>
       <CardParagraph>
-        The project was developed by a{" "}
-        <CardParagraphLink linkText="Tech Start" hrefLink="https://techstartucalgary.com" stopPropagation={true} />{" "}
-        project team. The project won the Best UI award at the 2022 Tech Start showcase.
+        This project was developed within{" "}
+        <CardParagraphLink linkText="Tech Start" hrefLink="https://techstartucalgary.com" stopPropagation={true} />, a
+        university software development club. The project won the Best UI award at the 2022 Tech Start showcase.
       </CardParagraph>
 
       <ExpandedCardContent isVisible={isCardExpanded}>
