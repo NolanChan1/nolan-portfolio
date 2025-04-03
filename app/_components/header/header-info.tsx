@@ -5,10 +5,11 @@ const HeaderInfo = () => {
         Nolan Chan
       </h1>
       <p className="mt-4 text-xs font-semibold leading-normal text-off-black-900 lg:mt-5 lg:text-sm 2xl:text-base dark:text-light-black-100">
-        I love building software projects. Alongside that, I love growing my software development skills and expertise.
+        I am interested in building software applications because of their broad applications in our modern lives, and I
+        personally love seeing the projects I work on come to life and evolve.
       </p>
       <p className="mt-3 text-xs font-semibold leading-normal text-off-black-900 lg:mt-4 lg:text-sm 2xl:text-base dark:text-light-black-100">
-        Regarding my background, I have contributed to a variety of software projects in primarily frontend roles.
+        In regards to my background, I have contributed to a variety of software projects in primarily frontend roles.
         Besides that, I have a bachelor&apos;s degree in software engineering.
       </p>
     </>

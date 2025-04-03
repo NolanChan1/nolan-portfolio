@@ -30,11 +30,12 @@ export const VosynCard = () => {
         to change how people consume global content by breaking down language barriers through AI.
       </CardParagraph>
       <CardParagraph addMargin="bottom">
-        Developed interactive and responsive web pages for two software projects in an Agile development environment.
+        Contributed to the development of a content consumption platform and an AI chat assistant in an Agile
+        development environment.
       </CardParagraph>
       <CardParagraph>
-        Additionally, led a small team of developers for a period of ~3 months. Leadership responsibilities included
-        assigning tasks, guiding team members, and presenting progress updates.
+        Additionally, led 8 – 10 developers for ~3 months. Broke down and assigned tasks, guided and mentored team
+        members, conducted code reviews, and presented progress updates to project stakeholders.
       </CardParagraph>
     </SectionCard>
   );
